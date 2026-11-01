@@ -167,7 +167,7 @@
     <p>Tiga metode aljabar berikut menyelesaikan SPLDV dengan pasti. Klik tombol pada setiap contoh untuk menampilkan langkahnya satu demi satu.</p>
 
     <h3>Metode Substitusi</h3>
-    <p>Selesaikan: <span class="rumus">y = x + 1</span> dan <span class="rumus">2x + y = 10</span></p>
+    <p><b>Contoh 1.</b> Selesaikan: <span class="rumus">y = x + 1</span> dan <span class="rumus">2x + y = 10</span></p>
     <button class="btn btn-amber btn-langkah" data-target="langkah-substitusi">Tampilkan Langkah Berikutnya</button>
     <div id="langkah-substitusi">
       <div class="langkah"><p><b>Langkah 1:</b> Persamaan pertama sudah menyatakan y sendirian: y = x + 1.</p></div>
@@ -175,27 +175,71 @@
       <div class="langkah"><p><b>Langkah 3:</b> 3x + 1 = 10 → 3x = 9 → <b>x = 3</b>.</p></div>
       <div class="langkah"><p><b>Langkah 4:</b> Substitusi balik: y = 3 + 1 = <b>4</b>. Penyelesaiannya (3, 4). Periksa: 2(3) + 4 = 10 ✓.</p></div>
     </div>
+    <p><b>Contoh 2.</b> Selesaikan: <span class="rumus">x + 2y = 9</span> dan <span class="rumus">x = y + 3</span></p>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-substitusi-2">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-substitusi-2">
+      <div class="langkah"><p><b>Langkah 1:</b> Kali ini persamaan kedua yang sudah menyatakan x sendirian: x = y + 3.</p></div>
+      <div class="langkah"><p><b>Langkah 2:</b> Gantikan x pada persamaan pertama: (y + 3) + 2y = 9.</p></div>
+      <div class="langkah"><p><b>Langkah 3:</b> 3y + 3 = 9 → 3y = 6 → <b>y = 2</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Substitusi balik: x = 2 + 3 = <b>5</b>. Penyelesaiannya (5, 2). Periksa: 5 + 2(2) = 9 ✓.</p></div>
+    </div>
     <p class="remedial">Kunci substitusi: nyatakan satu variabel dalam variabel lain, gantikan, selesaikan PLSV yang terbentuk.</p>
 
     <h3>Metode Eliminasi</h3>
-    <p>Selesaikan: <span class="rumus">3x + 2y = 16</span> dan <span class="rumus">2x − 2y = 4</span></p>
+    <p><b>Contoh 1.</b> Selesaikan: <span class="rumus">3x + 2y = 16</span> dan <span class="rumus">2x − 2y = 4</span></p>
     <button class="btn btn-amber btn-langkah" data-target="langkah-eliminasi">Tampilkan Langkah Berikutnya</button>
     <div id="langkah-eliminasi">
-      <div class="langkah"><p><b>Langkah 1:</b> Koefisien y adalah +2 dan −2 — berlawanan, jadi kedua persamaan bisa langsung dijumlahkan.</p></div>
-      <div class="langkah"><p><b>Langkah 2:</b> (3x + 2x) + (2y − 2y) = 16 + 4 → 5x = 20 → <b>x = 4</b>. Variabel y hilang (tereliminasi).</p></div>
-      <div class="langkah"><p><b>Langkah 3:</b> Substitusi x = 4 ke persamaan pertama: 3(4) + 2y = 16 → 12 + 2y = 16 → 2y = 4 → <b>y = 2</b>.</p></div>
-      <div class="langkah"><p><b>Langkah 4:</b> Penyelesaiannya (4, 2). Periksa ke persamaan kedua: 2(4) − 2(2) = 4 ✓.</p></div>
+      <div class="langkah"><p><b>Langkah 1:</b> Beri label dulu, seperti di buku paket: <span class="rumus">3x + 2y = 16</span> adalah <b>Persamaan I</b> dan <span class="rumus">2x − 2y = 4</span> adalah <b>Persamaan II</b>. Pada metode eliminasi ala buku, kita mengeliminasi <b>dua kali</b>: pertama untuk mencari satu variabel, kedua untuk mencari variabel lainnya.</p></div>
+      <div class="langkah"><p><b>Langkah 2 — Eliminasi variabel x:</b> Persamaan I dikalikan 2 dan Persamaan II dikalikan 3, lalu kedua persamaan <b>dikurangkan</b>. Perhatikan susunan penulisannya, pengali ditulis di samping persamaan:</p>
+        <pre class="susun">3x + 2y = 16  ×2  6x + 4y = 32
+2x − 2y =  4  ×3  6x − 6y = 12
+                  ------------ −
+                  10y = 20</pre>
+        <p>Dari 10y = 20, diperoleh <b>y = 2</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 3 — Eliminasi variabel y:</b> Koefisien y pada kedua persamaan sudah berlawanan (+2 dan −2), jadi Persamaan I dikalikan 1 dan Persamaan II dikalikan 1, lalu kedua persamaan <b>dijumlahkan</b>:</p>
+        <pre class="susun">3x + 2y = 16  ×1  3x + 2y = 16
+2x − 2y =  4  ×1  2x − 2y =  4
+                  ------------ +
+                  5x = 20</pre>
+        <p>Dari 5x = 20, diperoleh <b>x = 4</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Jadi penyelesaiannya <b>(4, 2)</b>. Periksa: 3(4) + 2(2) = 16 ✓ dan 2(4) − 2(2) = 4 ✓.</p></div>
     </div>
-    <p class="remedial">Kunci eliminasi: samakan atau lawankan koefisien satu variabel — bila perlu kalikan dulu persamaannya — lalu jumlahkan atau kurangkan.</p>
+    <p><b>Contoh 2</b> <i>(mengikuti Contoh 1.6 pada Buku Siswa Matematika Kelas IX, halaman 24–25)</i>. Selesaikan: <span class="rumus">3x − 4y = 15</span> dan <span class="rumus">5x + 2y = 12</span></p>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-eliminasi-2">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-eliminasi-2">
+      <div class="langkah"><p><b>Langkah 1:</b> <span class="rumus">3x − 4y = 15</span> adalah <b>Persamaan I</b> dan <span class="rumus">5x + 2y = 12</span> adalah <b>Persamaan II</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 2 — Eliminasi variabel x:</b> Persamaan I dikalikan 5 dan Persamaan II dikalikan 3, lalu kedua persamaan <b>dikurangkan</b>:</p>
+        <pre class="susun">3x − 4y = 15  ×5  15x − 20y = 75
+5x + 2y = 12  ×3  15x +  6y = 36
+                  -------------- −
+                  −26y = 39</pre>
+        <p>Dari −26y = 39, diperoleh y = −39/26 = <b>−1½</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 3 — Eliminasi variabel y:</b> Persamaan I dikalikan 1 dan Persamaan II dikalikan 2, lalu kedua persamaan <b>dijumlahkan</b>:</p>
+        <pre class="susun">3x − 4y = 15  ×1  3x − 4y = 15
+5x + 2y = 12  ×2  10x + 4y = 24
+                  ------------- +
+                  13x = 39</pre>
+        <p>Dari 13x = 39, diperoleh <b>x = 3</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Jadi penyelesaiannya <b>(3, −1½)</b> — perhatikan, jawaban eliminasi bisa berupa pecahan. Periksa: 3(3) − 4(−1½) = 9 + 6 = 15 ✓ dan 5(3) + 2(−1½) = 15 − 3 = 12 ✓.</p></div>
+    </div>
+    <p class="remedial">Kunci eliminasi ala buku paket: beri label Persamaan I dan II, samakan koefisien variabel yang akan dihilangkan dengan pengali yang ditulis di samping persamaan, susun hitungannya ke bawah, lalu jumlahkan atau kurangkan. Lakukan dua kali — sekali untuk mencari setiap variabel.</p>
 
     <h3>Metode Campuran (Eliminasi + Substitusi)</h3>
-    <p>Selesaikan: <span class="rumus">2x + 3y = 12</span> dan <span class="rumus">x − y = 1</span></p>
+    <p><b>Contoh 1.</b> Selesaikan: <span class="rumus">2x + 3y = 12</span> dan <span class="rumus">x − y = 1</span></p>
     <button class="btn btn-amber btn-langkah" data-target="langkah-campuran">Tampilkan Langkah Berikutnya</button>
     <div id="langkah-campuran">
       <div class="langkah"><p><b>Langkah 1:</b> Eliminasi x dulu. Kalikan persamaan kedua dengan 2: 2x − 2y = 2.</p></div>
       <div class="langkah"><p><b>Langkah 2:</b> Kurangkan dari persamaan pertama: (2x + 3y) − (2x − 2y) = 12 − 2 → 5y = 10 → <b>y = 2</b>.</p></div>
       <div class="langkah"><p><b>Langkah 3:</b> Substitusi y = 2 ke x − y = 1: x − 2 = 1 → <b>x = 3</b>.</p></div>
       <div class="langkah"><p><b>Langkah 4:</b> Penyelesaiannya (3, 2). Periksa: 2(3) + 3(2) = 12 ✓ dan 3 − 2 = 1 ✓.</p></div>
+    </div>
+    <p><b>Contoh 2.</b> Selesaikan: <span class="rumus">3x + 4y = 22</span> dan <span class="rumus">x + 2y = 8</span></p>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-campuran-2">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-campuran-2">
+      <div class="langkah"><p><b>Langkah 1:</b> Eliminasi y dulu. Kalikan persamaan kedua dengan 2: 2x + 4y = 16.</p></div>
+      <div class="langkah"><p><b>Langkah 2:</b> Kurangkan persamaan pertama dengan hasil itu: (3x + 4y) − (2x + 4y) = 22 − 16 → <b>x = 6</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 3:</b> Substitusi x = 6 ke x + 2y = 8: 6 + 2y = 8 → 2y = 2 → <b>y = 1</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Penyelesaiannya (6, 1). Periksa: 3(6) + 4(1) = 22 ✓ dan 6 + 2(1) = 8 ✓.</p></div>
     </div>
     <p class="remedial">Metode campuran menggabungkan keunggulan eliminasi dan substitusi, dan cocok untuk hampir semua SPLDV.</p>
 

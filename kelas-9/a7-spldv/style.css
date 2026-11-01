@@ -87,6 +87,10 @@ tr:nth-child(even) td{background:#F8FAFF;}
 .langkah.tampil{display:block;}
 .langkah p{margin-bottom:4px;}
 
+/* ===== Susunan hitung eliminasi ala buku (bertumpuk) ===== */
+.susun{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Courier New",monospace; font-size:.92rem; line-height:1.75; background:#fff; border:1px solid var(--garis); border-radius:10px; padding:12px 14px; margin-top:8px; overflow-x:auto; white-space:pre;}
+@media (max-width:480px){ .susun{font-size:.76rem; padding:10px;} }
+
 /* ===== Kartu kasus grafik & tantangan ===== */
 .kartu-kasus h3{margin-top:0;}
 .kartu-kasus svg{display:block; margin:6px auto;}
