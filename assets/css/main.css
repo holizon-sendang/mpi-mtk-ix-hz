@@ -1,0 +1,130 @@
+/* MPI Matematika Kelas 9 — gaya bersama (hub)
+   Palet Biru Samudra dengan amber lebih dominan (identitas Kelas 9) */
+:root{
+  --biru:#2563EB; --biru-gelap:#1E3A8A; --biru-lembut:#DBEAFE;
+  --amber:#F59E0B; --amber-gelap:#D97706; --amber-lembut:#FEF3C7;
+  --latar:#F8FAFF; --tinta:#0F172A; --abu:#64748B; --garis:#E2E8F0;
+  --hijau:#15803D; --hijau-lembut:#DCFCE7; --merah:#B91C1C; --merah-lembut:#FEE2E2;
+  --radius:18px; --wrap:1120px; --sentuh:44px;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"Plus Jakarta Sans","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  background:var(--latar); color:var(--tinta); line-height:1.55;
+  overflow-x:hidden;
+}
+img,svg{max-width:100%; height:auto;}
+a{color:var(--biru);}
+button{font-family:inherit; cursor:pointer;}
+input,select,textarea{font-family:inherit; font-size:1rem;}
+:focus-visible{outline:3px solid var(--amber); outline-offset:2px;}
+
+.wrap{max-width:var(--wrap); margin:0 auto; padding:20px 16px 56px;}
+
+/* ===== Pita + header hub ===== */
+.pita-kelas{
+  background:linear-gradient(90deg, var(--amber) 0%, var(--amber-gelap) 75%);
+  color:#fff; border-radius:12px; padding:10px 16px;
+  font-weight:800; letter-spacing:.05em; font-size:.88rem; text-transform:uppercase;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px;
+}
+.hero{
+  margin-top:16px; background:#fff; border:1px solid var(--garis);
+  border-radius:var(--radius); padding:26px 22px;
+}
+.hero h1{color:var(--biru-gelap); font-size:1.9rem; line-height:1.25; margin-bottom:8px;}
+.hero h1 .sorot{color:var(--amber-gelap);}
+.hero p{color:var(--abu); max-width:66ch;}
+.lencana{display:inline-block; background:var(--amber-lembut); color:var(--amber-gelap);
+  border:1.5px solid var(--amber); font-weight:800; padding:2px 12px; border-radius:999px;
+  font-size:.82rem; margin-bottom:12px;}
+.ringkasan{
+  margin-top:16px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+  background:var(--amber-lembut); border:1.5px solid var(--amber); border-radius:14px; padding:12px 16px;
+  font-size:.95rem;
+}
+.ringkasan b{color:var(--amber-gelap);}
+
+/* ===== Pencarian ===== */
+.cari{margin:20px 0 6px; display:flex; gap:10px; flex-wrap:wrap;}
+.cari input{
+  flex:1 1 240px; padding:12px 16px; min-height:var(--sentuh);
+  border:1.5px solid var(--garis); border-radius:999px; background:#fff;
+}
+.cari select{
+  padding:12px 14px; min-height:var(--sentuh);
+  border:1.5px solid var(--garis); border-radius:999px; background:#fff;
+}
+
+/* ===== Kartu modul ===== */
+.judul-semester{color:var(--biru-gelap); font-size:1.25rem; margin:26px 0 12px;}
+.grid-modul{display:grid; grid-template-columns:1fr; gap:14px;}
+.kartu-modul{
+  background:#fff; border:1px solid var(--garis); border-radius:var(--radius);
+  padding:18px; display:flex; flex-direction:column; gap:8px;
+}
+.kartu-modul.aktif{border:2px solid var(--amber); box-shadow:0 6px 20px rgba(245,158,11,.18);}
+.kartu-modul.segera{opacity:.82;}
+.kartu-atas{display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+.kode{
+  background:var(--amber-lembut); color:var(--amber-gelap); border:1.5px solid var(--amber);
+  font-weight:800; padding:1px 11px; border-radius:999px; font-size:.85rem;
+}
+.kartu-modul.segera .kode{background:#F1F5F9; color:var(--abu); border-color:var(--garis);}
+.jp{background:var(--biru-lembut); color:var(--biru-gelap); font-weight:700;
+  padding:1px 11px; border-radius:999px; font-size:.85rem;}
+.status{margin-left:auto; font-size:.8rem; font-weight:800; padding:2px 10px; border-radius:999px;}
+.status.aktif{background:var(--hijau-lembut); color:var(--hijau);}
+.status.segera{background:#F1F5F9; color:var(--abu);}
+.kartu-modul h3{color:var(--biru-gelap); font-size:1.08rem; line-height:1.35;}
+.kartu-modul p{color:var(--abu); font-size:.93rem;}
+.progres{background:var(--biru-lembut); border-radius:999px; height:12px; overflow:hidden;}
+.progres > div{height:100%; width:0; background:linear-gradient(90deg, var(--amber), var(--amber-gelap)); border-radius:999px; transition:width .3s;}
+.progres-teks{font-size:.82rem; color:var(--abu);}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:6px;
+  min-height:var(--sentuh); padding:10px 20px; border:none; border-radius:999px;
+  font-weight:800; font-size:.95rem; text-decoration:none;
+}
+.btn-amber{background:var(--amber); color:#fff;}
+.btn-amber:hover{background:var(--amber-gelap);}
+.btn-biru{background:var(--biru); color:#fff;}
+.btn-hantu{background:#fff; color:var(--biru); border:1.5px solid var(--biru);}
+.kosong{display:none; color:var(--abu); background:#fff; border:1px dashed var(--garis);
+  border-radius:var(--radius); padding:18px; margin-top:14px; text-align:center;}
+
+footer.situs{color:var(--abu); font-size:.86rem; text-align:center; margin-top:36px;}
+
+/* ===== Breakpoint responsif ===== */
+/* HP kecil */
+@media (max-width:480px){
+  .wrap{padding:14px 12px 44px;}
+  .hero{padding:20px 16px;}
+  .hero h1{font-size:1.45rem;}
+  .kartu-modul{padding:15px;}
+}
+/* HP besar / phablet */
+@media (min-width:481px) and (max-width:767px){
+  .grid-modul{grid-template-columns:1fr;}
+  .hero h1{font-size:1.6rem;}
+}
+/* Tablet */
+@media (min-width:768px){
+  .grid-modul{grid-template-columns:1fr 1fr;}
+  .hero h1{font-size:2rem;}
+}
+/* Laptop */
+@media (min-width:1024px){
+  .grid-modul{grid-template-columns:1fr 1fr;}
+  .wrap{padding:24px 20px 64px;}
+}
+/* PID / layar sangat lebar: kontainer melebar, teks & sasaran sentuh membesar */
+@media (min-width:1440px){
+  :root{--wrap:1360px; --sentuh:52px;}
+  body{font-size:1.13rem;}
+  .hero h1{font-size:2.4rem;}
+  .kartu-modul{padding:24px;}
+  .btn{font-size:1.05rem; padding:13px 26px;}
+}
+section[id^="sub"]{scroll-margin-top:140px;}

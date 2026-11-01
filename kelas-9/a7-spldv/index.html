@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A.7 SPLDV — MPI Matematika Kelas 9</title>
+<meta name="description" content="Modul interaktif A.7 Sistem Persamaan Linear Dua Variabel (SPLDV), Matematika Kelas 9, 18 JP.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="kembali" href="../../index.html">← Kembali ke Hub Kelas 9</a>
+
+  <header class="modul">
+    <div class="pita">Matematika · Kelas 9 · Semester 1</div>
+    <div class="isi-header">
+      <span class="kode">A.7</span><span class="jp">18 JP</span>
+      <h1>Sistem Persamaan Linear Dua Variabel (SPLDV)</h1>
+      <p><b>Tujuan Pembelajaran:</b> Mengidentifikasi, memodelkan, dan menentukan penyelesaian sistem persamaan linear dua variabel dengan metode grafik, substitusi, eliminasi, dan campuran, serta menyelesaikan permasalahan kontekstual yang terkait.</p>
+      <div class="baris-progres">
+        <div class="progres"><div id="bar-progres"></div></div>
+        <div class="progres-teks" id="teks-progres">Kemajuan belajar: 0 dari 8 sub-bab</div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="pil" id="pil-sub" aria-label="Navigasi sub-bab">
+    <a href="#sub1">1 · Pemantik</a>
+    <a href="#sub2">2 · Cek Prasyarat</a>
+    <a href="#sub3">3 · Eksplorasi + Konsep 1</a>
+    <a href="#sub4">4 · Konsep 2</a>
+    <a href="#sub5">5 · Cek + Miskonsepsi</a>
+    <a href="#sub6">6 · Aplikasi</a>
+    <a href="#sub7">7 · Proyek + Rangkuman</a>
+    <a href="#sub8">8 · Kuis &amp; Refleksi</a>
+  </nav>
+
+  <!-- ================= SUB-BAB 1 ================= -->
+  <section class="kartu" id="sub1">
+    <h2><span class="no">1</span>Pemantik: Misteri Harga di Kantin</h2>
+    <p>Di kantin sekolah, <b>2 buku tulis + 1 pensil harganya Rp13.000</b>. Di hari lain, <b>1 buku tulis + 2 pensil harganya Rp11.000</b>. Berapa harga 1 buku tulis dan 1 pensil?</p>
+    <p>Coba pikirkan: kalau kita hanya tahu pembelian pertama saja, ada banyak pasangan harga yang cocok — misalnya buku Rp4.000 dan pensil Rp5.000 juga menghasilkan total Rp13.000. <b>Satu persamaan dengan dua hal yang belum diketahui tidak cukup</b> untuk menentukan jawaban yang pasti. Itulah sebabnya kita butuh <i>sistem</i> dua persamaan.</p>
+    <h3>Polling dulu, yuk</h3>
+    <p>Menurutmu, mana yang benar tentang harga satuan kedua barang itu?</p>
+    <div class="opsi-grup" id="polling">
+      <button class="opsi" data-poll="mahal">Harga buku lebih mahal daripada pensil</button>
+      <button class="opsi" data-poll="murah">Harga buku lebih murah daripada pensil</button>
+      <button class="opsi" data-poll="sama">Harga buku sama dengan pensil</button>
+    </div>
+    <div class="umpan info" id="polling-umpan"></div>
+    <h3>Tebakan awalmu</h3>
+    <p>Tulis tebakan awal harga satuanmu (dalam rupiah). Tebakan ini akan kita periksa lagi kebenarannya di Sub-bab 3.</p>
+    <div class="baris-input">
+      <div><label for="tebak-buku">Harga 1 buku (Rp)</label><input type="number" id="tebak-buku" min="0" step="100" placeholder="mis. 4000"></div>
+      <div><label for="tebak-pensil">Harga 1 pensil (Rp)</label><input type="number" id="tebak-pensil" min="0" step="100" placeholder="mis. 5000"></div>
+      <button class="btn btn-amber" id="simpan-tebakan">Simpan Tebakan</button>
+      <span class="tersimpan" id="tebakan-tersimpan">Tersimpan ✓</span>
+    </div>
+    <p class="remedial">Pertanyaan penuntun: informasi apa lagi yang kita butuhkan supaya jawabannya hanya satu? Jawabannya adalah pembelian kedua — dan cara menyelesaikannya akan kita pelajari tuntas di modul ini.</p>
+  </section>
+
+  <!-- ================= SUB-BAB 2 ================= -->
+  <section class="kartu" id="sub2">
+    <h2><span class="no">2</span>Cek Prasyarat</h2>
+    <p>Lima soal singkat ini adalah fondasi dari Kelas 8: bentuk aljabar (A.1), persamaan linear satu variabel (A.2), dan persamaan garis lurus (A.6). Klik jawabanmu — umpan balik dan petunjuk perbaikannya langsung muncul.</p>
+    <div id="prasyarat-wadah"></div>
+    <div class="skor-baris" id="prasyarat-skor"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 3 ================= -->
+  <section class="kartu" id="sub3">
+    <h2><span class="no">3</span>Eksplorasi + Memahami Konsep 1: Metode Grafik</h2>
+    <h3>Eksplorasi “Tebak &amp; Uji”</h3>
+    <p>Misalkan <span class="mono">x</span> = harga 1 buku dan <span class="mono">y</span> = harga 1 pensil, <b>dalam ribu rupiah</b>. Masalah kantin menjadi dua persamaan: <span class="rumus">2x + y = 13</span> dan <span class="rumus">x + 2y = 11</span>. Masukkan tebakanmu, lalu periksa — tebakan yang benar harus memenuhi <b>kedua</b> persamaan sekaligus.</p>
+    <div class="baris-input">
+      <div><label for="uji-x">x — harga buku (ribu Rp)</label><input type="number" id="uji-x" step="0.5" placeholder="mis. 4"></div>
+      <div><label for="uji-y">y — harga pensil (ribu Rp)</label><input type="number" id="uji-y" step="0.5" placeholder="mis. 5"></div>
+      <button class="btn btn-amber" id="tombol-uji">Periksa Tebakan</button>
+    </div>
+    <div class="umpan info" id="uji-umpan-1"></div>
+    <div class="umpan info" id="uji-umpan-2"></div>
+    <div class="umpan" id="uji-umpan-hasil"></div>
+    <p class="remedial" id="uji-bandingkan"></p>
+
+    <h3>Konsep Inti</h3>
+    <ul>
+      <li><b>PLDV</b> (Persamaan Linear Dua Variabel): persamaan linear dengan dua variabel, misalnya 2x + y = 13. Penyelesaiannya adalah <i>pasangan berurutan</i> (x, y).</li>
+      <li><b>SPLDV</b>: dua PLDV yang dicari penyelesaiannya secara bersama-sama.</li>
+      <li><b>Penyelesaian SPLDV</b> adalah pasangan (x, y) yang memenuhi <b>kedua</b> persamaan sekaligus.</li>
+      <li><b>Metode grafik:</b> gambar kedua garis pada satu bidang koordinat — titik potong kedua garis adalah penyelesaiannya.</li>
+    </ul>
+
+    <h3>Grafik Masalah Kantin</h3>
+    <p>Sumbu x dan y dalam ribu rupiah. Kedua garis berpotongan tepat di titik (5, 3).</p>
+    <svg viewBox="0 0 420 390" role="img" aria-label="Grafik garis 2x+y=13 dan x+2y=11 berpotongan di titik (5,3)">
+      <!-- grid per satuan (skala 24px per satuan, titik asal (60,360)) -->
+      <g stroke="#EEF2F7" stroke-width="1">
+        <line x1="84" y1="24" x2="84" y2="360"/><line x1="108" y1="24" x2="108" y2="360"/><line x1="132" y1="24" x2="132" y2="360"/><line x1="156" y1="24" x2="156" y2="360"/><line x1="180" y1="24" x2="180" y2="360"/><line x1="204" y1="24" x2="204" y2="360"/><line x1="228" y1="24" x2="228" y2="360"/><line x1="252" y1="24" x2="252" y2="360"/><line x1="276" y1="24" x2="276" y2="360"/><line x1="300" y1="24" x2="300" y2="360"/><line x1="324" y1="24" x2="324" y2="360"/><line x1="348" y1="24" x2="348" y2="360"/><line x1="372" y1="24" x2="372" y2="360"/><line x1="396" y1="24" x2="396" y2="360"/>
+        <line x1="60" y1="336" x2="410" y2="336"/><line x1="60" y1="312" x2="410" y2="312"/><line x1="60" y1="288" x2="410" y2="288"/><line x1="60" y1="264" x2="410" y2="264"/><line x1="60" y1="240" x2="410" y2="240"/><line x1="60" y1="216" x2="410" y2="216"/><line x1="60" y1="192" x2="410" y2="192"/><line x1="60" y1="168" x2="410" y2="168"/><line x1="60" y1="144" x2="410" y2="144"/><line x1="60" y1="120" x2="410" y2="120"/><line x1="60" y1="96" x2="410" y2="96"/><line x1="60" y1="72" x2="410" y2="72"/><line x1="60" y1="48" x2="410" y2="48"/>
+      </g>
+      <!-- garis penuntun ke titik potong -->
+      <line x1="180" y1="288" x2="180" y2="360" stroke="#D97706" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <line x1="60" y1="288" x2="180" y2="288" stroke="#D97706" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <!-- sumbu -->
+      <line x1="60" y1="24" x2="60" y2="360" stroke="#94A3B8" stroke-width="1.5"/>
+      <line x1="60" y1="360" x2="410" y2="360" stroke="#94A3B8" stroke-width="1.5"/>
+      <!-- garis persamaan -->
+      <line x1="60" y1="48" x2="216" y2="360" stroke="#2563EB" stroke-width="3"/>
+      <line x1="60" y1="228" x2="324" y2="360" stroke="#F59E0B" stroke-width="3"/>
+      <circle cx="180" cy="288" r="6.5" fill="#D97706" stroke="#fff" stroke-width="2"/>
+      <!-- label -->
+      <text x="186" y="280" font-size="14" font-weight="700" fill="#1E3A8A">(5, 3)</text>
+      <text x="66" y="42" font-size="12.5" font-weight="700" fill="#2563EB">2x + y = 13</text>
+      <text x="252" y="330" font-size="12.5" font-weight="700" fill="#D97706">x + 2y = 11</text>
+      <text x="172" y="378" font-size="12" fill="#0F172A">5</text>
+      <text x="316" y="378" font-size="12" fill="#0F172A">11</text>
+      <text x="44" y="292" font-size="12" fill="#0F172A">3</text>
+      <text x="30" y="52" font-size="12" fill="#0F172A">13</text>
+      <text x="52" y="378" font-size="12" fill="#0F172A">0</text>
+      <text x="330" y="352" font-size="12" fill="#64748B">x (ribu Rp)</text>
+      <text x="66" y="18" font-size="12" fill="#64748B">y (ribu Rp)</text>
+    </svg>
+    <p>Titik potong (5, 3) artinya <b>buku Rp5.000 dan pensil Rp3.000</b> — cocok dengan hasil Tebak &amp; Uji. Cek kembali: 2(5) + 3 = 13 ✓ dan 5 + 2(3) = 11 ✓.</p>
+
+    <h3>Tiga Kemungkinan Hasil Grafik</h3>
+    <div class="grid">
+      <div class="kotak kartu-kasus">
+        <h3>Garis Berpotongan</h3>
+        <svg viewBox="0 0 160 110" width="160" role="img" aria-label="Dua garis berpotongan">
+          <line x1="10" y1="10" x2="10" y2="100" stroke="#CBD5E1"/><line x1="10" y1="100" x2="155" y2="100" stroke="#CBD5E1"/>
+          <line x1="20" y1="15" x2="140" y2="95" stroke="#2563EB" stroke-width="2.5"/>
+          <line x1="20" y1="95" x2="140" y2="15" stroke="#F59E0B" stroke-width="2.5"/>
+          <circle cx="80" cy="55" r="4.5" fill="#D97706"/>
+        </svg>
+        <p>Satu titik potong → <b>satu penyelesaian</b>. Inilah kasus yang paling umum.</p>
+      </div>
+      <div class="kotak kartu-kasus">
+        <h3>Garis Sejajar</h3>
+        <svg viewBox="0 0 160 110" width="160" role="img" aria-label="Dua garis sejajar">
+          <line x1="10" y1="10" x2="10" y2="100" stroke="#CBD5E1"/><line x1="10" y1="100" x2="155" y2="100" stroke="#CBD5E1"/>
+          <line x1="20" y1="30" x2="140" y2="70" stroke="#2563EB" stroke-width="2.5"/>
+          <line x1="20" y1="55" x2="140" y2="95" stroke="#F59E0B" stroke-width="2.5"/>
+        </svg>
+        <p>Tidak pernah bertemu → <b>tidak ada penyelesaian</b>.</p>
+      </div>
+      <div class="kotak kartu-kasus">
+        <h3>Garis Berimpit</h3>
+        <svg viewBox="0 0 160 110" width="160" role="img" aria-label="Dua garis berimpit">
+          <line x1="10" y1="10" x2="10" y2="100" stroke="#CBD5E1"/><line x1="10" y1="100" x2="155" y2="100" stroke="#CBD5E1"/>
+          <line x1="20" y1="25" x2="140" y2="85" stroke="#2563EB" stroke-width="5" opacity=".55"/>
+          <line x1="20" y1="25" x2="140" y2="85" stroke="#F59E0B" stroke-width="2" stroke-dasharray="7 5"/>
+        </svg>
+        <p>Kedua garis adalah garis yang sama → <b>penyelesaian tak hingga banyaknya</b> (kedua persamaan sebenarnya setara).</p>
+      </div>
+    </div>
+
+    <div class="kotak amber">
+      <p><b>Keterbatasan metode grafik:</b> kalau penyelesaiannya berupa pecahan atau desimal — misalnya (12/5, 11/5) yang akan kamu temui di Soal Tantangan — titik potongnya sangat sulit dibaca dengan persis dari grafik. Karena itu kita butuh metode aljabar yang pasti: substitusi, eliminasi, dan campuran di Sub-bab 4.</p>
+    </div>
+  </section>
+
+  <!-- ================= SUB-BAB 4 ================= -->
+  <section class="kartu" id="sub4">
+    <h2><span class="no">4</span>Memahami Konsep 2: Substitusi, Eliminasi, dan Campuran</h2>
+    <p>Tiga metode aljabar berikut menyelesaikan SPLDV dengan pasti. Klik tombol pada setiap contoh untuk menampilkan langkahnya satu demi satu.</p>
+
+    <h3>Metode Substitusi</h3>
+    <p>Selesaikan: <span class="rumus">y = x + 1</span> dan <span class="rumus">2x + y = 10</span></p>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-substitusi">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-substitusi">
+      <div class="langkah"><p><b>Langkah 1:</b> Persamaan pertama sudah menyatakan y sendirian: y = x + 1.</p></div>
+      <div class="langkah"><p><b>Langkah 2:</b> Gantikan y pada persamaan kedua: 2x + (x + 1) = 10. Perhatikan tanda kurungnya!</p></div>
+      <div class="langkah"><p><b>Langkah 3:</b> 3x + 1 = 10 → 3x = 9 → <b>x = 3</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Substitusi balik: y = 3 + 1 = <b>4</b>. Penyelesaiannya (3, 4). Periksa: 2(3) + 4 = 10 ✓.</p></div>
+    </div>
+    <p class="remedial">Kunci substitusi: nyatakan satu variabel dalam variabel lain, gantikan, selesaikan PLSV yang terbentuk.</p>
+
+    <h3>Metode Eliminasi</h3>
+    <p>Selesaikan: <span class="rumus">3x + 2y = 16</span> dan <span class="rumus">2x − 2y = 4</span></p>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-eliminasi">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-eliminasi">
+      <div class="langkah"><p><b>Langkah 1:</b> Koefisien y adalah +2 dan −2 — berlawanan, jadi kedua persamaan bisa langsung dijumlahkan.</p></div>
+      <div class="langkah"><p><b>Langkah 2:</b> (3x + 2x) + (2y − 2y) = 16 + 4 → 5x = 20 → <b>x = 4</b>. Variabel y hilang (tereliminasi).</p></div>
+      <div class="langkah"><p><b>Langkah 3:</b> Substitusi x = 4 ke persamaan pertama: 3(4) + 2y = 16 → 12 + 2y = 16 → 2y = 4 → <b>y = 2</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Penyelesaiannya (4, 2). Periksa ke persamaan kedua: 2(4) − 2(2) = 4 ✓.</p></div>
+    </div>
+    <p class="remedial">Kunci eliminasi: samakan atau lawankan koefisien satu variabel — bila perlu kalikan dulu persamaannya — lalu jumlahkan atau kurangkan.</p>
+
+    <h3>Metode Campuran (Eliminasi + Substitusi)</h3>
+    <p>Selesaikan: <span class="rumus">2x + 3y = 12</span> dan <span class="rumus">x − y = 1</span></p>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-campuran">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-campuran">
+      <div class="langkah"><p><b>Langkah 1:</b> Eliminasi x dulu. Kalikan persamaan kedua dengan 2: 2x − 2y = 2.</p></div>
+      <div class="langkah"><p><b>Langkah 2:</b> Kurangkan dari persamaan pertama: (2x + 3y) − (2x − 2y) = 12 − 2 → 5y = 10 → <b>y = 2</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 3:</b> Substitusi y = 2 ke x − y = 1: x − 2 = 1 → <b>x = 3</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Penyelesaiannya (3, 2). Periksa: 2(3) + 3(2) = 12 ✓ dan 3 − 2 = 1 ✓.</p></div>
+    </div>
+    <p class="remedial">Metode campuran menggabungkan keunggulan eliminasi dan substitusi, dan cocok untuk hampir semua SPLDV.</p>
+
+    <h3>Perbandingan Empat Metode</h3>
+    <div class="bungkus-tabel">
+      <table>
+        <thead><tr><th>Metode</th><th>Cara Kerja</th><th>Paling Cocok Bila…</th></tr></thead>
+        <tbody>
+          <tr><td><b>Grafik</b></td><td>Menggambar kedua garis; membaca titik potongnya.</td><td>Ingin melihat hubungan kedua persamaan atau cukup dengan perkiraan jawaban.</td></tr>
+          <tr><td><b>Substitusi</b></td><td>Menyatakan satu variabel, lalu menggantikannya ke persamaan lain.</td><td>Ada variabel berkoefisien 1, atau satu variabel sudah dinyatakan sendirian.</td></tr>
+          <tr><td><b>Eliminasi</b></td><td>Menjumlah/mengurangi persamaan agar satu variabel hilang.</td><td>Koefisien satu variabel sama atau berlawanan, atau mudah disamakan.</td></tr>
+          <tr><td><b>Campuran</b></td><td>Eliminasi untuk satu variabel, substitusi balik untuk variabel lainnya.</td><td>Kasus umum — hampir semua SPLDV.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Langkah Pemodelan (dipakai terus sampai Sub-bab 6)</h3>
+    <ol>
+      <li><b>Tetapkan variabel</b> — tulis apa arti x dan y beserta satuannya.</li>
+      <li><b>Susun model SPLDV</b> — terjemahkan dua informasi dari soal menjadi dua persamaan.</li>
+      <li><b>Selesaikan</b> — pilih metode yang paling cocok.</li>
+      <li><b>Tafsirkan jawaban</b> — kembalikan (x, y) ke makna soal cerita.</li>
+      <li><b>Periksa kembali</b> — uji jawabanmu ke kedua persamaan / kedua informasi awal.</li>
+    </ol>
+  </section>
+
+  <!-- ================= SUB-BAB 5 ================= -->
+  <section class="kartu" id="sub5">
+    <h2><span class="no">5</span>Cek Pemahaman + Miskonsepsi</h2>
+    <p>Enam soal untuk memastikan konsepnya menempel. Setelah itu, kita betulkan tiga kesalahan yang paling sering terjadi saat mengerjakan SPLDV.</p>
+    <div id="cek-wadah"></div>
+    <div class="skor-baris" id="cek-skor"></div>
+
+    <h3>Betulkan Jawaban yang Salah</h3>
+    <p>Setiap kartu berisi cara berpikir yang <b>keliru</b>. Pilih pembetulan yang benar.</p>
+    <div id="miskonsepsi-wadah"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 6 ================= -->
+  <section class="kartu" id="sub6">
+    <h2><span class="no">6</span>Aplikasi &amp; Pemecahan Masalah</h2>
+    <p>Tiga masalah nyata. Setiap masalah dilengkapi tabel langkah pemodelan dari Sub-bab 4 — isikan jawaban akhirmu, lalu periksa.</p>
+
+    <div class="soal">
+      <span class="tagik">Masalah 1 · Tiket Pertunjukan</span>
+      <p class="tanya">Harga 2 tiket dewasa + 3 tiket anak adalah Rp70.000. Harga 1 tiket dewasa + 2 tiket anak adalah Rp40.000. Berapa harga masing-masing tiket?</p>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan variabel</td><td>d = harga 1 tiket dewasa (Rp), a = harga 1 tiket anak (Rp)</td></tr>
+            <tr><td>2. Susun model</td><td>2d + 3a = 70.000 dan d + 2a = 40.000</td></tr>
+            <tr><td>3. Selesaikan</td><td>Dari persamaan kedua: d = 40.000 − 2a. Substitusi: 2(40.000 − 2a) + 3a = 70.000 → 80.000 − a = 70.000 → a = 10.000, lalu d = 20.000.</td></tr>
+            <tr><td>4–5. Tafsirkan &amp; periksa</td><td>Isikan jawabanmu di bawah, lalu cocokkan dengan pemeriksaan: 2(20.000) + 3(10.000) = 70.000 ✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="baris-input">
+        <div><label for="apl1-dewasa">Harga tiket dewasa (Rp)</label><input type="number" id="apl1-dewasa" min="0" step="1000" placeholder="tanpa titik"></div>
+        <div><label for="apl1-anak">Harga tiket anak (Rp)</label><input type="number" id="apl1-anak" min="0" step="1000" placeholder="tanpa titik"></div>
+        <button class="btn btn-amber btn-aplikasi" data-aplikasi="1">Periksa</button>
+      </div>
+      <div class="umpan" id="apl-umpan-1"></div>
+    </div>
+
+    <div class="soal">
+      <span class="tagik">Masalah 2 · Dua Bilangan</span>
+      <p class="tanya">Jumlah dua bilangan adalah 45 dan selisihnya 9. Tentukan kedua bilangan itu.</p>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan variabel</td><td>m = bilangan yang lebih besar, n = bilangan yang lebih kecil</td></tr>
+            <tr><td>2. Susun model</td><td>m + n = 45 dan m − n = 9</td></tr>
+            <tr><td>3. Selesaikan</td><td>Jumlahkan kedua persamaan (eliminasi n): 2m = 54 → m = 27, lalu n = 45 − 27 = 18.</td></tr>
+            <tr><td>4–5. Tafsirkan &amp; periksa</td><td>Isikan jawabanmu di bawah. Pemeriksaan: 27 + 18 = 45 ✓ dan 27 − 18 = 9 ✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="baris-input">
+        <div><label for="apl2-besar">Bilangan lebih besar</label><input type="number" id="apl2-besar" placeholder="…"></div>
+        <div><label for="apl2-kecil">Bilangan lebih kecil</label><input type="number" id="apl2-kecil" placeholder="…"></div>
+        <button class="btn btn-amber btn-aplikasi" data-aplikasi="2">Periksa</button>
+      </div>
+      <div class="umpan" id="apl-umpan-2"></div>
+    </div>
+
+    <div class="soal">
+      <span class="tagik">Masalah 3 · Kembali ke Kantin</span>
+      <p class="tanya">Dari Sub-bab 3 kita tahu harga 1 buku Rp5.000 dan 1 pensil Rp3.000. Berapa harga 3 buku + 2 pensil? Soal ini sekaligus memeriksa konsistensi jawaban awal kita.</p>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan variabel</td><td>b = Rp5.000 (harga buku), p = Rp3.000 (harga pensil) — dari penyelesaian SPLDV kantin</td></tr>
+            <tr><td>2. Susun model</td><td>Total = 3b + 2p</td></tr>
+            <tr><td>3. Selesaikan</td><td>3(5.000) + 2(3.000) = 15.000 + 6.000</td></tr>
+            <tr><td>4–5. Tafsirkan &amp; periksa</td><td>Isikan totalnya di bawah.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="baris-input">
+        <div><label for="apl3-total">Total harga (Rp)</label><input type="number" id="apl3-total" min="0" step="1000" placeholder="tanpa titik"></div>
+        <button class="btn btn-amber btn-aplikasi" data-aplikasi="3">Periksa</button>
+      </div>
+      <div class="umpan" id="apl-umpan-3"></div>
+    </div>
+  </section>
+
+  <!-- ================= SUB-BAB 7 ================= -->
+  <section class="kartu" id="sub7">
+    <h2><span class="no">7</span>Proyek Mini + Rangkuman</h2>
+    <h3>Proyek “Detektif Harga Kantin”</h3>
+    <p>Bekerja berkelompok: kumpulkan <b>dua catatan pembelian</b> (nyata atau buatan) yang masing-masing memuat dua jenis barang yang sama dengan jumlah berbeda. Susun model SPLDV-nya, selesaikan dengan metode pilihan kelompokmu, lalu buktikan harga satuan yang kamu temukan benar dengan menguji kembali ke kedua catatan. Alternatif bila bekerja sendiri: buat satu soal cerita SPLDV karanganmu lengkap dengan kunci jawabannya, dan tulis di formulir yang sama.</p>
+    <form class="form-proyek" id="form-proyek">
+      <div><label for="proyek-kelompok">Nama kelompok / namamu</label><input type="text" id="proyek-kelompok" placeholder="mis. Kelompok Melati"></div>
+      <div><label for="proyek-beli1">Catatan pembelian 1 (mis. 2 roti + 1 susu = Rp13.000)</label><input type="text" id="proyek-beli1" placeholder="tulis catatan pembelian pertama"></div>
+      <div><label for="proyek-beli2">Catatan pembelian 2 (mis. 1 roti + 2 susu = Rp11.000)</label><input type="text" id="proyek-beli2" placeholder="tulis catatan pembelian kedua"></div>
+      <div><label for="proyek-model">Model SPLDV yang disusun</label><input type="text" id="proyek-model" placeholder="mis. 2x + y = 13 dan x + 2y = 11 (ribu rupiah)"></div>
+      <div><label for="proyek-metode">Metode yang dipilih</label><input type="text" id="proyek-metode" placeholder="grafik / substitusi / eliminasi / campuran — dan alasannya"></div>
+      <div><label for="proyek-hasil">Hasil: harga satuan kedua barang</label><input type="text" id="proyek-hasil" placeholder="mis. x = Rp5.000, y = Rp3.000"></div>
+      <div><label for="proyek-simpulan">Kesimpulan &amp; hasil pemeriksaan kembali</label><textarea id="proyek-simpulan" rows="3" placeholder="apakah harga satuanmu terbukti memenuhi kedua catatan pembelian?"></textarea></div>
+      <p><button type="button" class="btn btn-amber" id="simpan-proyek">Simpan Proyek</button> <span class="tersimpan" id="proyek-tersimpan">Tersimpan ✓</span></p>
+    </form>
+
+    <h3>Rangkuman</h3>
+    <ul>
+      <li>SPLDV adalah dua persamaan linear dua variabel yang dicari penyelesaiannya secara bersama-sama.</li>
+      <li>Penyelesaian SPLDV adalah pasangan berurutan (x, y) yang memenuhi <b>kedua</b> persamaan — urutan dalam pasangan itu penting.</li>
+      <li>Metode grafik: titik potong kedua garis adalah penyelesaian; garis sejajar berarti tidak ada penyelesaian, garis berimpit berarti penyelesaiannya tak hingga.</li>
+      <li>Metode substitusi paling cocok bila satu variabel mudah dinyatakan sendirian atau berkoefisien 1.</li>
+      <li>Metode eliminasi paling cocok bila koefisien satu variabel sama, berlawanan, atau mudah disamakan; metode campuran menggabungkan eliminasi dan substitusi untuk kasus umum.</li>
+      <li>Pemodelan soal cerita mengikuti 5 langkah: tetapkan variabel → susun model → selesaikan → tafsirkan → periksa kembali.</li>
+    </ul>
+  </section>
+
+  <!-- ================= SUB-BAB 8 ================= -->
+  <section class="kartu" id="sub8">
+    <h2><span class="no">8</span>Kuis &amp; Refleksi</h2>
+    <p>Kuis inti berisi 10 soal: 2 konsep, 2 grafik, 2 substitusi, 2 eliminasi–campuran, dan 2 pemodelan. Pilih jawabanmu; penjelasan dan skormu langsung tampil. Skor terbaikmu tersimpan di perangkat ini.</p>
+    <div id="kuis-wadah"></div>
+    <p style="margin-top:14px;"><button class="btn btn-amber" id="selesai-kuis">Selesai &amp; Lihat Skor Kuis</button></p>
+    <div class="umpan" id="kuis-hasil"></div>
+  </section>
+
+  <section class="kartu tantangan" id="sub8-tantangan">
+    <h2>★ Soal Tantangan — Terpisah dari Kuis Inti</h2>
+    <p>Lima soal pendalaman untukmu yang ingin lebih: penyelesaian pecahan, garis berimpit, geometri, umur, dan soal harga dua langkah. Blok ini punya <b>skornya sendiri</b> dan <b>tidak</b> mencampur skor kuis inti di atas.</p>
+    <div id="tantangan-wadah"></div>
+    <p style="margin-top:14px;"><button class="btn btn-biru" id="selesai-tantangan">Selesai &amp; Lihat Skor Tantangan</button></p>
+    <div class="umpan" id="tantangan-hasil"></div>
+
+    <h3>Refleksi</h3>
+    <p>Tiga pertanyaan untuk menutup modul ini. Jawabanmu tersimpan di perangkat ini.</p>
+    <div class="refleksi">
+      <div><label for="refleksi-1">1. Metode mana yang paling mudah bagimu, dan mengapa?</label><textarea id="refleksi-1" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <div><label for="refleksi-2">2. Miskonsepsi mana di Sub-bab 5 yang tadi sempat kamu lakukan?</label><textarea id="refleksi-2" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <div><label for="refleksi-3">3. Seberapa yakin kamu bisa memodelkan soal cerita SPLDV sendiri? Apa yang masih ingin kamu latih?</label><textarea id="refleksi-3" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <p><button type="button" class="btn btn-amber" id="simpan-refleksi">Simpan Refleksi</button> <span class="tersimpan" id="refleksi-tersimpan">Tersimpan ✓</span></p>
+    </div>
+  </section>
+
+  <footer class="situs">Modul A.7 SPLDV · MPI Matematika Kelas 9 · ATP Matematika Fase D MGMP Matematika SMP Kabupaten Lampung Tengah, TP 2026/2027</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
