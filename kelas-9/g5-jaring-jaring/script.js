@@ -1040,9 +1040,11 @@ if (typeof document !== "undefined") {
           mentah.push({ sudut: sudut, dalam: zRata / f.poly.length, nz: N[2], idx: i, amber: !!f.amber });
         });
         // Pas-kan & pusatkan hasil render saat ini ke kanvas pada setiap sudut lipatan.
+        // Margin sengaja lega (130px) dan pembesaran dibatasi 1,6x skala jaring datar,
+        // supaya bangun selalu terlihat utuh dengan ruang napas di layar sempit.
         var rentangX = Math.max(0.001, maxX - minX);
         var rentangY = Math.max(0.001, maxY - minY);
-        var skala = Math.min((W - 48) / rentangX, (H - 48) / rentangY, skalaDasar * 2.4);
+        var skala = Math.min((W - 130) / rentangX, (H - 130) / rentangY, skalaDasar * 1.6);
         var pusX = (minX + maxX) / 2, pusY = (minY + maxY) / 2;
         var wajah = mentah.map(function (w) {
           return {
