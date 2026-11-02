@@ -12,7 +12,7 @@ Media Pembelajaran Interaktif (MPI) Matematika SMP **khusus Kelas 9**, Kurikulum
 | Kode | Modul | JP | Semester | Status |
 |---|---|---|---|---|
 | A.7 | Sistem Persamaan Linear Dua Variabel (SPLDV) | 18 | 1 | ✅ **Aktif — prototipe** |
-| G.5 | Jaring-jaring Bangun Ruang | 6 | 1 | Segera |
+| G.5 | Jaring-jaring Bangun Ruang | 6 | 1 | ✅ **Aktif** |
 | P.1 | Luas Permukaan & Volume Bangun Ruang Sisi Datar | 12 | 1 | Segera |
 | P.2 | Lingkaran | 10 | 1 | Segera |
 | P.3 | Bangun Ruang Sisi Lengkung | 18 | 2 | Segera |
@@ -38,10 +38,14 @@ mpi-mtk-ix-hz/
 ├── index.html                  # Hub Kelas 9 (8 kartu modul + pencarian/filter)
 ├── assets/
 │   ├── css/main.css            # Gaya bersama
-│   └── js/main.js              # Logika hub (pencarian, ringkasan progres A.7)
+│   └── js/main.js              # Logika hub (pencarian, ringkasan progres A.7 & G.5)
 └── kelas-9/
-    └── a7-spldv/
-        ├── index.html          # Modul A.7 SPLDV (8 sub-bab)
+    ├── a7-spldv/
+    │   ├── index.html          # Modul A.7 SPLDV (8 sub-bab)
+    │   ├── style.css           # Gaya khusus modul
+    │   └── script.js           # Data soal + logika interaktif modul
+    └── g5-jaring-jaring/
+        ├── index.html          # Modul G.5 Jaring-Jaring Bangun Ruang (8 sub-bab)
         ├── style.css           # Gaya khusus modul
         └── script.js           # Data soal + logika interaktif modul
 ```
@@ -75,3 +79,21 @@ Semua kunci modul A.7 berawalan `mpi-mtk9-a7-*` agar tidak bertabrakan dengan si
 | `mpi-mtk9-a7-quiz-best` | Skor terbaik kuis inti (dari 10) |
 | `mpi-mtk9-a7-tantangan-best` | Skor terbaik Soal Tantangan (dari 5) |
 | `mpi-mtk9-a7-refleksi` | Teks refleksi akhir modul |
+
+Modul G.5 memakai pola yang sama dengan awalan `mpi-mtk9-g5-*`:
+
+| Kunci | Isi |
+|---|---|
+| `mpi-mtk9-g5-visited` | Daftar sub-bab yang sudah dikunjungi (progres) |
+| `mpi-mtk9-g5-poll` | Pilihan polling Pemantik |
+| `mpi-mtk9-g5-guess` | Tebakan awal banyak persegi di Pemantik |
+| `mpi-mtk9-g5-prasyarat` | Jawaban Cek Prasyarat |
+| `mpi-mtk9-g5-ujilipat` | Penilaian Uji Lipat (Sub-bab 3) |
+| `mpi-mtk9-g5-pasangkan` | Jawaban Pasangkan Bangun ↔ Susunan Sisinya |
+| `mpi-mtk9-g5-cek` | Jawaban Cek Pemahaman |
+| `mpi-mtk9-g5-miskonsepsi` | Jawaban pembetulan miskonsepsi |
+| `mpi-mtk9-g5-aplikasi-1/2/3` | Jawaban cek mandiri soal Aplikasi |
+| `mpi-mtk9-g5-proyek` | Formulir proyek Desainer Kemasan |
+| `mpi-mtk9-g5-quiz-best` | Skor terbaik kuis inti (dari 10) |
+| `mpi-mtk9-g5-tantangan-best` | Skor terbaik Soal Tantangan (dari 5) |
+| `mpi-mtk9-g5-refleksi` | Teks refleksi akhir modul |

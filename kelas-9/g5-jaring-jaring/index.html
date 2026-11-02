@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G.5 Jaring-Jaring Bangun Ruang — MPI Matematika Kelas 9</title>
+<meta name="description" content="Modul interaktif G.5 Jaring-Jaring Bangun Ruang, Matematika Kelas 9, 6 JP.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="kembali" href="../../index.html">← Kembali ke Hub Kelas 9</a>
+
+  <header class="modul">
+    <div class="pita">Matematika · Kelas 9 · Semester 1</div>
+    <div class="isi-header">
+      <span class="kode">G.5</span><span class="jp">6 JP</span>
+      <h1>Jaring-Jaring Bangun Ruang</h1>
+      <p><b>Tujuan Pembelajaran:</b> Membuat dan menentukan jaring-jaring bangun ruang (kubus, balok, prisma, tabung, limas, dan kerucut) serta membuat bangun ruang tersebut dari jaring-jaringnya.</p>
+      <div class="baris-progres">
+        <div class="progres"><div id="bar-progres"></div></div>
+        <div class="progres-teks" id="teks-progres">Kemajuan belajar: 0 dari 8 sub-bab</div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="pil" id="pil-sub" aria-label="Navigasi sub-bab">
+    <a href="#sub1">1 · Pemantik</a>
+    <a href="#sub2">2 · Cek Prasyarat</a>
+    <a href="#sub3">3 · Eksplorasi + Konsep 1</a>
+    <a href="#sub4">4 · Konsep 2</a>
+    <a href="#sub5">5 · Cek + Miskonsepsi</a>
+    <a href="#sub6">6 · Aplikasi</a>
+    <a href="#sub7">7 · Proyek + Rangkuman</a>
+    <a href="#sub8">8 · Kuis &amp; Refleksi</a>
+  </nav>
+
+  <!-- ================= SUB-BAB 1 ================= -->
+  <section class="kartu" id="sub1">
+    <h2><span class="no">1</span>Pemantik: Membongkar Kemasan</h2>
+    <p>Pernahkah kamu membuka kemasan cokelat atau kotak susu sampai <b>rata seperti selembar kertas</b>? Kemasan itu memang dirancang dari selembar karton datar: digunting mengikuti pola tertentu, dilipat menurut garis-garisnya, lalu direkatkan menjadi kotak. Lembaran datar sebelum dilipat itulah yang akan kita pelajari — namanya <b>jaring-jaring</b>.</p>
+    <p>Menariknya, tidak semua susunan lembaran datar bisa dilipat menjadi bangun ruang yang rapi. Ada susunan yang saat dilipat justru membuat dua sisi <b>bertumpuk</b> dan satu sisi lain <b>kosong</b>. Di modul ini kamu akan belajar mengenali susunan yang benar, menentukan sisi mana berhadapan dengan sisi mana, dan merancang jaring-jaringmu sendiri.</p>
+    <h3>Polling dulu, yuk</h3>
+    <p>Apakah kamu pernah membongkar kemasan (kotak susu, kemasan cokelat, dus makanan) sampai rata?</p>
+    <div class="opsi-grup" id="polling">
+      <button class="opsi" data-poll="rata">Pernah, kubongkar sampai rata seperti kertas</button>
+      <button class="opsi" data-poll="sebagian">Pernah membuka, tapi tidak sampai rata</button>
+      <button class="opsi" data-poll="belum">Belum pernah</button>
+    </div>
+    <div class="umpan info" id="polling-umpan"></div>
+    <h3>Tebakan awalmu</h3>
+    <p>Menurut tebakanmu, berapa banyak persegi yang menyusun jaring-jaring sebuah kubus? Tulis tebakanmu — setelah disimpan, fakta sebenarnya akan ditampilkan dan tebakanmu bisa kita periksa lagi di Sub-bab 3.</p>
+    <div class="baris-input">
+      <div><label for="tebak-persegi">Tebakan banyak persegi</label><input type="number" id="tebak-persegi" min="1" step="1" placeholder="mis. 6"></div>
+      <button class="btn btn-amber" id="simpan-tebakan">Simpan Tebakan</button>
+      <span class="tersimpan" id="tebakan-tersimpan">Tersimpan ✓</span>
+    </div>
+    <div class="umpan info" id="tebakan-umpan"></div>
+    <p class="remedial">Pertanyaan penuntun: kubus mempunyai berapa sisi? Kalau setiap sisi menjadi satu persegi pada lembaran datar, kira-kira berapa persegi yang dibutuhkan? Kita buktikan di Sub-bab 3.</p>
+  </section>
+
+  <!-- ================= SUB-BAB 2 ================= -->
+  <section class="kartu" id="sub2">
+    <h2><span class="no">2</span>Cek Prasyarat</h2>
+    <p>Lima soal singkat ini adalah fondasi yang kita butuhkan: unsur-unsur bangun ruang (sisi dan rusuk) serta luas persegi. Klik jawabanmu — umpan balik dan petunjuk perbaikannya langsung muncul.</p>
+    <div id="prasyarat-wadah"></div>
+    <div class="skor-baris" id="prasyarat-skor"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 3 ================= -->
+  <section class="kartu" id="sub3">
+    <h2><span class="no">3</span>Eksplorasi + Memahami Konsep 1: Jaring-Jaring Kubus</h2>
+    <h3>Eksplorasi “Uji Lipat”</h3>
+    <p>Berikut empat susunan enam persegi. Bayangkan kamu melipatnya mengikuti garis-garis sambungan. Menurutmu, mana yang benar-benar menjadi kubus tertutup, dan mana yang bukan? Klik penilaianmu untuk setiap susunan — penilaianmu tersimpan.</p>
+    <div class="grid">
+      <div class="kotak kartu-kasus">
+        <h3>Susunan A</h3>
+        <svg class="jaring-svg" viewBox="0 0 196 148" role="img" aria-label="Susunan enam persegi pola silang">
+<rect x="2" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="50" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="98" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="146" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="50" y="2" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="50" y="98" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+</svg>
+        <p>Empat persegi sebaris, satu menempel di atas persegi kedua, satu di bawah persegi kedua.</p>
+        <div class="btn-baris">
+          <button class="btn btn-amber btn-uji" data-uji="a" data-nilai="true">Jaring-Jaring Kubus</button>
+          <button class="btn btn-biru btn-uji" data-uji="a" data-nilai="false">Bukan</button>
+        </div>
+        <div class="umpan" id="uji-umpan-a"></div>
+      </div>
+      <div class="kotak kartu-kasus">
+        <h3>Susunan B</h3>
+        <svg class="jaring-svg" viewBox="0 0 244 100" role="img" aria-label="Susunan enam persegi: lima sebaris dan satu di atas persegi ketiga">
+<rect x="2" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="50" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="98" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="146" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="194" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="98" y="2" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+</svg>
+        <p>Lima persegi dalam satu baris lurus, satu menempel di atas persegi ketiga.</p>
+        <div class="btn-baris">
+          <button class="btn btn-amber btn-uji" data-uji="b" data-nilai="true">Jaring-Jaring Kubus</button>
+          <button class="btn btn-biru btn-uji" data-uji="b" data-nilai="false">Bukan</button>
+        </div>
+        <div class="umpan" id="uji-umpan-b"></div>
+      </div>
+      <div class="kotak kartu-kasus">
+        <h3>Susunan C</h3>
+        <svg class="jaring-svg" viewBox="0 0 196 148" role="img" aria-label="Susunan enam persegi pola tangga">
+<rect x="2" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="50" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="98" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="146" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="2" y="98" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="50" y="2" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+</svg>
+        <p>Empat persegi sebaris, satu menempel di bawah persegi pertama, satu di atas persegi kedua.</p>
+        <div class="btn-baris">
+          <button class="btn btn-amber btn-uji" data-uji="c" data-nilai="true">Jaring-Jaring Kubus</button>
+          <button class="btn btn-biru btn-uji" data-uji="c" data-nilai="false">Bukan</button>
+        </div>
+        <div class="umpan" id="uji-umpan-c"></div>
+      </div>
+      <div class="kotak kartu-kasus">
+        <h3>Susunan D</h3>
+        <svg class="jaring-svg" viewBox="0 0 196 100" role="img" aria-label="Susunan enam persegi: blok dua kali dua dengan dua persegi memanjang ke kanan bawah">
+<rect x="2" y="2" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="50" y="2" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="2" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="50" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="98" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<rect x="146" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+</svg>
+        <p>Blok 2 × 2 persegi, ditambah dua persegi memanjang ke kanan dari baris bawah.</p>
+        <div class="btn-baris">
+          <button class="btn btn-amber btn-uji" data-uji="d" data-nilai="true">Jaring-Jaring Kubus</button>
+          <button class="btn btn-biru btn-uji" data-uji="d" data-nilai="false">Bukan</button>
+        </div>
+        <div class="umpan" id="uji-umpan-d"></div>
+      </div>
+    </div>
+
+    <h3>Konsep Inti</h3>
+    <ul>
+      <li><b>Jaring-jaring</b> adalah bangun datar yang diperoleh dengan membuka bangun ruang menurut rusuk-rusuknya, lalu membentangkannya rata pada bidang datar.</li>
+      <li>Kubus mempunyai <b>tepat 11 jaring-jaring yang berbeda</b>. Dikelompokkan menurut barisan terpanjangnya: pola <b>1-4-1</b> ada 6, pola <b>2-3-1</b> ada 3, pola <b>2-2-2</b> ada 1, dan pola <b>3-3</b> ada 1.</li>
+      <li><b>Aturan loncat satu:</b> pada deretan lurus 4 persegi, persegi ke-1 berhadapan dengan persegi ke-3, dan persegi ke-2 berhadapan dengan persegi ke-4 — selalu ada satu persegi “terloncati” di antaranya.</li>
+      <li>Dua sisi yang <b>berhadapan</b> pada kubus <b>tidak pernah berbagi rusuk</b> (tidak pernah bersebelahan) pada jaring-jaringnya. Kalau dua persegi menempel pada jaring-jaring, keduanya pasti bersebelahan — bukan berhadapan — pada kubusnya.</li>
+      <li>Susunan A di atas adalah pola 1-4-1 dan Susunan C adalah pola 2-3-1. Susunan B gagal karena barisnya berisi 5 persegi: saat dilipat, dua sisi bertumpuk dan satu sisi kubus kosong. Susunan D gagal karena dua perseginya memperebutkan satu posisi sisi yang sama.</li>
+    </ul>
+
+    <h3>Contoh Terbimbing: Pasangan Sisi Berhadapan pada Jaring A</h3>
+    <p>Sekarang Jaring A kita beri huruf. Kita tentukan ketiga pasang sisi yang berhadapan, langkah demi langkah.</p>
+    <svg class="jaring-svg" viewBox="0 0 196 148" role="img" aria-label="Jaring A: empat persegi sebaris A B C D, E di atas B, F di bawah B">
+<rect x="2" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<text x="24" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A8A">A</text>
+<rect x="50" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<text x="72" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A8A">B</text>
+<rect x="98" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<text x="120" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A8A">C</text>
+<rect x="146" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<text x="168" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A8A">D</text>
+<rect x="50" y="2" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<text x="72" y="31" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A8A">E</text>
+<rect x="50" y="98" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<text x="72" y="127" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A8A">F</text>
+</svg>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-net-a">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-net-a">
+      <div class="langkah"><p><b>Langkah 1:</b> Perhatikan deretan terpanjangnya: A – B – C – D, empat persegi sebaris. Pada deretan seperti ini berlaku aturan loncat satu.</p></div>
+      <div class="langkah"><p><b>Langkah 2:</b> Persegi ke-1 berhadapan dengan persegi ke-3, jadi <b>A berhadapan dengan C</b> (meloncati B). Persegi ke-2 berhadapan dengan persegi ke-4, jadi <b>B berhadapan dengan D</b> (meloncati C).</p></div>
+      <div class="langkah"><p><b>Langkah 3:</b> Tersisa E dan F — dua “sayap” di atas dan di bawah B. Saat dilipat, keduanya terlipat saling menutup dari arah berlawanan, jadi <b>E berhadapan dengan F</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Ketiga pasangannya: <b>A–C, B–D, dan E–F</b>. Periksa: tidak ada satu pun pasangan yang berbagi rusuk pada jaring-jaring — sesuai sifat sisi yang berhadapan. ✓</p></div>
+    </div>
+    <p class="remedial">Kunci menentukan pasangan berhadapan: cari deretan lurus terpanjang dan pakai aturan loncat satu; pasangan yang tersisa biasanya adalah dua sayap yang saling menutup.</p>
+  </section>
+
+  <!-- ================= SUB-BAB 4 ================= -->
+  <section class="kartu" id="sub4">
+    <h2><span class="no">4</span>Memahami Konsep 2: Balok, Prisma Segitiga, dan Limas Segiempat</h2>
+    <p>Bangun ruang lain juga punya jaring-jaring. Kuncinya selalu sama: susunan bangun datar harus persis sejumlah sisinya, dan sisi-sisi yang berhadapan harus cocok bentuk dan ukurannya.</p>
+
+    <h3>Jaring-Jaring Balok</h3>
+    <svg class="jaring-svg" viewBox="0 0 306 172" role="img" aria-label="Sketsa jaring-jaring balok: empat sisi tegak sebaris berukuran p kali t, l kali t, p kali t, l kali t, dengan sisi p kali l menempel di atas dan di bawah sisi pertama">
+      <rect x="2" y="2" width="90" height="60" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+      <rect x="2" y="62" width="90" height="48" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+      <rect x="92" y="62" width="60" height="48" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+      <rect x="152" y="62" width="90" height="48" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+      <rect x="242" y="62" width="60" height="48" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+      <rect x="2" y="110" width="90" height="60" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+      <text x="47" y="37" text-anchor="middle" font-size="13" font-weight="700" fill="#92400E">p × l</text>
+      <text x="47" y="91" text-anchor="middle" font-size="13" font-weight="700" fill="#1E3A8A">p × t</text>
+      <text x="122" y="91" text-anchor="middle" font-size="13" font-weight="700" fill="#1E3A8A">l × t</text>
+      <text x="197" y="91" text-anchor="middle" font-size="13" font-weight="700" fill="#1E3A8A">p × t</text>
+      <text x="272" y="91" text-anchor="middle" font-size="13" font-weight="700" fill="#1E3A8A">l × t</text>
+      <text x="47" y="145" text-anchor="middle" font-size="13" font-weight="700" fill="#92400E">p × l</text>
+    </svg>
+    <ul>
+      <li>Balok berukuran panjang <span class="mono">p</span>, lebar <span class="mono">l</span>, tinggi <span class="mono">t</span>. Jaring-jaringnya berisi <b>3 pasang sisi berbentuk persegi panjang yang kongruen dan saling berhadapan</b>: sepasang <span class="rumus">p × l</span>, sepasang <span class="rumus">p × t</span>, sepasang <span class="rumus">l × t</span>.</li>
+      <li>Pada sketsa, empat sisi tegak sebaris bergantian ukurannya: p × t, l × t, p × t, l × t — sisi ke-1 berhadapan dengan ke-3, ke-2 dengan ke-4, seperti aturan loncat satu pada kubus.</li>
+      <li>Sisi p × l di atas dan di bawah sisi pertama menjadi sepasang sisi berhadapan lainnya. Jadi, sisi yang berhadapan dalam jaring-jaring balok selalu <b>terpisah oleh satu sisi</b> di antaranya.</li>
+    </ul>
+
+    <h3>Jaring-Jaring Prisma Segitiga</h3>
+    <svg class="jaring-svg" viewBox="0 0 246 162" role="img" aria-label="Sketsa jaring-jaring prisma segitiga: tiga persegi panjang sebaris, satu segitiga menempel di atas persegi panjang tengah, satu segitiga menempel di bawah persegi panjang pertama">
+      <polygon points="82,62 162,62 122,14" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+      <rect x="2" y="62" width="80" height="48" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+      <rect x="82" y="62" width="80" height="48" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+      <rect x="162" y="62" width="80" height="48" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+      <polygon points="2,110 82,110 42,158" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+      <text x="122" y="50" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400E">segitiga</text>
+      <text x="42" y="90" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1E3A8A">persegi panjang</text>
+      <text x="122" y="90" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1E3A8A">persegi panjang</text>
+      <text x="202" y="90" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1E3A8A">persegi panjang</text>
+      <text x="42" y="130" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400E">segitiga</text>
+    </svg>
+    <ul>
+      <li>Prisma segitiga mempunyai <b>5 sisi</b>: <b>2 segitiga</b> yang kongruen (alas dan tutup) dan <b>3 persegi panjang</b> sebagai sisi tegak.</li>
+      <li>Banyak rusuknya <b>9</b> dan banyak titik sudutnya <b>6</b>.</li>
+      <li>Alas segitiga harus sama panjang dengan lebar persegi panjang tempatnya menempel — pada sketsa, kedua segitiga menempel pada sisi persegi panjang yang sama panjangnya.</li>
+    </ul>
+
+    <h3>Jaring-Jaring Limas Segiempat</h3>
+    <svg class="jaring-svg" viewBox="0 0 208 208" role="img" aria-label="Sketsa jaring-jaring limas segiempat: satu persegi di tengah dengan empat segitiga menempel pada keempat sisinya">
+      <polygon points="74,74 134,74 104,14" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+      <polygon points="134,74 134,134 194,104" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+      <polygon points="74,134 134,134 104,194" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+      <polygon points="74,74 74,134 14,104" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+      <rect x="74" y="74" width="60" height="60" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+      <text x="104" y="58" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">segitiga</text>
+      <text x="158" y="108" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">segitiga</text>
+      <text x="104" y="158" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">segitiga</text>
+      <text x="50" y="108" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">segitiga</text>
+      <text x="104" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#1E3A8A">persegi</text>
+    </svg>
+    <ul>
+      <li>Limas segiempat mempunyai <b>5 sisi</b>: <b>1 persegi</b> sebagai alas dan <b>4 segitiga</b> sebagai sisi tegak — jaring-jaringnya tampak seperti bunga dengan persegi di tengah.</li>
+      <li><b>Alas setiap segitiga harus sama panjang dengan sisi persegi tempatnya menempel.</b> Saat dilipat, keempat segitiga naik dan bertemu di satu titik puncak.</li>
+    </ul>
+
+    <h3>Pasangkan Bangun ↔ Susunan Sisinya</h3>
+    <p>Pilih susunan sisi yang tepat untuk setiap bangun.</p>
+    <div id="pasangkan-wadah"></div>
+    <div class="skor-baris" id="pasangkan-skor"></div>
+
+    <h3>Contoh Terbimbing: Memeriksa Jaring-Jaring Balok</h3>
+    <p>Sebuah jaring-jaring balok digambar, lalu setelah dilacak ternyata sisi berukuran <b>10 cm × 4 cm</b> berhadapan dengan sisi berukuran <b>10 cm × 6 cm</b>. Sahihkah jaring-jaring itu? Periksa langkah demi langkah.</p>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-balok">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-balok">
+      <div class="langkah"><p><b>Langkah 1:</b> Ingat syarat utamanya: pada balok, dua sisi yang berhadapan harus <b>kongruen</b> — bentuk dan ukurannya sama persis.</p></div>
+      <div class="langkah"><p><b>Langkah 2:</b> Lacak pasangan pada jaring-jaring itu (misalnya dengan aturan loncat satu pada barisan sisi tegaknya). Hasil pelacakan: sisi 10 × 4 berhadapan dengan sisi 10 × 6.</p></div>
+      <div class="langkah"><p><b>Langkah 3:</b> Bandingkan ukurannya: 10 cm × 4 cm dan 10 cm × 6 cm <b>tidak sama</b> — sisi yang satu lebih lebar 2 cm. Keduanya tidak kongruen.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Kesimpulan: jaring-jaring itu <b>tidak sahih</b>. Sisi 10 × 4 harus berhadapan dengan sisi 10 × 4 yang lain. Aturan umumnya: <b>sisi yang berhadapan pada balok selalu berukuran sama persis</b> — periksa dulu pasangan ukuran sebelum menggunting dan melipat. ✓</p></div>
+    </div>
+  </section>
+
+  <!-- ================= SUB-BAB 5 ================= -->
+  <section class="kartu" id="sub5">
+    <h2><span class="no">5</span>Cek Pemahaman + Miskonsepsi</h2>
+    <p>Enam soal untuk memastikan konsepnya menempel. Setelah itu, kita betulkan tiga kesalahan yang paling sering terjadi saat bekerja dengan jaring-jaring.</p>
+    <div id="cek-wadah"></div>
+    <div class="skor-baris" id="cek-skor"></div>
+
+    <h3>Betulkan Jawaban yang Salah</h3>
+    <p>Setiap kartu berisi cara berpikir yang <b>keliru</b>. Pilih pembetulan yang benar.</p>
+    <div id="miskonsepsi-wadah"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 6 ================= -->
+  <section class="kartu" id="sub6">
+    <h2><span class="no">6</span>Aplikasi &amp; Pemecahan Masalah</h2>
+    <p>Tiga masalah yang dikerjakan dengan langkah pemodelan. Setiap masalah dilengkapi tabel langkahnya — pelajari, lalu jawab soal periksanya.</p>
+
+    <div class="soal">
+      <span class="tagik">Masalah 1 · Dadu Standar</span>
+      <p class="tanya">Jaring A dijadikan dadu standar: posisi A diberi mata 2, B mata 1, C mata 5, D mata 6, E mata 3, dan F mata 4. Tentukan mata yang berhadapan dengan mata 5.</p>
+      <svg class="jaring-svg" viewBox="0 0 196 148" role="img" aria-label="Jaring dadu: A bernilai 2, B 1, C 5, D 6, E 3, F 4">
+<rect x="2" y="50" width="44" height="44" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+<text x="24" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#92400E">2</text>
+<rect x="50" y="50" width="44" height="44" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+<text x="72" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#92400E">1</text>
+<rect x="98" y="50" width="44" height="44" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+<text x="120" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#92400E">5</text>
+<rect x="146" y="50" width="44" height="44" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+<text x="168" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#92400E">6</text>
+<rect x="50" y="2" width="44" height="44" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+<text x="72" y="31" text-anchor="middle" font-size="17" font-weight="700" fill="#92400E">3</text>
+<rect x="50" y="98" width="44" height="44" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+<text x="72" y="127" text-anchor="middle" font-size="17" font-weight="700" fill="#92400E">4</text>
+</svg>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan yang diketahui</td><td>Jaring dadu seperti gambar: deretan sebaris berisi mata 2 – 1 – 5 – 6, dengan mata 3 di atas mata 1 dan mata 4 di bawah mata 1. Pada dadu standar, dua sisi yang berhadapan selalu berjumlah 7.</td></tr>
+            <tr><td>2. Susun rencana</td><td>Tentukan pasangan sisi berhadapan dengan aturan loncat satu pada deretan 4 persegi, lalu pasangan sayap yang tersisa.</td></tr>
+            <tr><td>3. Selesaikan</td><td>Pasangannya: posisi A–C (mata 2–5), B–D (mata 1–6), dan E–F (mata 3–4). Jadi sisi bermata 5 (posisi C) berhadapan dengan sisi bermata 2 (posisi A).</td></tr>
+            <tr><td>4. Tafsirkan</td><td>Mata yang berhadapan dengan mata 5 adalah <b>mata 2</b>.</td></tr>
+            <tr><td>5. Periksa kembali</td><td>Jumlah setiap pasangan: 2 + 5 = 7 ✓, 1 + 6 = 7 ✓, 3 + 4 = 7 ✓ — sesuai aturan dadu standar.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="aplikasi-wadah-1"></div>
+    </div>
+
+    <div class="soal">
+      <span class="tagik">Masalah 2 · Kemasan Balok</span>
+      <p class="tanya">Sebuah kemasan berbentuk balok berukuran 10 cm × 6 cm × 4 cm (p = 10, l = 6, t = 4) dibuat dari selembar karton. Jaring-jaringnya disusun sebagai satu baris berisi empat sisi tegak, dengan tutup menempel di atas dan di bawah salah satu sisi. Berapa ukuran bentangan kartonnya?</p>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan yang diketahui</td><td>p = 10 cm, l = 6 cm, t = 4 cm. Empat sisi tegak sebaris: ukurannya bergantian p × t dan l × t. Tutup dan alas (keduanya p × l) menempel di atas dan di bawah salah satu sisi tegak.</td></tr>
+            <tr><td>2. Susun rencana</td><td>Lebar total bentangan = jumlah lebar keempat sisi tegak. Tinggi bentangan = tinggi tutup + tinggi sisi tegak + tinggi alas.</td></tr>
+            <tr><td>3. Selesaikan</td><td>Lebar bentangan = 10 + 6 + 10 + 6 = 2 × (10 + 6) = <b>32 cm</b> (selebar keliling alas balok). Tinggi bentangan = 6 + 4 + 6 = <b>16 cm</b>.</td></tr>
+            <tr><td>4. Tafsirkan</td><td>Karton yang dibutuhkan berukuran bentangan <b>32 cm × 16 cm</b> (belum termasuk lidah lem).</td></tr>
+            <tr><td>5. Periksa kembali</td><td>Lebar barisan sisi tegak harus sama dengan keliling alas: 2 × (p + l) = 2 × 16 = 32 cm ✓. Tinggi: tutup p × l menyumbang l = 6 cm, sisi tegak menyumbang t = 4 cm, alas 6 cm → 16 cm ✓.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="aplikasi-wadah-2"></div>
+    </div>
+
+    <div class="soal">
+      <span class="tagik">Masalah 3 · Melacak Jaring C</span>
+      <p class="tanya">Perhatikan Jaring C berhuruf berikut. Sisi manakah yang berhadapan dengan sisi G?</p>
+      <svg class="jaring-svg" viewBox="0 0 196 148" role="img" aria-label="Jaring C: empat persegi sebaris G H I J, K di bawah G, L di atas H">
+<rect x="2" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<text x="24" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A8A">G</text>
+<rect x="50" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<text x="72" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A8A">H</text>
+<rect x="98" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<text x="120" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A8A">I</text>
+<rect x="146" y="50" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<text x="168" y="79" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A8A">J</text>
+<rect x="2" y="98" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<text x="24" y="127" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A8A">K</text>
+<rect x="50" y="2" width="44" height="44" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<text x="72" y="31" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A8A">L</text>
+</svg>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan yang diketahui</td><td>Deretan sebaris berisi G – H – I – J; K menempel di bawah G; L menempel di atas H.</td></tr>
+            <tr><td>2. Susun rencana</td><td>Pakai aturan loncat satu pada deretan 4 persegi, lalu tentukan pasangan sayap yang tersisa (K dan L).</td></tr>
+            <tr><td>3. Selesaikan</td><td>Pada deretan: G berhadapan dengan I (meloncati H) dan H berhadapan dengan J (meloncati I). Sayap yang tersisa: K berhadapan dengan L.</td></tr>
+            <tr><td>4. Tafsirkan</td><td>Sisi yang berhadapan dengan G adalah <b>I</b>.</td></tr>
+            <tr><td>5. Periksa kembali</td><td>G dan I tidak berbagi rusuk pada jaring-jaring ✓ — syarat sisi yang berhadapan. Saat dilipat, G dan I memang menutup kubus dari dua arah yang berlawanan.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="aplikasi-wadah-3"></div>
+    </div>
+  </section>
+
+  <!-- ================= SUB-BAB 7 ================= -->
+  <section class="kartu" id="sub7">
+    <h2><span class="no">7</span>Proyek Mini + Rangkuman</h2>
+    <h3>Proyek “Desainer Kemasan”</h3>
+    <p>Bayangkan kamu perancang kemasan. Pilih satu bangun ruang, tentukan ukurannya, lalu rancang jaring-jaringnya: gambar sketsanya di kertas karton, tuliskan susunan sisi pada sketsamu serta pasangan sisi yang berhadapan, kemudian <b>gunting dan lipatlah sungguhan</b> untuk membuktikan rancanganmu menjadi bangun ruang yang rapi. Isi rencana desainmu di formulir ini — tersimpan di perangkatmu.</p>
+    <form class="form-proyek" id="form-proyek">
+      <div><label for="proyek-bangun">Bangun ruang yang dipilih</label>
+        <select id="proyek-bangun">
+          <option value="balok">Balok</option>
+          <option value="prisma segitiga">Prisma segitiga</option>
+          <option value="limas segiempat">Limas segiempat</option>
+        </select>
+      </div>
+      <div><label for="proyek-ukuran">Ukuran yang dipilih (mis. balok 12 cm × 8 cm × 5 cm)</label><input type="text" id="proyek-ukuran" placeholder="tulis ukuran bangunmu"></div>
+      <div><label for="proyek-susunan">Susunan sisi pada sketsa jaring-jaringmu</label><textarea id="proyek-susunan" rows="3" placeholder="mis. empat sisi tegak sebaris, tutup menempel di atas sisi kedua, alas di bawah sisi kedua…"></textarea></div>
+      <div><label for="proyek-pasangan">Pasangan sisi yang berhadapan pada rancanganmu</label><textarea id="proyek-pasangan" rows="3" placeholder="mis. sisi depan berhadapan dengan sisi belakang (keduanya 12 × 5), …"></textarea></div>
+      <p><button type="button" class="btn btn-amber" id="simpan-proyek">Simpan Proyek</button> <span class="tersimpan" id="proyek-tersimpan">Tersimpan ✓</span></p>
+    </form>
+
+    <h3>Rangkuman</h3>
+    <ul>
+      <li>Jaring-jaring adalah bangun datar hasil membuka bangun ruang menurut rusuk-rusuknya dan membentangkannya rata.</li>
+      <li>Kubus mempunyai tepat 11 jaring-jaring: pola 1-4-1 (6), 2-3-1 (3), 2-2-2 (1), dan 3-3 (1).</li>
+      <li>Pada deretan lurus 4 persegi berlaku aturan loncat satu: persegi ke-1 berhadapan dengan ke-3, ke-2 dengan ke-4; dua sisi berhadapan tidak pernah berbagi rusuk pada jaring-jaring.</li>
+      <li>Balok mempunyai 3 pasang sisi berbentuk persegi panjang yang kongruen dan saling berhadapan.</li>
+      <li>Prisma segitiga: 2 segitiga + 3 persegi panjang (5 sisi); limas segiempat: 1 persegi + 4 segitiga (5 sisi).</li>
+      <li>Luas kertas yang menyusun jaring-jaring sama dengan luas permukaan bangunnya — ini jembatan ke modul P.1.</li>
+    </ul>
+  </section>
+
+  <!-- ================= SUB-BAB 8 ================= -->
+  <section class="kartu" id="sub8">
+    <h2><span class="no">8</span>Kuis &amp; Refleksi</h2>
+    <p>Kuis inti berisi 10 soal seputar jaring-jaring kubus, balok, prisma segitiga, dan limas segiempat. Pilih jawabanmu; penjelasan dan skormu langsung tampil. Skor terbaikmu tersimpan di perangkat ini.</p>
+    <div id="kuis-wadah"></div>
+    <p style="margin-top:14px;"><button class="btn btn-amber" id="selesai-kuis">Selesai &amp; Lihat Skor Kuis</button></p>
+    <div class="umpan" id="kuis-hasil"></div>
+  </section>
+
+  <section class="kartu tantangan" id="sub8-tantangan">
+    <h2>★ Soal Tantangan — Terpisah dari Kuis Inti</h2>
+    <p>Lima soal pendalaman untukmu yang ingin lebih: melacak Jaring Z yang berbentuk tangga, pasangan sisi balok, rusuk prisma segitiga, dan luas kertas jaring-jaring. Blok ini punya <b>skornya sendiri</b> dan <b>tidak</b> mencampur skor kuis inti di atas.</p>
+    <div id="tantangan-wadah"></div>
+    <p style="margin-top:14px;"><button class="btn btn-biru" id="selesai-tantangan">Selesai &amp; Lihat Skor Tantangan</button></p>
+    <div class="umpan" id="tantangan-hasil"></div>
+
+    <h3>Refleksi</h3>
+    <p>Tiga pertanyaan untuk menutup modul ini. Jawabanmu tersimpan di perangkat ini.</p>
+    <div class="refleksi">
+      <div><label for="refleksi-1">1. Bagian mana dari modul ini yang paling menarik atau paling mengejutkan bagimu? (misalnya fakta bahwa kubus hanya mempunyai 11 jaring-jaring)</label><textarea id="refleksi-1" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <div><label for="refleksi-2">2. Kesulitan apa yang masih kamu rasakan saat menentukan sisi yang berhadapan pada sebuah jaring-jaring?</label><textarea id="refleksi-2" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <div><label for="refleksi-3">3. Jaring-jaring bangun apa yang ingin kamu coba gambar dan lipat sendiri dari kertas karton? Mengapa?</label><textarea id="refleksi-3" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <p><button type="button" class="btn btn-amber" id="simpan-refleksi">Simpan Refleksi</button> <span class="tersimpan" id="refleksi-tersimpan">Tersimpan ✓</span></p>
+    </div>
+  </section>
+
+  <footer class="situs">Modul G.5 Jaring-Jaring Bangun Ruang · MPI Matematika Kelas 9 · ATP Matematika Fase D MGMP Matematika SMP Kabupaten Lampung Tengah, TP 2026/2027</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

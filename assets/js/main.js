@@ -1,10 +1,8 @@
 /* MPI Matematika Kelas 9 — logika hub
-   Pencarian/filter kartu modul + ringkasan progres modul A.7 dari localStorage.
-   Semua kunci modul A.7 berawalan "mpi-mtk9-a7-". */
+   Pencarian/filter kartu modul + ringkasan progres modul aktif (A.7 dan G.5) dari localStorage.
+   Kunci modul berawalan "mpi-mtk9-a7-" untuk A.7 dan "mpi-mtk9-g5-" untuk G.5. */
 (function () {
   "use strict";
-
-  var PREFIX = "mpi-mtk9-a7-";
 
   /* ---------- Pencarian & filter semester ---------- */
   var inputCari = document.getElementById("cari-modul");
@@ -40,7 +38,7 @@
   if (inputCari) { inputCari.addEventListener("input", terapkanFilter); }
   if (pilihSemester) { pilihSemester.addEventListener("change", terapkanFilter); }
 
-  /* ---------- Ringkasan progres A.7 ---------- */
+  /* ---------- Ringkasan progres modul aktif (A.7 & G.5) ---------- */
   function bacaJSON(kunci, bawaan) {
     try {
       var mentah = localStorage.getItem(kunci);
@@ -48,27 +46,33 @@
     } catch (e) { return bawaan; }
   }
 
-  var dikunjungi = bacaJSON(PREFIX + "visited", []);
   var jumlahSub = 8;
-  var persen = Math.round((dikunjungi.length / jumlahSub) * 100);
-  var skorKuis = localStorage.getItem(PREFIX + "quiz-best");
-  var skorTantangan = localStorage.getItem(PREFIX + "tantangan-best");
+  var MODUL_AKTIF = [
+    { kode: "A.7", prefix: "mpi-mtk9-a7-", bar: "progres-a7-bar", teks: "progres-a7-teks" },
+    { kode: "G.5", prefix: "mpi-mtk9-g5-", bar: "progres-g5-bar", teks: "progres-g5-teks" }
+  ];
 
-  var elBar = document.getElementById("progres-a7-bar");
-  var elTeks = document.getElementById("progres-a7-teks");
-  if (elBar) { elBar.style.width = persen + "%"; }
-  if (elTeks) {
-    elTeks.textContent = dikunjungi.length === 0
-      ? "Belum dimulai — ayo mulai dari Pemantik!"
-      : "Kemajuan: " + dikunjungi.length + " dari " + jumlahSub + " sub-bab (" + persen + "%)";
-  }
+  var bagian = [];
+  MODUL_AKTIF.forEach(function (m) {
+    var dikunjungi = bacaJSON(m.prefix + "visited", []);
+    var persen = Math.round((dikunjungi.length / jumlahSub) * 100);
+    var skorKuis = localStorage.getItem(m.prefix + "quiz-best");
+    var skorTantangan = localStorage.getItem(m.prefix + "tantangan-best");
+
+    var elBar = document.getElementById(m.bar);
+    var elTeks = document.getElementById(m.teks);
+    if (elBar) { elBar.style.width = persen + "%"; }
+    if (elTeks) {
+      elTeks.textContent = dikunjungi.length === 0
+        ? "Belum dimulai — ayo mulai dari Pemantik!"
+        : "Kemajuan: " + dikunjungi.length + " dari " + jumlahSub + " sub-bab (" + persen + "%)";
+    }
+
+    bagian.push("Modul " + m.kode + ": <b>" + persen + "%</b> selesai (" + dikunjungi.length + "/8 sub-bab)");
+    if (skorKuis !== null) { bagian.push("Skor kuis terbaik " + m.kode + ": <b>" + skorKuis + "/10</b>"); }
+    if (skorTantangan !== null) { bagian.push("Skor tantangan terbaik " + m.kode + ": <b>" + skorTantangan + "/5</b>"); }
+  });
 
   var elRingkasan = document.getElementById("ringkasan-progres");
-  if (elRingkasan) {
-    var bagian = [];
-    bagian.push("Modul A.7: <b>" + persen + "%</b> selesai (" + dikunjungi.length + "/8 sub-bab)");
-    if (skorKuis !== null) { bagian.push("Skor kuis terbaik: <b>" + skorKuis + "/10</b>"); }
-    if (skorTantangan !== null) { bagian.push("Skor tantangan terbaik: <b>" + skorTantangan + "/5</b>"); }
-    elRingkasan.innerHTML = bagian.join(" · ");
-  }
+  if (elRingkasan) { elRingkasan.innerHTML = bagian.join(" · "); }
 })();
