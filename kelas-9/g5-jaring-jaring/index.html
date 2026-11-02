@@ -215,7 +215,7 @@
   <!-- ================= SUB-BAB 4 ================= -->
   <section class="kartu" id="sub4">
     <h2><span class="no">4</span>Memahami Konsep 2: Balok, Prisma Segitiga, dan Limas Segiempat</h2>
-    <p>Bangun ruang lain juga punya jaring-jaring. Kuncinya selalu sama: susunan bangun datar harus persis sejumlah sisinya, dan sisi-sisi yang berhadapan harus cocok bentuk dan ukurannya.</p>
+    <p>Bangun ruang lain juga punya jaring-jaring. Kuncinya selalu sama: susunan bangun datar harus persis sejumlah sisinya, dan sisi-sisi yang berhadapan harus cocok bentuk dan ukurannya. Setiap bangun di sub-bab ini dilengkapi <b>simulasi lipatan 3D</b> seperti pada kubus — lipat jaring-jaringnya dan putar hasilnya untuk melihat bentuk ruangnya.</p>
 
     <h3>Jaring-Jaring Balok</h3>
     <svg class="jaring-svg" viewBox="0 0 306 172" role="img" aria-label="Sketsa jaring-jaring balok: empat sisi tegak sebaris berukuran p kali t, l kali t, p kali t, l kali t, dengan sisi p kali l menempel di atas dan di bawah sisi pertama">
@@ -237,6 +237,15 @@
       <li>Pada sketsa, empat sisi tegak sebaris bergantian ukurannya: p × t, l × t, p × t, l × t — sisi ke-1 berhadapan dengan ke-3, ke-2 dengan ke-4, seperti aturan loncat satu pada kubus.</li>
       <li>Sisi p × l di atas dan di bawah sisi pertama menjadi sepasang sisi berhadapan lainnya. Jadi, sisi yang berhadapan dalam jaring-jaring balok selalu <b>terpisah oleh satu sisi</b> di antaranya.</li>
     </ul>
+    <div class="sim3d">
+      <p class="sim3d-judul"><b>Simulasi Lipatan 3D — Balok</b> (perbandingan ukuran p : l : t = 3 : 2 : 1,6)</p>
+      <canvas class="sim3d-kanvas-b" data-bangun="balok" width="640" height="460" aria-label="Simulasi lipatan 3D jaring-jaring balok"></canvas>
+      <div class="btn-baris">
+        <button class="btn btn-lipat" data-bangun="balok">▶ Lipat Jadi Balok</button>
+      </div>
+      <label class="sim3d-label">Proses lipatan <input type="range" class="sim3d-geser-b" data-bangun="balok" min="0" max="100" step="1" value="0"></label>
+      <p class="sim3d-status-b" data-bangun="balok"></p>
+    </div>
 
     <h3>Jaring-Jaring Prisma Segitiga</h3>
     <svg class="jaring-svg" viewBox="0 0 246 162" role="img" aria-label="Sketsa jaring-jaring prisma segitiga: tiga persegi panjang sebaris, satu segitiga menempel di atas persegi panjang tengah, satu segitiga menempel di bawah persegi panjang pertama">
@@ -256,6 +265,15 @@
       <li>Banyak rusuknya <b>9</b> dan banyak titik sudutnya <b>6</b>.</li>
       <li>Alas segitiga harus sama panjang dengan lebar persegi panjang tempatnya menempel — pada sketsa, kedua segitiga menempel pada sisi persegi panjang yang sama panjangnya.</li>
     </ul>
+    <div class="sim3d">
+      <p class="sim3d-judul"><b>Simulasi Lipatan 3D — Prisma Segitiga</b> (sisi segitiga 2,4; 2; dan 2 — perhatikan ketiga persegi panjang melipat mengikuti bentuk segitiganya, bukan bersudut 90°)</p>
+      <canvas class="sim3d-kanvas-b" data-bangun="prisma" width="640" height="460" aria-label="Simulasi lipatan 3D jaring-jaring prisma segitiga"></canvas>
+      <div class="btn-baris">
+        <button class="btn btn-lipat" data-bangun="prisma">▶ Lipat Jadi Prisma Segitiga</button>
+      </div>
+      <label class="sim3d-label">Proses lipatan <input type="range" class="sim3d-geser-b" data-bangun="prisma" min="0" max="100" step="1" value="0"></label>
+      <p class="sim3d-status-b" data-bangun="prisma"></p>
+    </div>
 
     <h3>Jaring-Jaring Limas Segiempat</h3>
     <svg class="jaring-svg" viewBox="0 0 208 208" role="img" aria-label="Sketsa jaring-jaring limas segiempat: satu persegi di tengah dengan empat segitiga menempel pada keempat sisinya">
@@ -274,6 +292,15 @@
       <li>Limas segiempat mempunyai <b>5 sisi</b>: <b>1 persegi</b> sebagai alas dan <b>4 segitiga</b> sebagai sisi tegak — jaring-jaringnya tampak seperti bunga dengan persegi di tengah.</li>
       <li><b>Alas setiap segitiga harus sama panjang dengan sisi persegi tempatnya menempel.</b> Saat dilipat, keempat segitiga naik dan bertemu di satu titik puncak.</li>
     </ul>
+    <div class="sim3d">
+      <p class="sim3d-judul"><b>Simulasi Lipatan 3D — Limas Segiempat</b> (alas persegi 2,4 × 2,4 dan tinggi segitiga 2)</p>
+      <canvas class="sim3d-kanvas-b" data-bangun="limas" width="640" height="460" aria-label="Simulasi lipatan 3D jaring-jaring limas segiempat"></canvas>
+      <div class="btn-baris">
+        <button class="btn btn-lipat" data-bangun="limas">▶ Lipat Jadi Limas Segiempat</button>
+      </div>
+      <label class="sim3d-label">Proses lipatan <input type="range" class="sim3d-geser-b" data-bangun="limas" min="0" max="100" step="1" value="0"></label>
+      <p class="sim3d-status-b" data-bangun="limas"></p>
+    </div>
 
     <h3>Pasangkan Bangun ↔ Susunan Sisinya</h3>
     <p>Pilih susunan sisi yang tepat untuk setiap bangun.</p>

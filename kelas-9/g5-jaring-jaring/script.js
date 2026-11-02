@@ -893,3 +893,243 @@ if (typeof document !== "undefined") {
     });
   });
 }
+
+/* ================= SIMULASI LIPATAN 3D BANGUN LAIN (Sub-bab 4) =================
+   Mesin lipat umum untuk sisi berbentuk poligon (persegi panjang & segitiga).
+   Setiap sisi anak berputar pada engsel rusuk bersamanya dengan sudut khas
+   bangunnya: balok semua 90°; prisma mengikuti sudut segitiganya
+   (126,87° dan 106,26°, tutup 90°); limas 126,87° sampai keempat puncak
+   segitiga bertemu di satu titik. Semua sudut dan titik-temu sudah
+   diverifikasi numerik sebelum modul ini dibangun. */
+if (typeof document !== "undefined") {
+  document.addEventListener("DOMContentLoaded", function () {
+    "use strict";
+
+    function rect(x0, y0, x1, y1) { return [[x0, y0], [x1, y0], [x1, y1], [x0, y1]]; }
+
+    var SIM3DB = {
+      balok: {
+        pesanJadi: "✓ Terbentuk balok tertutup — perhatikan: sisi yang berhadapan selalu sama ukurannya (p × t dengan p × t, l × t dengan l × t, dan kedua tutup p × l berwarna kuning).",
+        faces: [
+          { poly: rect(0, 0, 3, 1.6), ref: [1.5, 0.8], parent: -1 },
+          { poly: rect(3, 0, 5, 1.6), ref: [4, 0.8], parent: 0, dir: [1, 0], pHalf: 1.5, maxAng: 90 },
+          { poly: rect(5, 0, 8, 1.6), ref: [6.5, 0.8], parent: 1, dir: [1, 0], pHalf: 1.0, maxAng: 90 },
+          { poly: rect(8, 0, 10, 1.6), ref: [9, 0.8], parent: 2, dir: [1, 0], pHalf: 1.5, maxAng: 90 },
+          { poly: rect(0, 1.6, 3, 3.6), ref: [1.5, 2.6], parent: 0, dir: [0, 1], pHalf: 0.8, maxAng: 90, amber: true },
+          { poly: rect(0, -2, 3, 0), ref: [1.5, -1], parent: 0, dir: [0, -1], pHalf: 0.8, maxAng: 90, amber: true }
+        ]
+      },
+      prisma: {
+        pesanJadi: "✓ Terbentuk prisma segitiga tertutup — ketiga persegi panjang melingkungi sisi segitiga, dan kedua segitiga kuning menjadi alas dan tutup yang kongruen.",
+        faces: [
+          { poly: rect(0, 0, 2.4, 3), ref: [1.2, 1.5], parent: -1 },
+          { poly: rect(2.4, 0, 4.4, 3), ref: [3.4, 1.5], parent: 0, dir: [1, 0], pHalf: 1.2, maxAng: 126.8699 },
+          { poly: rect(4.4, 0, 6.4, 3), ref: [5.4, 1.5], parent: 1, dir: [1, 0], pHalf: 1.0, maxAng: 106.2602 },
+          { poly: [[2.4, 3], [4.4, 3], [3.84, 4.92]], ref: [3.547, 3.64], parent: 1, dir: [0, 1], pHalf: 1.5, maxAng: 90, amber: true },
+          { poly: [[0, 0], [2.4, 0], [1.2, -1.6]], ref: [1.2, -0.533], parent: 0, dir: [0, -1], pHalf: 1.5, maxAng: 90, amber: true }
+        ]
+      },
+      limas: {
+        pesanJadi: "✓ Terbentuk limas segiempat — keempat segitiga kuning naik dan bertemu tepat di satu titik puncak di atas pusat persegi.",
+        faces: [
+          { poly: rect(0, 0, 2.4, 2.4), ref: [1.2, 1.2], parent: -1 },
+          { poly: [[0, 2.4], [2.4, 2.4], [1.2, 4.4]], ref: [1.2, 3.067], parent: 0, dir: [0, 1], pHalf: 1.2, maxAng: 126.8699, amber: true },
+          { poly: [[0, 0], [2.4, 0], [1.2, -2.0]], ref: [1.2, -0.667], parent: 0, dir: [0, -1], pHalf: 1.2, maxAng: 126.8699, amber: true },
+          { poly: [[2.4, 0], [2.4, 2.4], [4.4, 1.2]], ref: [3.067, 1.2], parent: 0, dir: [1, 0], pHalf: 1.2, maxAng: 126.8699, amber: true },
+          { poly: [[0, 0], [0, 2.4], [-2.0, 1.2]], ref: [-0.667, 1.2], parent: 0, dir: [-1, 0], pHalf: 1.2, maxAng: 126.8699, amber: true }
+        ]
+      }
+    };
+    var PESAN_AWAL_B = "Klik tombol lipat atau geser proses lipatannya. Seret gambar untuk memutar pandangan.";
+
+    function vAdd(a, b) { return [a[0] + b[0], a[1] + b[1], a[2] + b[2]]; }
+    function vScale(a, s) { return [a[0] * s, a[1] * s, a[2] * s]; }
+    function vCross(a, b) { return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]]; }
+    function vDot(a, b) { return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; }
+    function rotSumbu(v, sumbu, rad) {
+      var c = Math.cos(rad), s = Math.sin(rad);
+      var silang = vCross(sumbu, v);
+      var d = vDot(sumbu, v);
+      return [
+        v[0] * c + silang[0] * s + sumbu[0] * d * (1 - c),
+        v[1] * c + silang[1] * s + sumbu[1] * d * (1 - c),
+        v[2] * c + silang[2] * s + sumbu[2] * d * (1 - c)
+      ];
+    }
+
+    function hitungBingkaiB(spec, prog) {
+      var hasil = [];
+      spec.faces.forEach(function (f, i) {
+        if (f.parent < 0) {
+          hasil[i] = { c: [f.ref[0], f.ref[1], 0], R: [1, 0, 0], U: [0, 1, 0], N: [0, 0, 1] };
+          return;
+        }
+        var pf = spec.faces[f.parent];
+        var bp = hasil[f.parent];
+        var d = vAdd(vScale(bp.R, f.dir[0]), vScale(bp.U, f.dir[1]));
+        var sumbu = vCross(bp.N, d);
+        var ang = f.maxAng * prog * Math.PI / 180;
+        var hinge = vAdd(bp.c, vScale(d, f.pHalf));
+        var hingeNet = [pf.ref[0] + f.dir[0] * f.pHalf, pf.ref[1] + f.dir[1] * f.pHalf];
+        var offNet = vAdd(vScale(bp.R, f.ref[0] - hingeNet[0]), vScale(bp.U, f.ref[1] - hingeNet[1]));
+        var off = rotSumbu(offNet, sumbu, ang);
+        hasil[i] = {
+          c: vAdd(hinge, off),
+          R: rotSumbu(bp.R, sumbu, ang),
+          U: rotSumbu(bp.U, sumbu, ang),
+          N: rotSumbu(bp.N, sumbu, ang)
+        };
+      });
+      return hasil;
+    }
+
+    document.querySelectorAll(".sim3d-kanvas-b").forEach(function (kanvas) {
+      var kunci = kanvas.getAttribute("data-bangun");
+      var spec = SIM3DB[kunci];
+      if (!spec) { return; }
+      var ctx = kanvas.getContext("2d");
+      var semuaX = [], semuaY = [];
+      spec.faces.forEach(function (f) {
+        f.poly.forEach(function (titik) { semuaX.push(titik[0]); semuaY.push(titik[1]); });
+      });
+      var geserPusat = [-(Math.min.apply(null, semuaX) + Math.max.apply(null, semuaX)) / 2,
+                        -(Math.min.apply(null, semuaY) + Math.max.apply(null, semuaY)) / 2, 0];
+      var lebarNet = Math.max.apply(null, semuaX) - Math.min.apply(null, semuaX);
+      var tinggiNet = Math.max.apply(null, semuaY) - Math.min.apply(null, semuaY);
+      var skalaDasar = Math.min(600 / lebarNet, 420 / tinggiNet);
+      var st = { prog: 0, target: 0, yaw: -0.5, pitch: 0.38, raf: 0 };
+      if (kunci === "limas") { st.yaw = 2.85; st.pitch = 0.45; }
+      var tombol = document.querySelector('.btn-lipat[data-bangun="' + kunci + '"]');
+      var labelLipat = tombol ? tombol.textContent : "";
+      var geserEl = document.querySelector('.sim3d-geser-b[data-bangun="' + kunci + '"]');
+      var statusEl = document.querySelector('.sim3d-status-b[data-bangun="' + kunci + '"]');
+      if (statusEl) { statusEl.textContent = PESAN_AWAL_B; }
+
+      function perbaruiStatus() {
+        if (!statusEl) { return; }
+        if (st.prog >= 0.995) { statusEl.textContent = spec.pesanJadi; }
+        else if (st.prog <= 0.005) { statusEl.textContent = PESAN_AWAL_B; }
+        else { statusEl.textContent = "Sedang melipat… " + Math.round(st.prog * 100) + "% menuju bangun utuh."; }
+        if (tombol) { tombol.textContent = st.target >= 1 ? "↺ Buka Lagi" : labelLipat; }
+      }
+
+      function gambar() {
+        var W = kanvas.width, H = kanvas.height;
+        ctx.clearRect(0, 0, W, H);
+        var bingkai = hitungBingkaiB(spec, st.prog);
+        function putar(v) {
+          return rotSumbu(rotSumbu(v, [0, 1, 0], st.yaw), [1, 0, 0], st.pitch);
+        }
+        var mentah = [];
+        var minX = 1e9, maxX = -1e9, minY = 1e9, maxY = -1e9;
+        spec.faces.forEach(function (f, i) {
+          var b = bingkai[i];
+          var N = putar(b.N);
+          var sudut = [];
+          var zRata = 0;
+          f.poly.forEach(function (titik) {
+            var dunia = vAdd(vAdd(b.c, geserPusat), vAdd(vScale(b.R, titik[0] - f.ref[0]), vScale(b.U, titik[1] - f.ref[1])));
+            var pv = putar(dunia);
+            sudut.push(pv);
+            zRata += pv[2];
+            if (pv[0] < minX) { minX = pv[0]; }
+            if (pv[0] > maxX) { maxX = pv[0]; }
+            if (pv[1] < minY) { minY = pv[1]; }
+            if (pv[1] > maxY) { maxY = pv[1]; }
+          });
+          mentah.push({ sudut: sudut, dalam: zRata / f.poly.length, nz: N[2], idx: i, amber: !!f.amber });
+        });
+        // Pas-kan & pusatkan hasil render saat ini ke kanvas pada setiap sudut lipatan.
+        var rentangX = Math.max(0.001, maxX - minX);
+        var rentangY = Math.max(0.001, maxY - minY);
+        var skala = Math.min((W - 48) / rentangX, (H - 48) / rentangY, skalaDasar * 2.4);
+        var pusX = (minX + maxX) / 2, pusY = (minY + maxY) / 2;
+        var wajah = mentah.map(function (w) {
+          return {
+            sudut: w.sudut.map(function (pv) {
+              return [W / 2 + (pv[0] - pusX) * skala, H / 2 - (pv[1] - pusY) * skala];
+            }),
+            dalam: w.dalam, nz: w.nz, idx: w.idx, amber: w.amber
+          };
+        });
+        wajah.sort(function (p, q) { return (p.dalam + p.idx * 0.002) - (q.dalam + q.idx * 0.002); });
+        wajah.forEach(function (w) {
+          var t = (w.nz + 1) / 2;
+          var r, g, b, garis;
+          if (w.amber) {
+            r = Math.round(217 + (254 - 217) * t);
+            g = Math.round(119 + (243 - 119) * t);
+            b = Math.round(6 + (199 - 6) * t);
+            garis = "#92400E";
+          } else {
+            r = Math.round(147 + (219 - 147) * t);
+            g = Math.round(197 + (234 - 197) * t);
+            b = Math.round(253 + (254 - 253) * t);
+            garis = "#1E3A8A";
+          }
+          ctx.beginPath();
+          w.sudut.forEach(function (s, i) { if (i === 0) { ctx.moveTo(s[0], s[1]); } else { ctx.lineTo(s[0], s[1]); } });
+          ctx.closePath();
+          ctx.fillStyle = "rgba(" + r + "," + g + "," + b + ",0.92)";
+          ctx.fill();
+          ctx.strokeStyle = garis;
+          ctx.lineWidth = 2.5;
+          ctx.stroke();
+        });
+      }
+
+      function animasi() {
+        cancelAnimationFrame(st.raf);
+        var dari = st.prog, ke = st.target, t0 = null;
+        function langkah(ts) {
+          if (!t0) { t0 = ts; }
+          var p = Math.min(1, (ts - t0) / 1800);
+          var e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+          st.prog = dari + (ke - dari) * e;
+          if (geserEl) { geserEl.value = st.prog * 100; }
+          gambar();
+          perbaruiStatus();
+          if (p < 1) { st.raf = requestAnimationFrame(langkah); }
+        }
+        st.raf = requestAnimationFrame(langkah);
+      }
+
+      if (tombol) {
+        tombol.addEventListener("click", function () {
+          st.target = st.target >= 1 ? 0 : 1;
+          perbaruiStatus();
+          animasi();
+        });
+      }
+      if (geserEl) {
+        geserEl.addEventListener("input", function () {
+          cancelAnimationFrame(st.raf);
+          st.prog = parseFloat(geserEl.value) / 100;
+          st.target = st.prog >= 0.995 ? 1 : 0;
+          gambar();
+          perbaruiStatus();
+        });
+      }
+      var seret = null;
+      kanvas.addEventListener("pointerdown", function (ev) {
+        seret = { x: ev.clientX, y: ev.clientY };
+        try { kanvas.setPointerCapture(ev.pointerId); } catch (e) {}
+      });
+      kanvas.addEventListener("pointermove", function (ev) {
+        if (!seret) { return; }
+        st.yaw += (ev.clientX - seret.x) * 0.01;
+        st.pitch += (ev.clientY - seret.y) * 0.01;
+        if (st.pitch > 1.2) { st.pitch = 1.2; }
+        if (st.pitch < -1.2) { st.pitch = -1.2; }
+        seret = { x: ev.clientX, y: ev.clientY };
+        gambar();
+      });
+      ["pointerup", "pointercancel", "pointerleave"].forEach(function (nama) {
+        kanvas.addEventListener(nama, function () { seret = null; });
+      });
+
+      gambar();
+      perbaruiStatus();
+    });
+  });
+}
