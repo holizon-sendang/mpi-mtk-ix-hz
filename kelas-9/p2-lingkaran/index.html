@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P.2 Lingkaran — MPI Matematika Kelas 9</title>
+<meta name="description" content="Modul interaktif P.2 Lingkaran, Matematika Kelas 9, 10 JP.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="kembali" href="../../index.html">← Kembali ke Hub Kelas 9</a>
+
+  <header class="modul">
+    <div class="pita">Matematika · Kelas 9 · Semester 1</div>
+    <div class="isi-header">
+      <span class="kode">P.2</span><span class="jp">10 JP</span>
+      <h1>Lingkaran</h1>
+      <p><b>Tujuan Pembelajaran:</b> Menjelaskan, menentukan keliling, luas, busur, sudut, dan luas juring lingkaran.</p>
+      <div class="baris-progres">
+        <div class="progres"><div id="bar-progres"></div></div>
+        <div class="progres-teks" id="teks-progres">Kemajuan belajar: 0 dari 8 sub-bab</div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="pil" id="pil-sub" aria-label="Navigasi sub-bab">
+    <a href="#sub1">1 · Pemantik</a>
+    <a href="#sub2">2 · Cek Prasyarat</a>
+    <a href="#sub3">3 · Eksplorasi + Konsep 1</a>
+    <a href="#sub4">4 · Konsep 2</a>
+    <a href="#sub5">5 · Cek + Miskonsepsi</a>
+    <a href="#sub6">6 · Aplikasi</a>
+    <a href="#sub7">7 · Proyek + Rangkuman</a>
+    <a href="#sub8">8 · Kuis &amp; Refleksi</a>
+  </nav>
+
+  <!-- ================= SUB-BAB 1 ================= -->
+  <section class="kartu" id="sub1">
+    <h2><span class="no">1</span>Pemantik: Roda Sepeda, Pizza, dan Jam Dinding</h2>
+    <p>Lingkaran ada di mana-mana. <b>Roda sepeda</b> berputar menempuh jarak — satu putaran penuh rodanya persis sepanjang kelilingnya. <b>Pizza</b> dipotong dari titik tengahnya menjadi potongan-potongan berbentuk juring. <b>Jam dinding</b> menunjukkan waktu lewat jarum yang berputar membentuk sudut di titik pusatnya.</p>
+    <p>Tiga benda itu mewakili tiga keluarga konsep di modul ini: <b>keliling dan luas</b> lingkaran, <b>panjang busur dan luas juring</b>, serta <b>sudut pusat dan sudut keliling</b>. Semuanya berawal dari satu bilangan istimewa bernama <b>π (pi)</b> yang akan kamu temukan sendiri lewat eksplorasi di Sub-bab 3.</p>
+    <h3>Polling dulu, yuk</h3>
+    <p>Benda melingkar apa yang paling sering kamu temui dalam keseharianmu?</p>
+    <div class="opsi-grup" id="polling">
+      <button class="opsi" data-poll="roda">Roda kendaraan (sepeda, motor, mobil)</button>
+      <button class="opsi" data-poll="makanan">Makanan bundar (pizza, kue, piring)</button>
+      <button class="opsi" data-poll="jam">Jam dinding atau jam tangan</button>
+    </div>
+    <div class="umpan info" id="polling-umpan"></div>
+    <h3>Tebak awal</h3>
+    <p>Roda sepeda mempunyai diameter 56 cm. Menurut tebakanmu, berapa keliling roda itu — alias jarak yang ditempuh roda dalam <b>satu putaran penuh</b>? Pilih jawabanmu — tersimpan, dan akan kita bahas tuntas di Sub-bab 3 dan 4.</p>
+    <div class="opsi-grup" id="tebakan">
+      <button class="opsi" data-tebak="0">A. 112 cm</button>
+      <button class="opsi" data-tebak="1">B. 176 cm</button>
+      <button class="opsi" data-tebak="2">C. 88 cm</button>
+      <button class="opsi" data-tebak="3">D. 352 cm</button>
+    </div>
+    <div class="umpan info" id="tebakan-umpan"></div>
+    <p class="remedial">Pertanyaan penuntun: keliling lingkaran dihitung dengan mengalikan π dengan diameternya. Diameter 56 cm adalah kelipatan 7, jadi π yang cocok adalah 22/7. Coba hitung 22/7 × 56.</p>
+  </section>
+
+  <!-- ================= SUB-BAB 2 ================= -->
+  <section class="kartu" id="sub2">
+    <h2><span class="no">2</span>Cek Prasyarat</h2>
+    <p>Empat soal singkat ini adalah fondasi yang kita butuhkan: memilih nilai π, pecahan dari sudut penuh 360°, kuadrat sederhana, dan perkalian desimal. Klik jawabanmu — umpan balik dan petunjuk perbaikannya langsung muncul.</p>
+    <div id="prasyarat-wadah"></div>
+    <div class="skor-baris" id="prasyarat-skor"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 3 ================= -->
+  <section class="kartu" id="sub3">
+    <h2><span class="no">3</span>Eksplorasi + Memahami Konsep 1: Unsur-unsur Lingkaran dan π</h2>
+    <p><b>Lingkaran</b> adalah kumpulan titik-titik yang berjarak sama dari satu titik tetap yang disebut <b>titik pusat</b>. Jarak tetap itu disebut <b>jari-jari</b>. Perhatikan diagram berikut dan kenali kedelapan unsurnya.</p>
+    <svg class="jaring-svg" viewBox="0 0 340 300" role="img" aria-label="Diagram unsur-unsur lingkaran: titik pusat O, jari-jari, diameter, tali busur, busur, apotema, juring, dan tembereng">
+      <path d="M170,150 L170,40 A110,110 0 0 1 280,150 Z" fill="#FEF3C7"/>
+      <path d="M81,215 A110,110 0 0 0 259,215 Z" fill="#DBEAFE"/>
+      <circle cx="170" cy="150" r="110" fill="none" stroke="#2563EB" stroke-width="2.5"/>
+      <path d="M170,40 A110,110 0 0 1 280,150" fill="none" stroke="#D97706" stroke-width="5"/>
+      <line x1="60" y1="150" x2="280" y2="150" stroke="#2563EB" stroke-width="2"/>
+      <line x1="81" y1="215" x2="259" y2="215" stroke="#2563EB" stroke-width="2"/>
+      <line x1="170" y1="150" x2="170" y2="215" stroke="#1E3A8A" stroke-width="2" stroke-dasharray="6 4"/>
+      <line x1="170" y1="150" x2="170" y2="40" stroke="#D97706" stroke-width="2.5"/>
+      <circle cx="170" cy="150" r="4.5" fill="#1E3A8A"/>
+      <text x="158" y="172" text-anchor="end" font-size="12" font-weight="700" fill="#1E3A8A">O · titik pusat</text>
+      <text x="160" y="95" text-anchor="end" font-size="12" font-weight="700" fill="#92400E">jari-jari (r)</text>
+      <text x="112" y="138" text-anchor="middle" font-size="12" font-weight="700" fill="#1E3A8A">diameter (d)</text>
+      <text x="230" y="112" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">juring</text>
+      <text x="272" y="46" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">busur</text>
+      <text x="179" y="196" font-size="11" font-weight="700" fill="#1E3A8A">apotema</text>
+      <text x="266" y="211" font-size="11" font-weight="700" fill="#1E3A8A">tali busur</text>
+      <text x="170" y="243" text-anchor="middle" font-size="11" font-weight="700" fill="#1E3A8A">tembereng</text>
+    </svg>
+    <ul>
+      <li><b>Titik pusat (O)</b>: titik tetap di tengah lingkaran.</li>
+      <li><b>Jari-jari (r)</b>: ruas garis dari titik pusat ke titik pada lingkaran.</li>
+      <li><b>Diameter (d)</b>: tali busur yang melewati titik pusat; panjangnya dua kali jari-jari, <span class="rumus">d = 2r</span>. Diameter adalah tali busur terpanjang.</li>
+      <li><b>Tali busur</b>: ruas garis yang menghubungkan dua titik pada lingkaran.</li>
+      <li><b>Busur</b>: bagian dari keliling lingkaran (garis lengkungnya).</li>
+      <li><b>Apotema</b>: ruas garis dari titik pusat yang tegak lurus terhadap sebuah tali busur.</li>
+      <li><b>Juring</b>: daerah yang dibatasi oleh dua jari-jari dan sebuah busur — bentuknya seperti potongan pizza.</li>
+      <li><b>Tembereng</b>: daerah yang dibatasi oleh sebuah tali busur dan busurnya.</li>
+    </ul>
+
+    <h3>Eksplorasi π: Dari Mana Datangnya 3,14?</h3>
+    <p>Ukur keliling (K) dan diameter (d) lima benda melingkar berikut — kelilingnya diukur dengan melingkarkan benang lalu mengukur panjang benang itu. Pilih bendanya dan perhatikan hasil bagi <b>K ÷ d</b>. Kamu juga bisa melihat ringkasannya pada tabel di bawah.</p>
+    <div class="lab" id="eksplorasi-pi">
+      <div class="opsi-grup" id="pi-benda">
+        <button class="opsi" data-benda="0">Koin</button>
+        <button class="opsi" data-benda="1">Tutup botol</button>
+        <button class="opsi" data-benda="2">Piring</button>
+        <button class="opsi" data-benda="3">Baskom</button>
+        <button class="opsi" data-benda="4">Roda sepeda</button>
+      </div>
+      <div class="lab-hasil" id="pi-hasil"></div>
+    </div>
+    <div class="bungkus-tabel">
+      <table>
+        <thead><tr><th>Benda</th><th>Diameter (d)</th><th>Keliling terukur (K)</th><th>K ÷ d</th></tr></thead>
+        <tbody>
+          <tr><td>Koin</td><td>2,5 cm</td><td>7,85 cm</td><td>3,14</td></tr>
+          <tr><td>Tutup botol</td><td>3 cm</td><td>9,4 cm</td><td>3,13</td></tr>
+          <tr><td>Piring</td><td>20 cm</td><td>62,8 cm</td><td>3,14</td></tr>
+          <tr><td>Baskom</td><td>30 cm</td><td>94,2 cm</td><td>3,14</td></tr>
+          <tr><td>Roda sepeda</td><td>56 cm</td><td>176 cm</td><td>3,14</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Apa pun bendanya, <b>K ÷ d selalu sekitar 3,14</b> — bilangan tetap ini disebut <b>π (pi)</b>. Nilai π yang kita pakai ada dua: <span class="rumus">π = 22/7</span> bila jari-jari atau diameternya <b>kelipatan 7</b> (hasilnya bersih), dan <span class="rumus">π = 3,14</span> bila bukan kelipatan 7. Dari K ÷ d = π inilah lahir rumus keliling: <span class="rumus">K = π × d</span>.</p>
+
+    <h3>Isian Cepat</h3>
+    <p>Hitung sendiri dulu, lalu periksa jawabanmu. Satuan tidak perlu ditulis.</p>
+    <div id="isian-unsur-wadah"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 4 ================= -->
+  <section class="kartu" id="sub4">
+    <h2><span class="no">4</span>Memahami Konsep 2: Keliling dan Luas Lingkaran</h2>
+    <p>Dua rumus pokok lingkaran adalah keliling dan luasnya. Karena d = 2r, rumus keliling bisa ditulis dengan diameter maupun jari-jari:</p>
+    <ul>
+      <li>Keliling: <span class="rumus">K = π × d = 2 × π × r</span> — satuan panjang (cm, m).</li>
+      <li>Luas: <span class="rumus">L = π × r²</span> — perhatikan: yang dikuadratkan adalah jari-jari; satuannya satuan persegi (cm², m²).</li>
+    </ul>
+    <p>Kunci ketepatan hitunganmu adalah <b>memilih π yang tepat</b>: pakai 22/7 bila r atau d kelipatan 7 (7, 14, 21, 28, 56, …), dan pakai 3,14 bila bukan (5, 10, 20, …).</p>
+
+    <h3>Contoh Terbimbing: Keliling Lingkaran Berdiameter 28 cm</h3>
+    <p>Sebuah lingkaran mempunyai diameter 28 cm. Kita hitung kelilingnya langkah demi langkah.</p>
+    <svg class="jaring-svg" viewBox="0 0 340 190" role="img" aria-label="Ilustrasi lingkaran berdiameter 28 cm dengan garis diameter melalui titik pusat, kelilingnya 88 cm">
+      <circle cx="130" cy="95" r="70" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.5"/>
+      <line x1="60" y1="95" x2="200" y2="95" stroke="#D97706" stroke-width="2.5"/>
+      <circle cx="130" cy="95" r="4" fill="#1E3A8A"/>
+      <text x="130" y="84" text-anchor="middle" font-size="12.5" font-weight="700" fill="#92400E">d = 28 cm</text>
+      <text x="262" y="90" text-anchor="middle" font-size="14" font-weight="700" fill="#1E3A8A">K = π × d</text>
+      <text x="262" y="112" text-anchor="middle" font-size="14" font-weight="700" fill="#92400E">= 88 cm</text>
+    </svg>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-keliling">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-keliling">
+      <div class="langkah"><p><b>Langkah 1:</b> Tentukan yang diketahui: d = 28 cm. Karena 28 adalah kelipatan 7, pilih <b>π = 22/7</b> agar hitungannya bersih.</p></div>
+      <div class="langkah"><p><b>Langkah 2:</b> Tulis rumusnya: K = π × d.</p></div>
+      <div class="langkah"><p><b>Langkah 3:</b> Hitung: K = 22/7 × 28 = 22 × 4 = <b>88</b>. (28 dibagi 7 dulu menjadi 4 — di situlah bersihnya.)</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Kesimpulan: keliling lingkaran itu <b>88 cm</b>. Satuannya cm (panjang), bukan cm². ✓</p></div>
+    </div>
+
+    <h3>Contoh Terbimbing: Luas Lingkaran Berjari-jari 10 cm</h3>
+    <p>Sebuah lingkaran mempunyai jari-jari 10 cm. Kita hitung luasnya langkah demi langkah.</p>
+    <svg class="jaring-svg" viewBox="0 0 340 190" role="img" aria-label="Ilustrasi lingkaran berjari-jari 10 cm dengan garis jari-jari dari titik pusat ke keliling, luasnya 314 cm persegi">
+      <circle cx="120" cy="95" r="70" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.5"/>
+      <line x1="120" y1="95" x2="190" y2="95" stroke="#D97706" stroke-width="2.5"/>
+      <circle cx="120" cy="95" r="4" fill="#1E3A8A"/>
+      <text x="120" y="116" font-size="11" font-weight="700" fill="#1E3A8A">O</text>
+      <text x="155" y="84" text-anchor="middle" font-size="12.5" font-weight="700" fill="#92400E">r = 10 cm</text>
+      <text x="262" y="90" text-anchor="middle" font-size="14" font-weight="700" fill="#1E3A8A">L = π × r²</text>
+      <text x="262" y="112" text-anchor="middle" font-size="14" font-weight="700" fill="#92400E">= 314 cm²</text>
+    </svg>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-luas">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-luas">
+      <div class="langkah"><p><b>Langkah 1:</b> Tentukan yang diketahui: r = 10 cm. Karena 10 bukan kelipatan 7, pilih <b>π = 3,14</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 2:</b> Kuadratkan dulu jari-jarinya: r² = 10² = <b>100</b>. Langkah ini yang paling sering terlupa!</p></div>
+      <div class="langkah"><p><b>Langkah 3:</b> Hitung: L = π × r² = 3,14 × 100 = <b>314</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Kesimpulan: luas lingkaran itu <b>314 cm²</b>. Satuannya cm² (persegi), karena yang dihitung adalah luas daerah. ✓</p></div>
+    </div>
+
+    <h3>Lab Lingkaran: Geser Jari-jarinya</h3>
+    <p>Geser jari-jari dan pilih nilai π, lalu amati keliling dan luasnya berubah secara langsung. Coba temukan sendiri: kapan hasil dengan 22/7 tampak lebih bersih?</p>
+    <div class="lab" id="lab-lingkaran">
+      <div class="lab-baris">
+        <label for="lab-r">Jari-jari (r)</label>
+        <input type="range" class="lab-geser" id="lab-r" min="1" max="30" step="1" value="7">
+        <output id="lab-r-nilai">7 cm</output>
+      </div>
+      <div class="pi-pilihan" role="group" aria-label="Pilih nilai pi">
+        <button class="opsi terpilih" id="pi-227" data-pi="227">π = 22/7</button>
+        <button class="opsi" id="pi-314" data-pi="314">π = 3,14</button>
+      </div>
+      <div class="lab-hasil" id="lab-lingkaran-hasil"></div>
+      <p class="remedial" id="lab-lingkaran-catatan"></p>
+    </div>
+
+    <h3>Isian Cepat</h3>
+    <p>Hitung sendiri dulu, lalu periksa jawabanmu. Satuan tidak perlu ditulis; untuk desimal, tulis dengan koma atau titik.</p>
+    <div id="isian-kl-wadah"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 5 ================= -->
+  <section class="kartu" id="sub5">
+    <h2><span class="no">5</span>Cek Pemahaman + Miskonsepsi</h2>
+    <p>Lima pernyataan untuk dinilai <b>Benar</b> atau <b>Salah</b> — setiap penilaian langsung disertai penjelasannya. Setelah itu, kita betulkan empat kesalahan yang paling sering terjadi saat bekerja dengan lingkaran.</p>
+    <div id="cek-wadah"></div>
+    <div class="skor-baris" id="cek-skor"></div>
+
+    <h3>Betulkan Jawaban yang Salah</h3>
+    <p>Setiap kartu berisi cara berpikir yang <b>keliru</b>. Pilih pembetulan yang benar.</p>
+    <div id="miskonsepsi-wadah"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 6 ================= -->
+  <section class="kartu" id="sub6">
+    <h2><span class="no">6</span>Aplikasi &amp; Pemecahan Masalah</h2>
+    <p>Busur dan juring adalah <b>pecahan dari lingkaran penuh</b>: besarnya ditentukan oleh perbandingan sudut pusatnya (θ) terhadap 360°.</p>
+    <ul>
+      <li>Panjang busur: <span class="rumus">busur = (θ/360°) × 2 × π × r</span> — pecahan dari keliling. Contoh: r = 21 cm, θ = 120° → (120/360) × 132 = <b>44 cm</b>.</li>
+      <li>Luas juring: <span class="rumus">juring = (θ/360°) × π × r²</span> — pecahan dari luas. Contoh: r = 7 cm, θ = 180° → (180/360) × 154 = <b>77 cm²</b>.</li>
+      <li><b>Sudut pusat = 2 × sudut keliling</b> yang menghadap busur yang sama. Sebaliknya, sudut keliling adalah setengah sudut pusatnya.</li>
+      <li>Sudut keliling yang menghadap <b>diameter</b> selalu <b>90°</b> (karena sudut pusatnya garis lurus 180°, dan setengahnya 90°).</li>
+    </ul>
+    <p>Tiga masalah berikut dikerjakan dengan langkah pemodelan. Pelajari tabel langkahnya, lalu jawab soal periksanya.</p>
+
+    <div class="soal">
+      <span class="tagik">Masalah 1 · Jarak Tempuh Roda</span>
+      <p class="tanya">Roda sepeda berdiameter 56 cm berputar sebanyak 100 kali. Berapa meter jarak yang ditempuh sepeda itu?</p>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan yang diketahui</td><td>d = 56 cm (kelipatan 7, jadi π = 22/7). Satu putaran roda menempuh jarak sebesar kelilingnya.</td></tr>
+            <tr><td>2. Susun rencana</td><td>Hitung keliling K = π × d, kalikan dengan banyak putaran (100), lalu ubah cm menjadi m (dibagi 100).</td></tr>
+            <tr><td>3. Selesaikan</td><td>K = 22/7 × 56 = 176 cm. Jarak = 100 × 176 = 17.600 cm = <b>176 m</b>.</td></tr>
+            <tr><td>4. Tafsirkan</td><td>Sepeda itu menempuh jarak <b>176 meter</b> setelah rodanya berputar 100 kali.</td></tr>
+            <tr><td>5. Periksa kembali</td><td>176 cm ≈ 1,76 m per putaran; 1,76 × 100 = 176 m ✓. Perhatikan: tebak awalmu di Sub-bab 1 tentang keliling roda ini adalah 176 cm — sekarang terbukti.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="aplikasi-wadah-1"></div>
+    </div>
+
+    <div class="soal">
+      <span class="tagik">Masalah 2 · Taman Berbentuk Juring</span>
+      <p class="tanya">Sebuah taman berbentuk juring lingkaran dengan jari-jari 14 m dan sudut pusat 90°. Berapa luas taman itu?</p>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan yang diketahui</td><td>r = 14 m (kelipatan 7, jadi π = 22/7) dan θ = 90°. Sudut 90° adalah ¼ dari sudut penuh 360°.</td></tr>
+            <tr><td>2. Susun rencana</td><td>Luas juring = (θ/360°) × π × r². Hitung dulu luas lingkaran penuhnya, lalu ambil pecahannya.</td></tr>
+            <tr><td>3. Selesaikan</td><td>Luas penuh = 22/7 × 14² = 22/7 × 196 = 616 m². Luas juring = 90/360 × 616 = ¼ × 616 = <b>154 m²</b>.</td></tr>
+            <tr><td>4. Tafsirkan</td><td>Luas taman itu <b>154 m²</b>.</td></tr>
+            <tr><td>5. Periksa kembali</td><td>Juring 90° adalah seperempat lingkaran, jadi hasilnya harus seperempat dari 616, yaitu 154 ✓. Hasil sebesar 616 m² berarti kamu menghitung lingkaran penuh — kesalahan yang paling sering terjadi.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="aplikasi-wadah-2"></div>
+    </div>
+
+    <div class="soal">
+      <span class="tagik">Masalah 3 · Sudut Keliling</span>
+      <p class="tanya">Titik A, B, dan C terletak pada sebuah lingkaran berpusat di O. Sudut pusat AOB besarnya 80° dan menghadap busur AB. Titik C berada pada keliling lingkaran dan juga menghadap busur AB. Berapa besar sudut keliling ACB?</p>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan yang diketahui</td><td>Sudut pusat ∠AOB = 80°. Sudut keliling ∠ACB menghadap busur yang sama (busur AB) dengan sudut pusat itu.</td></tr>
+            <tr><td>2. Susun rencana</td><td>Pakai hubungan sudut pusat dan sudut keliling: sudut keliling = ½ × sudut pusat bila menghadap busur yang sama.</td></tr>
+            <tr><td>3. Selesaikan</td><td>∠ACB = ½ × 80° = <b>40°</b>.</td></tr>
+            <tr><td>4. Tafsirkan</td><td>Besar sudut keliling ACB adalah <b>40°</b>.</td></tr>
+            <tr><td>5. Periksa kembali</td><td>Kasus khusus yang sejalan: bila busur AB adalah setengah lingkaran (AB diameter, sudut pusat 180°), sudut kelilingnya ½ × 180° = 90° ✓ — selalu siku-siku.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="aplikasi-wadah-3"></div>
+    </div>
+  </section>
+
+  <!-- ================= SUB-BAB 7 ================= -->
+  <section class="kartu" id="sub7">
+    <h2><span class="no">7</span>Proyek Mini + Rangkuman</h2>
+    <h3>Proyek “Lingkaran di Sekitarku”</h3>
+    <p>Pilih satu benda melingkar nyata di rumah atau sekolahmu — piring, tutup panci, koin, gelas, atau roda. Ukur diameternya dengan penggaris (atau lingkarkan benang untuk mendapatkan kelilingnya), lalu hitung keliling dan luasnya. Centang langkah yang sudah kamu kerjakan dan isi hasilnya — semuanya tersimpan di perangkatmu.</p>
+    <ul class="ceklist" id="proyek-ceklist">
+      <li><label data-cek="0"><input type="checkbox" id="proyek-cek-0"><span>Menemukan benda berbentuk lingkaran dan memastikan bagian yang diukur benar-benar melingkar.</span></label></li>
+      <li><label data-cek="1"><input type="checkbox" id="proyek-cek-1"><span>Mengukur diameter benda dengan penggaris (melewati titik tengahnya), atau mengukur kelilingnya dengan benang.</span></label></li>
+      <li><label data-cek="2"><input type="checkbox" id="proyek-cek-2"><span>Menentukan jari-jari (r = d ÷ 2) dan memilih π yang tepat: 22/7 bila kelipatan 7, 3,14 bila bukan.</span></label></li>
+      <li><label data-cek="3"><input type="checkbox" id="proyek-cek-3"><span>Menghitung keliling (K = π × d) dan luas (L = π × r²) benda itu.</span></label></li>
+      <li><label data-cek="4"><input type="checkbox" id="proyek-cek-4"><span>Membandingkan hasil hitungan keliling dengan hasil pengukuran langsung dan mencatat selisihnya.</span></label></li>
+    </ul>
+    <form class="form-proyek" id="form-proyek">
+      <div><label for="proyek-benda">Benda yang diukur</label>
+        <select id="proyek-benda">
+          <option value="piring">Piring</option>
+          <option value="tutup panci">Tutup panci</option>
+          <option value="koin">Koin</option>
+          <option value="gelas/cangkir">Gelas / cangkir</option>
+          <option value="roda sepeda">Roda sepeda</option>
+          <option value="benda lain">Benda melingkar lain</option>
+        </select>
+      </div>
+      <div><label for="proyek-ukuran">Hasil pengukuranmu (mis. diameter 21 cm, jari-jari 10,5 cm, π = 22/7)</label><input type="text" id="proyek-ukuran" placeholder="tulis hasil pengukuranmu"></div>
+      <div><label for="proyek-keliling">Keliling hasil hitungan dan hasil pengukuran langsung — berapa selisihnya?</label><textarea id="proyek-keliling" rows="3" placeholder="mis. K hitungan = 22/7 × 21 = 66 cm; K benang = 65,5 cm; selisih 0,5 cm…"></textarea></div>
+      <div><label for="proyek-luas">Luas hasil hitungan dan cara menghitungnya</label><textarea id="proyek-luas" rows="3" placeholder="mis. L = 22/7 × 10,5² = 346,5 cm²…"></textarea></div>
+      <p><button type="button" class="btn btn-amber" id="simpan-proyek">Simpan Proyek</button> <span class="tersimpan" id="proyek-tersimpan">Tersimpan ✓</span></p>
+    </form>
+
+    <h3>Rangkuman</h3>
+    <ul>
+      <li>Unsur lingkaran: titik pusat, jari-jari (r), diameter (d = 2r, tali busur terpanjang), tali busur, busur, apotema, juring, dan tembereng.</li>
+      <li>π ≈ 3,14 atau 22/7 adalah perbandingan keliling terhadap diameter yang selalu tetap. Pakai 22/7 bila r atau d kelipatan 7, dan 3,14 bila bukan.</li>
+      <li>Keliling lingkaran: K = π × d = 2 × π × r, dengan satuan panjang (cm, m).</li>
+      <li>Luas lingkaran: L = π × r² — jari-jari wajib dikuadratkan terlebih dahulu; satuannya satuan persegi (cm², m²).</li>
+      <li>Panjang busur = (θ/360°) × 2πr dan luas juring = (θ/360°) × πr²: keduanya adalah pecahan dari lingkaran penuh sesuai sudut pusatnya.</li>
+      <li>Sudut pusat besarnya 2 × sudut keliling yang menghadap busur yang sama; sudut keliling yang menghadap diameter selalu 90°.</li>
+    </ul>
+  </section>
+
+  <!-- ================= SUB-BAB 8 ================= -->
+  <section class="kartu" id="sub8">
+    <h2><span class="no">8</span>Kuis &amp; Refleksi</h2>
+    <p>Kuis inti berisi 10 soal seputar unsur, keliling, luas, busur, juring, dan sudut lingkaran. Pilih jawabanmu; penjelasan dan skormu langsung tampil. Skor terbaikmu tersimpan di perangkat ini.</p>
+    <div id="kuis-wadah"></div>
+    <p style="margin-top:14px;"><button class="btn btn-amber" id="selesai-kuis">Selesai &amp; Lihat Skor Kuis</button></p>
+    <div class="umpan" id="kuis-hasil"></div>
+  </section>
+
+  <section class="kartu tantangan" id="sub8-tantangan">
+    <h2>★ Soal Tantangan — Terpisah dari Kuis Inti</h2>
+    <p>Lima soal pendalaman untukmu yang ingin lebih: luas lingkaran besar, busur dengan sudut 120°, juring seperempat lingkaran, sudut keliling pada diameter, dan keliling setengah lingkaran. Blok ini punya <b>skornya sendiri</b> dan <b>tidak</b> mencampur skor kuis inti di atas.</p>
+    <div id="tantangan-wadah"></div>
+    <p style="margin-top:14px;"><button class="btn btn-biru" id="selesai-tantangan">Selesai &amp; Lihat Skor Tantangan</button></p>
+    <div class="umpan" id="tantangan-hasil"></div>
+
+    <h3>Refleksi</h3>
+    <p>Tiga pertanyaan untuk menutup modul ini. Jawabanmu tersimpan di perangkat ini.</p>
+    <div class="refleksi">
+      <div><label for="refleksi-1">1. Benda melingkar apa di sekitarmu yang sekarang bisa kamu hitung keliling dan luasnya? Ceritakan caramu memilih π (22/7 atau 3,14) untuk benda itu.</label><textarea id="refleksi-1" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <div><label for="refleksi-2">2. Kesulitan apa yang masih kamu rasakan saat bekerja dengan lingkaran — misalnya tertukar jari-jari dan diameter, lupa menguadratkan r, atau salah memilih π?</label><textarea id="refleksi-2" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <div><label for="refleksi-3">3. Pada proyek Lingkaran di Sekitarku, benda apa yang kamu ukur dan seberapa dekat hasil hitunganmu dengan hasil pengukuran langsung? Menurutmu apa penyebab selisihnya?</label><textarea id="refleksi-3" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <p><button type="button" class="btn btn-amber" id="simpan-refleksi">Simpan Refleksi</button> <span class="tersimpan" id="refleksi-tersimpan">Tersimpan ✓</span></p>
+    </div>
+  </section>
+
+  <footer class="situs">Modul P.2 Lingkaran · MPI Matematika Kelas 9 · ATP Matematika Fase D MGMP Matematika SMP Kabupaten Lampung Tengah, TP 2026/2027</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

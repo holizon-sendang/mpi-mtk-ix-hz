@@ -1,6 +1,6 @@
 /* MPI Matematika Kelas 9 — logika hub
-   Pencarian/filter kartu modul + ringkasan progres modul aktif (A.7, G.5, dan P.1) dari localStorage.
-   Kunci modul berawalan "mpi-mtk9-a7-" untuk A.7, "mpi-mtk9-g5-" untuk G.5, dan "mpi-mtk9-p1-" untuk P.1. */
+   Pencarian/filter kartu modul + ringkasan progres modul aktif (A.7, G.5, P.1, dan P.2) dari localStorage.
+   Kunci modul berawalan "mpi-mtk9-a7-" untuk A.7, "mpi-mtk9-g5-" untuk G.5, "mpi-mtk9-p1-" untuk P.1, dan "mpi-mtk9-p2-" untuk P.2. */
 (function () {
   "use strict";
 
@@ -38,7 +38,7 @@
   if (inputCari) { inputCari.addEventListener("input", terapkanFilter); }
   if (pilihSemester) { pilihSemester.addEventListener("change", terapkanFilter); }
 
-  /* ---------- Ringkasan progres modul aktif (A.7, G.5 & P.1) ---------- */
+  /* ---------- Ringkasan progres modul aktif (A.7, G.5, P.1 & P.2) ---------- */
   function bacaJSON(kunci, bawaan) {
     try {
       var mentah = localStorage.getItem(kunci);
@@ -50,7 +50,8 @@
   var MODUL_AKTIF = [
     { kode: "A.7", prefix: "mpi-mtk9-a7-", bar: "progres-a7-bar", teks: "progres-a7-teks" },
     { kode: "G.5", prefix: "mpi-mtk9-g5-", bar: "progres-g5-bar", teks: "progres-g5-teks" },
-    { kode: "P.1", prefix: "mpi-mtk9-p1-", bar: "progres-p1-bar", teks: "progres-p1-teks" }
+    { kode: "P.1", prefix: "mpi-mtk9-p1-", bar: "progres-p1-bar", teks: "progres-p1-teks" },
+    { kode: "P.2", prefix: "mpi-mtk9-p2-", bar: "progres-p2-bar", teks: "progres-p2-teks" }
   ];
 
   var bagian = [];
