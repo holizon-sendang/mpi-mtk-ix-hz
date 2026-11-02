@@ -154,3 +154,13 @@ section.kartu.tantangan h2{color:var(--amber-gelap);}
 .ceklist label{display:flex; gap:10px; align-items:flex-start; background:var(--latar); border:1px solid var(--garis); border-radius:10px; padding:10px 12px; cursor:pointer;}
 .ceklist input[type="checkbox"]{width:20px; height:20px; margin-top:2px; accent-color:var(--amber); flex:0 0 auto;}
 .ceklist label.tercentang{background:var(--hijau-lembut); border-color:var(--hijau);}
+
+/* Ilustrasi pada butir soal (opsional, lewat data svg) */
+.gambar-soal svg{display:block; margin:4px auto 8px; max-width:100%; height:auto;}
+
+/* ===== Percobaan tuang pasir 3D (Sub-bab 4) ===== */
+.tuang-kanvas{display:block; width:94%; margin-inline:auto; height:auto; touch-action:none; cursor:grab; border-radius:8px; background:linear-gradient(180deg,#F8FAFF,#EFF6FF);}
+.tuang-kanvas:active{cursor:grabbing;}
+.tuang-status{font-size:.95rem; margin-top:8px; min-height:1.3em;}
+.btn-sekunder{background:#fff; color:var(--biru-gelap); border:2px solid var(--biru);}
+.btn[disabled]{opacity:.55; cursor:default;}
