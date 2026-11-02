@@ -140,7 +140,7 @@ section.kartu.tantangan h2{color:var(--amber-gelap);}
 
 /* ===== Simulasi lipatan 3D bangun lain (Sub-bab 4) ===== */
 .sim3d-judul{font-size:.95rem; margin-bottom:6px;}
-.sim3d-kanvas-b{display:block; width:100%; height:auto; touch-action:none; cursor:grab; border-radius:8px; background:linear-gradient(180deg,#F8FAFF, #EFF6FF);}
+.sim3d-kanvas-b{display:block; width:88%; margin-inline:auto; height:auto; touch-action:none; cursor:grab; border-radius:8px; background:linear-gradient(180deg,#F8FAFF, #EFF6FF);}
 .sim3d-kanvas-b:active{cursor:grabbing;}
 .sim3d-status-b{font-size:.9rem; margin-top:6px; min-height:1.25em;}
 .sim3d-geser-b{flex:1; accent-color:var(--amber); min-height:28px;}
