@@ -89,6 +89,7 @@ tr:nth-child(even) td{background:#F8FAFF;}
 
 /* ===== Gambar diagram (SVG) ===== */
 .jaring-svg{display:block; margin:8px auto; max-width:100%; height:auto;}
+.jaring-svg.unsur-75{width:75%;}
 .btn-baris{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;}
 
 /* ===== Kartu kasus grafik & tantangan ===== */
