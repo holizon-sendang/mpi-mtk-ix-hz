@@ -157,6 +157,7 @@ section.kartu.tantangan h2{color:var(--amber-gelap);}
 
 /* Ilustrasi pada butir soal (opsional, lewat data svg) */
 .gambar-soal svg{display:block; margin:4px auto 8px; max-width:100%; height:auto;}
+.gambar-soal svg.gambar-setengah{width:50%;}
 
 /* ===== Percobaan tuang pasir 3D (Sub-bab 4) ===== */
 .tuang-kanvas{display:block; width:94%; margin-inline:auto; height:auto; touch-action:none; cursor:grab; border-radius:8px; background:linear-gradient(180deg,#F8FAFF,#EFF6FF);}
