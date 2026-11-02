@@ -13,7 +13,7 @@ Media Pembelajaran Interaktif (MPI) Matematika SMP **khusus Kelas 9**, Kurikulum
 |---|---|---|---|---|
 | A.7 | Sistem Persamaan Linear Dua Variabel (SPLDV) | 18 | 1 | ✅ **Aktif — prototipe** |
 | G.5 | Jaring-jaring Bangun Ruang | 6 | 1 | ✅ **Aktif** |
-| P.1 | Luas Permukaan & Volume Bangun Ruang Sisi Datar | 12 | 1 | Segera |
+| P.1 | Luas Permukaan & Volume Bangun Ruang Sisi Datar | 12 | 1 | ✅ **Aktif** |
 | P.2 | Lingkaran | 10 | 1 | Segera |
 | P.3 | Bangun Ruang Sisi Lengkung | 18 | 2 | Segera |
 | G.6 | Transformasi Geometri | 18 | 2 | Segera |
@@ -38,14 +38,18 @@ mpi-mtk-ix-hz/
 ├── index.html                  # Hub Kelas 9 (8 kartu modul + pencarian/filter)
 ├── assets/
 │   ├── css/main.css            # Gaya bersama
-│   └── js/main.js              # Logika hub (pencarian, ringkasan progres A.7 & G.5)
+│   └── js/main.js              # Logika hub (pencarian, ringkasan progres A.7, G.5 & P.1)
 └── kelas-9/
     ├── a7-spldv/
     │   ├── index.html          # Modul A.7 SPLDV (8 sub-bab)
     │   ├── style.css           # Gaya khusus modul
     │   └── script.js           # Data soal + logika interaktif modul
-    └── g5-jaring-jaring/
-        ├── index.html          # Modul G.5 Jaring-Jaring Bangun Ruang (8 sub-bab)
+    ├── g5-jaring-jaring/
+    │   ├── index.html          # Modul G.5 Jaring-Jaring Bangun Ruang (8 sub-bab)
+    │   ├── style.css           # Gaya khusus modul
+    │   └── script.js           # Data soal + logika interaktif modul
+    └── p1-luas-volume/
+        ├── index.html          # Modul P.1 Luas Permukaan & Volume Bangun Ruang Sisi Datar (8 sub-bab)
         ├── style.css           # Gaya khusus modul
         └── script.js           # Data soal + logika interaktif modul
 ```
@@ -97,3 +101,21 @@ Modul G.5 memakai pola yang sama dengan awalan `mpi-mtk9-g5-*`:
 | `mpi-mtk9-g5-quiz-best` | Skor terbaik kuis inti (dari 10) |
 | `mpi-mtk9-g5-tantangan-best` | Skor terbaik Soal Tantangan (dari 5) |
 | `mpi-mtk9-g5-refleksi` | Teks refleksi akhir modul |
+
+Modul P.1 memakai pola yang sama dengan awalan `mpi-mtk9-p1-*`:
+
+| Kunci | Isi |
+|---|---|
+| `mpi-mtk9-p1-visited` | Daftar sub-bab yang sudah dikunjungi (progres) |
+| `mpi-mtk9-p1-poll` | Pilihan polling Pemantik |
+| `mpi-mtk9-p1-guess` | Tebakan awal luas karton kotak kubus tanpa tutup |
+| `mpi-mtk9-p1-prasyarat` | Jawaban Cek Prasyarat |
+| `mpi-mtk9-p1-isian-lp` | Jawaban Isian Cepat luas permukaan (Sub-bab 3) |
+| `mpi-mtk9-p1-isian-v` | Jawaban Isian Cepat volume (Sub-bab 4) |
+| `mpi-mtk9-p1-cek` | Jawaban Cek Pemahaman (nilai Benar/Salah) |
+| `mpi-mtk9-p1-miskonsepsi` | Jawaban pembetulan miskonsepsi |
+| `mpi-mtk9-p1-aplikasi-1/2/3` | Jawaban cek mandiri soal Aplikasi |
+| `mpi-mtk9-p1-proyek` | Checklist + formulir proyek Kemasan Cerdas |
+| `mpi-mtk9-p1-quiz-best` | Skor terbaik kuis inti (dari 10) |
+| `mpi-mtk9-p1-tantangan-best` | Skor terbaik Soal Tantangan (dari 5) |
+| `mpi-mtk9-p1-refleksi` | Teks refleksi akhir modul |

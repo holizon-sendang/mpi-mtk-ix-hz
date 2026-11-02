@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P.1 Luas Permukaan dan Volume Bangun Ruang Sisi Datar — MPI Matematika Kelas 9</title>
+<meta name="description" content="Modul interaktif P.1 Luas Permukaan dan Volume Bangun Ruang Sisi Datar, Matematika Kelas 9, 12 JP.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="kembali" href="../../index.html">← Kembali ke Hub Kelas 9</a>
+
+  <header class="modul">
+    <div class="pita">Matematika · Kelas 9 · Semester 1</div>
+    <div class="isi-header">
+      <span class="kode">P.1</span><span class="jp">12 JP</span>
+      <h1>Luas Permukaan dan Volume Bangun Ruang Sisi Datar</h1>
+      <p><b>Tujuan Pembelajaran:</b> Menentukan luas permukaan dan volume bangun ruang sisi datar (kubus, balok, prisma, dan limas) dan menyelesaikan masalah yang terkait.</p>
+      <div class="baris-progres">
+        <div class="progres"><div id="bar-progres"></div></div>
+        <div class="progres-teks" id="teks-progres">Kemajuan belajar: 0 dari 8 sub-bab</div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="pil" id="pil-sub" aria-label="Navigasi sub-bab">
+    <a href="#sub1">1 · Pemantik</a>
+    <a href="#sub2">2 · Cek Prasyarat</a>
+    <a href="#sub3">3 · Eksplorasi + Konsep 1</a>
+    <a href="#sub4">4 · Konsep 2</a>
+    <a href="#sub5">5 · Cek + Miskonsepsi</a>
+    <a href="#sub6">6 · Aplikasi</a>
+    <a href="#sub7">7 · Proyek + Rangkuman</a>
+    <a href="#sub8">8 · Kuis &amp; Refleksi</a>
+  </nav>
+
+  <!-- ================= SUB-BAB 1 ================= -->
+  <section class="kartu" id="sub1">
+    <h2><span class="no">1</span>Pemantik: Kotak Kue dan Akuarium Mini</h2>
+    <p>Toko kue “Manis” menerima pesanan kotak kemasan dan akuarium mini. Dua pertanyaan besar muncul berulang kali di toko itu. Pertama: <b>berapa bahan yang dibutuhkan untuk membungkus atau membuat</b> kotaknya — karton untuk kotak kue, kaca untuk akuarium. Kedua: <b>berapa banyak isi yang muat</b> di dalamnya — berapa kue yang bisa ditampung, berapa liter air untuk akuariumnya.</p>
+    <p>Dua pertanyaan itu adalah dua konsep inti modul ini: pertanyaan tentang bahan dijawab dengan <b>luas permukaan</b>, dan pertanyaan tentang isi dijawab dengan <b>volume</b>. Keduanya sering tertukar — di modul ini kamu akan belajar membedakannya sekaligus menghitungnya dengan tepat.</p>
+    <h3>Polling dulu, yuk</h3>
+    <p>Kalau kamu membuat kotak dari karton, apa yang lebih dulu kamu pikirkan?</p>
+    <div class="opsi-grup" id="polling">
+      <button class="opsi" data-poll="luas">Luas karton yang dibutuhkan</button>
+      <button class="opsi" data-poll="isi">Isi yang muat di dalamnya</button>
+      <button class="opsi" data-poll="keduanya">Keduanya sama penting</button>
+    </div>
+    <div class="umpan info" id="polling-umpan"></div>
+    <h3>Tebak awal</h3>
+    <p>Sebuah kotak kubus <b>tanpa tutup</b> dengan rusuk 10 cm dibuat dari karton. Menurut tebakanmu, berapa luas karton minimum yang dibutuhkan? Pilih jawabanmu — tersimpan, dan akan kita bahas tuntas di Sub-bab 3 dan 5.</p>
+    <div class="opsi-grup" id="tebakan">
+      <button class="opsi" data-tebak="0">A. 400 cm²</button>
+      <button class="opsi" data-tebak="1">B. 500 cm²</button>
+      <button class="opsi" data-tebak="2">C. 600 cm²</button>
+      <button class="opsi" data-tebak="3">D. 1.000 cm²</button>
+    </div>
+    <div class="umpan info" id="tebakan-umpan"></div>
+    <p class="remedial">Pertanyaan penuntun: kotak tanpa tutup mempunyai berapa sisi? Setiap sisinya persegi 10 cm × 10 cm. Berapa luas satu sisinya, lalu kalikan dengan banyak sisinya.</p>
+  </section>
+
+  <!-- ================= SUB-BAB 2 ================= -->
+  <section class="kartu" id="sub2">
+    <h2><span class="no">2</span>Cek Prasyarat</h2>
+    <p>Empat soal singkat ini adalah fondasi yang kita butuhkan: luas persegi panjang, luas segitiga, luas persegi (bekal dari modul G.5), dan satuan volume. Klik jawabanmu — umpan balik dan petunjuk perbaikannya langsung muncul.</p>
+    <div id="prasyarat-wadah"></div>
+    <div class="skor-baris" id="prasyarat-skor"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 3 ================= -->
+  <section class="kartu" id="sub3">
+    <h2><span class="no">3</span>Eksplorasi + Memahami Konsep 1: Luas Permukaan</h2>
+    <p>Di modul G.5 kamu sudah membuka bangun ruang menjadi jaring-jaring. Nah, <b>luas permukaan adalah jumlah luas semua sisi bangun ruang — persis sama dengan luas jaring-jaringnya</b>. Jadi menghitung luas permukaan berarti menjumlahkan luas setiap bangun datar pada jaring-jaring itu.</p>
+    <h3>Rumus Luas Permukaan</h3>
+    <ul>
+      <li>Kubus: <span class="rumus">LP = 6s²</span> — enam persegi yang sama besar.</li>
+      <li>Balok: <span class="rumus">LP = 2(pl + pt + lt)</span> — tiga pasang sisi berhadapan yang kongruen.</li>
+      <li>Prisma: <span class="rumus">LP = 2 × L<sub>alas</sub> + K<sub>alas</sub> × t</span> — dua alas kongruen ditambah selimut dari persegi panjang-persegi panjang.</li>
+      <li>Limas: <span class="rumus">LP = L<sub>alas</sub> + jumlah luas sisi tegak</span> — alas ditambah luas seluruh segitiga tegaknya.</li>
+    </ul>
+
+    <h3>Contoh Terbimbing: Luas Permukaan Balok 8 × 5 × 3</h3>
+    <p>Sebuah balok mempunyai panjang 8 cm, lebar 5 cm, dan tinggi 3 cm. Kita hitung luas permukaannya langkah demi langkah.</p>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-lp-balok">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-lp-balok">
+      <div class="langkah"><p><b>Langkah 1:</b> Balok mempunyai 3 pasang sisi berhadapan. Hitung luas satu sisi dari setiap pasangan: p × l = 8 × 5 = <b>40 cm²</b>, p × t = 8 × 3 = <b>24 cm²</b>, dan l × t = 5 × 3 = <b>15 cm²</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 2:</b> Jumlahkan luas ketiga wakil pasangan itu: 40 + 24 + 15 = <b>79 cm²</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 3:</b> Karena setiap luas mewakili sepasang sisi, kalikan dua: LP = 2 × 79 = <b>158 cm²</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Kesimpulan: luas permukaan balok itu <b>158 cm²</b>. Perhatikan satuannya cm² — luas selalu memakai satuan persegi. ✓</p></div>
+    </div>
+
+    <h3>Lab Luas: Geser Ukuran Baloknya</h3>
+    <p>Geser panjang, lebar, dan tinggi balok, lalu amati bagaimana luas setiap pasangan sisi dan luas permukaan totalnya berubah secara langsung.</p>
+    <div class="lab" id="lab-luas">
+      <div class="lab-baris">
+        <label for="lab-p">Panjang (p)</label>
+        <input type="range" class="lab-geser" id="lab-p" min="2" max="12" step="1" value="8">
+        <output id="lab-p-nilai">8 cm</output>
+      </div>
+      <div class="lab-baris">
+        <label for="lab-l">Lebar (l)</label>
+        <input type="range" class="lab-geser" id="lab-l" min="2" max="10" step="1" value="5">
+        <output id="lab-l-nilai">5 cm</output>
+      </div>
+      <div class="lab-baris">
+        <label for="lab-t">Tinggi (t)</label>
+        <input type="range" class="lab-geser" id="lab-t" min="2" max="10" step="1" value="3">
+        <output id="lab-t-nilai">3 cm</output>
+      </div>
+      <div class="lab-hasil" id="lab-luas-hasil"></div>
+    </div>
+
+    <h3>Isian Cepat</h3>
+    <p>Hitung sendiri dulu, lalu periksa jawabanmu. Satuan tidak perlu ditulis.</p>
+    <div id="isian-lp-wadah"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 4 ================= -->
+  <section class="kartu" id="sub4">
+    <h2><span class="no">4</span>Memahami Konsep 2: Volume</h2>
+    <p><b>Volume adalah banyaknya kubus satuan yang muat di dalam bangun ruang</b> — ia mengukur isi, bukan kulitnya. Untuk balok, kubus-kubus satuan tersusun dalam lapisan: setiap lapisan berisi p × l kubus, dan ada t lapisan. Itulah asal rumus balok: <span class="rumus">V = p × l × t = L<sub>alas</sub> × t</span>.</p>
+    <p>Prinsip “luas alas kali tinggi” ini berlaku untuk semua bangun lurus (prisma): bayangkan alasnya ditumpuk setinggi t. Limas berbeda: percobaan menuang pasir membuktikan bahwa isi limas harus dituang <b>3 kali</b> untuk memenuhi prisma yang alas dan tingginya sama — jadi volume limas adalah <b>⅓</b> dari bangun lurus pasangannya.</p>
+    <h3>Rumus Volume</h3>
+    <ul>
+      <li>Kubus: <span class="rumus">V = s³</span></li>
+      <li>Balok: <span class="rumus">V = p × l × t</span></li>
+      <li>Prisma: <span class="rumus">V = L<sub>alas</sub> × t</span></li>
+      <li>Limas: <span class="rumus">V = ⅓ × L<sub>alas</sub> × t</span></li>
+    </ul>
+
+    <h3>Contoh Terbimbing: Volume Limas</h3>
+    <p>Sebuah limas mempunyai luas alas 36 cm² dan tinggi 9 cm. Kita hitung volumenya langkah demi langkah.</p>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-v-limas">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-v-limas">
+      <div class="langkah"><p><b>Langkah 1:</b> Tulis rumusnya: V limas = ⅓ × L<sub>alas</sub> × t. Berbeda dengan prisma, limas selalu memakai faktor ⅓.</p></div>
+      <div class="langkah"><p><b>Langkah 2:</b> Hitung dulu ⅓ dari luas alasnya: ⅓ × 36 = <b>12 cm²</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 3:</b> Kalikan dengan tingginya: 12 × 9 = <b>108</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Kesimpulan: volume limas itu <b>108 cm³</b> — satuannya cm³ (kubik), karena volume mengukur isi. Sebagai pembanding, prisma beralas dan bertinggi sama volumenya 36 × 9 = 324 cm³, tepat 3 kali lipatnya. ✓</p></div>
+    </div>
+
+    <h3>Pembanding Prisma–Limas</h3>
+    <p>Geser luas alas dan tingginya, lalu bandingkan volume prisma dan volume limas yang alas dan tingginya sama.</p>
+    <div class="lab" id="pembanding">
+      <div class="lab-baris">
+        <label for="banding-alas">Luas alas</label>
+        <input type="range" class="lab-geser" id="banding-alas" min="6" max="40" step="1" value="36">
+        <output id="banding-alas-nilai">36 cm²</output>
+      </div>
+      <div class="lab-baris">
+        <label for="banding-t">Tinggi (t)</label>
+        <input type="range" class="lab-geser" id="banding-t" min="3" max="12" step="1" value="9">
+        <output id="banding-t-nilai">9 cm</output>
+      </div>
+      <div class="lab-duo">
+        <div class="kotak biru"><h3>Volume Prisma</h3><p id="banding-prisma"></p></div>
+        <div class="kotak amber"><h3>Volume Limas</h3><p id="banding-limas"></p></div>
+      </div>
+      <div class="lab-hasil" id="banding-hasil"></div>
+    </div>
+
+    <h3>Isian Cepat</h3>
+    <p>Hitung sendiri dulu, lalu periksa jawabanmu. Satuan tidak perlu ditulis.</p>
+    <div id="isian-v-wadah"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 5 ================= -->
+  <section class="kartu" id="sub5">
+    <h2><span class="no">5</span>Cek Pemahaman + Miskonsepsi</h2>
+    <p>Lima pernyataan untuk dinilai <b>Benar</b> atau <b>Salah</b> — setiap penilaian langsung disertai penjelasannya. Setelah itu, kita betulkan tiga kesalahan yang paling sering terjadi saat bekerja dengan luas permukaan dan volume.</p>
+    <div id="cek-wadah"></div>
+    <div class="skor-baris" id="cek-skor"></div>
+
+    <h3>Betulkan Jawaban yang Salah</h3>
+    <p>Setiap kartu berisi cara berpikir yang <b>keliru</b>. Pilih pembetulan yang benar.</p>
+    <div id="miskonsepsi-wadah"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 6 ================= -->
+  <section class="kartu" id="sub6">
+    <h2><span class="no">6</span>Aplikasi &amp; Pemecahan Masalah</h2>
+    <p>Tiga masalah yang dikerjakan dengan langkah pemodelan. Setiap masalah dilengkapi tabel langkahnya — pelajari, lalu jawab soal periksanya.</p>
+
+    <div class="soal">
+      <span class="tagik">Masalah 1 · Akuarium Tanpa Tutup</span>
+      <p class="tanya">Sebuah akuarium tanpa tutup berukuran 60 cm × 40 cm × 50 cm (p = 60, l = 40, t = 50) dibuat dari kaca. Berapa luas kaca yang dibutuhkan?</p>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan yang diketahui</td><td>Akuarium tanpa tutup: hanya ada alas dan 4 dinding — total 5 sisi. Alas 60 × 40; dinding depan-belakang 60 × 50; dinding kiri-kanan 40 × 50.</td></tr>
+            <tr><td>2. Susun rencana</td><td>Luas kaca = luas alas + 2 × luas dinding depan-belakang + 2 × luas dinding kiri-kanan. Tutup tidak dihitung karena akuariumnya terbuka.</td></tr>
+            <tr><td>3. Selesaikan</td><td>Alas = 60 × 40 = 2.400 cm². Dinding depan-belakang = 2 × (60 × 50) = 2 × 3.000 = 6.000 cm². Dinding kiri-kanan = 2 × (40 × 50) = 2 × 2.000 = 4.000 cm². Total = 2.400 + 6.000 + 4.000 = <b>12.400 cm²</b>.</td></tr>
+            <tr><td>4. Tafsirkan</td><td>Luas kaca yang dibutuhkan adalah <b>12.400 cm²</b>.</td></tr>
+            <tr><td>5. Periksa kembali</td><td>Kalau tutup ikut dihitung (rumus balok utuh), hasilnya 2 × (2.400 + 3.000 + 2.000) = 14.800 cm² — lebih besar, dan itu keliru karena tutupnya tidak dibuat. ✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="aplikasi-wadah-1"></div>
+    </div>
+
+    <div class="soal">
+      <span class="tagik">Masalah 2 · Bak Air</span>
+      <p class="tanya">Sebuah bak air berbentuk balok berukuran 80 cm × 60 cm × 50 cm. Berapa liter air yang muat jika bak itu diisi penuh?</p>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan yang diketahui</td><td>Pertanyaan tentang banyak air yang muat adalah pertanyaan volume: p = 80 cm, l = 60 cm, t = 50 cm.</td></tr>
+            <tr><td>2. Susun rencana</td><td>Hitung V = p × l × t dalam cm³, lalu ubah ke liter dengan 1 liter = 1.000 cm³.</td></tr>
+            <tr><td>3. Selesaikan</td><td>V = 80 × 60 × 50 = 240.000 cm³. Ubah satuan: 240.000 ÷ 1.000 = <b>240 liter</b>.</td></tr>
+            <tr><td>4. Tafsirkan</td><td>Bak itu memuat <b>240 liter</b> air jika diisi penuh.</td></tr>
+            <tr><td>5. Periksa kembali</td><td>80 × 60 = 4.800, lalu 4.800 × 50 = 240.000 ✓; dan 240 liter × 1.000 = 240.000 cm³ ✓.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="aplikasi-wadah-2"></div>
+    </div>
+
+    <div class="soal">
+      <span class="tagik">Masalah 3 · Tenda Limas</span>
+      <p class="tanya">Sebuah tenda berbentuk limas segiempat mempunyai alas persegi 4 m × 4 m dan tinggi 3 m. Berapa volume udara di dalam tenda itu?</p>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan yang diketahui</td><td>Bangunnya limas segiempat: luas alas = 4 × 4 = 16 m², tinggi limas 3 m.</td></tr>
+            <tr><td>2. Susun rencana</td><td>Pakai V limas = ⅓ × L<sub>alas</sub> × t — jangan lupa faktor ⅓-nya.</td></tr>
+            <tr><td>3. Selesaikan</td><td>V = ⅓ × 16 × 3 = <b>16 m³</b>.</td></tr>
+            <tr><td>4. Tafsirkan</td><td>Volume udara di dalam tenda adalah <b>16 m³</b>.</td></tr>
+            <tr><td>5. Periksa kembali</td><td>Prisma beralas dan bertinggi sama volumenya 16 × 3 = 48 m³, dan 16 memang tepat ⅓ dari 48 ✓. Tanpa faktor ⅓, jawaban 48 m³ adalah kesalahan yang paling sering terjadi.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="aplikasi-wadah-3"></div>
+    </div>
+  </section>
+
+  <!-- ================= SUB-BAB 7 ================= -->
+  <section class="kartu" id="sub7">
+    <h2><span class="no">7</span>Proyek Mini + Rangkuman</h2>
+    <h3>Proyek “Kemasan Cerdas”</h3>
+    <p>Bayangkan kamu bekerja di Toko Kue “Manis”. Rancang satu wadah (kotak kue, akuarium mini, atau kemasan lain): tentukan bangun dan ukurannya, hitung <b>luas permukaan</b> untuk mengetahui bahan yang dibutuhkan, dan hitung <b>volumenya</b> untuk mengetahui isi yang muat. Centang langkah yang sudah kamu kerjakan dan isi hasilnya — semuanya tersimpan di perangkatmu.</p>
+    <ul class="ceklist" id="proyek-ceklist">
+      <li><label data-cek="0"><input type="checkbox" id="proyek-cek-0"><span>Menentukan bangun ruang dan ukuran wadah yang akan dibuat.</span></label></li>
+      <li><label data-cek="1"><input type="checkbox" id="proyek-cek-1"><span>Menggambar jaring-jaringnya dan menandai sisi-sisinya (termasuk memutuskan ada tutup atau tidak).</span></label></li>
+      <li><label data-cek="2"><input type="checkbox" id="proyek-cek-2"><span>Menghitung luas permukaan untuk mengetahui bahan yang dibutuhkan.</span></label></li>
+      <li><label data-cek="3"><input type="checkbox" id="proyek-cek-3"><span>Menghitung volume untuk mengetahui isi yang muat di dalamnya.</span></label></li>
+      <li><label data-cek="4"><input type="checkbox" id="proyek-cek-4"><span>Memeriksa kembali satuan yang dipakai (cm² untuk luas permukaan, cm³ atau liter untuk volume).</span></label></li>
+    </ul>
+    <form class="form-proyek" id="form-proyek">
+      <div><label for="proyek-bangun">Wadah yang dirancang</label>
+        <select id="proyek-bangun">
+          <option value="kotak kue (balok)">Kotak kue (balok)</option>
+          <option value="kotak kubus">Kotak kubus</option>
+          <option value="akuarium mini (balok tanpa tutup)">Akuarium mini (balok tanpa tutup)</option>
+          <option value="kemasan prisma segitiga">Kemasan prisma segitiga</option>
+          <option value="wadah limas segiempat">Wadah limas segiempat</option>
+        </select>
+      </div>
+      <div><label for="proyek-ukuran">Ukuran yang dipilih (mis. balok 20 cm × 15 cm × 10 cm)</label><input type="text" id="proyek-ukuran" placeholder="tulis ukuran wadahmu"></div>
+      <div><label for="proyek-lp">Luas permukaan dan cara menghitungnya (bahan yang dibutuhkan)</label><textarea id="proyek-lp" rows="3" placeholder="mis. LP = 2 × (20×15 + 20×10 + 15×10) = 1.300 cm² karton…"></textarea></div>
+      <div><label for="proyek-volume">Volume dan cara menghitungnya (isi yang muat)</label><textarea id="proyek-volume" rows="3" placeholder="mis. V = 20 × 15 × 10 = 3.000 cm³ = 3 liter…"></textarea></div>
+      <p><button type="button" class="btn btn-amber" id="simpan-proyek">Simpan Proyek</button> <span class="tersimpan" id="proyek-tersimpan">Tersimpan ✓</span></p>
+    </form>
+
+    <h3>Rangkuman</h3>
+    <ul>
+      <li>Luas permukaan adalah jumlah luas semua sisi bangun ruang — sama dengan luas jaring-jaringnya; satuannya satuan persegi (cm²).</li>
+      <li>Kubus LP = 6s²; balok LP = 2(pl + pt + lt); prisma LP = 2 × L<sub>alas</sub> + K<sub>alas</sub> × t; limas LP = L<sub>alas</sub> + jumlah luas sisi tegak.</li>
+      <li>Volume adalah banyak kubus satuan yang muat di dalam bangun; satuannya satuan kubik (cm³) atau liter (1 liter = 1.000 cm³).</li>
+      <li>Kubus V = s³; balok V = p × l × t; prisma V = L<sub>alas</sub> × t.</li>
+      <li>Volume limas selalu ⅓ dari bangun lurus yang alas dan tingginya sama: V = ⅓ × L<sub>alas</sub> × t.</li>
+      <li>Bangun tanpa tutup dihitung hanya sisi yang benar-benar dibuat — bacalah soal baik-baik sebelum memilih rumus.</li>
+    </ul>
+  </section>
+
+  <!-- ================= SUB-BAB 8 ================= -->
+  <section class="kartu" id="sub8">
+    <h2><span class="no">8</span>Kuis &amp; Refleksi</h2>
+    <p>Kuis inti berisi 10 soal seputar luas permukaan dan volume kubus, balok, prisma, dan limas. Pilih jawabanmu; penjelasan dan skormu langsung tampil. Skor terbaikmu tersimpan di perangkat ini.</p>
+    <div id="kuis-wadah"></div>
+    <p style="margin-top:14px;"><button class="btn btn-amber" id="selesai-kuis">Selesai &amp; Lihat Skor Kuis</button></p>
+    <div class="umpan" id="kuis-hasil"></div>
+  </section>
+
+  <section class="kartu tantangan" id="sub8-tantangan">
+    <h2>★ Soal Tantangan — Terpisah dari Kuis Inti</h2>
+    <p>Lima soal pendalaman untukmu yang ingin lebih: bangun tanpa tutup, bangun gabungan, mencari rusuk dari luas permukaan, luas permukaan prisma, dan volume dalam liter. Blok ini punya <b>skornya sendiri</b> dan <b>tidak</b> mencampur skor kuis inti di atas.</p>
+    <div id="tantangan-wadah"></div>
+    <p style="margin-top:14px;"><button class="btn btn-biru" id="selesai-tantangan">Selesai &amp; Lihat Skor Tantangan</button></p>
+    <div class="umpan" id="tantangan-hasil"></div>
+
+    <h3>Refleksi</h3>
+    <p>Tiga pertanyaan untuk menutup modul ini. Jawabanmu tersimpan di perangkat ini.</p>
+    <div class="refleksi">
+      <div><label for="refleksi-1">1. Kapan kamu memakai luas permukaan dan kapan memakai volume dalam kehidupan sehari-hari? Berikan masing-masing satu contoh lain di luar modul ini.</label><textarea id="refleksi-1" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <div><label for="refleksi-2">2. Kesulitan apa yang masih kamu rasakan saat menghitung luas permukaan atau volume — misalnya tertukar rumus, lupa faktor ⅓ pada limas, atau soal tanpa tutup?</label><textarea id="refleksi-2" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <div><label for="refleksi-3">3. Pada proyek Kemasan Cerdas, keputusan desain apa yang paling memengaruhi bahan yang dibutuhkan dan isi yang muat? Jelaskan singkat.</label><textarea id="refleksi-3" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <p><button type="button" class="btn btn-amber" id="simpan-refleksi">Simpan Refleksi</button> <span class="tersimpan" id="refleksi-tersimpan">Tersimpan ✓</span></p>
+    </div>
+  </section>
+
+  <footer class="situs">Modul P.1 Luas Permukaan dan Volume Bangun Ruang Sisi Datar · MPI Matematika Kelas 9 · ATP Matematika Fase D MGMP Matematika SMP Kabupaten Lampung Tengah, TP 2026/2027</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
