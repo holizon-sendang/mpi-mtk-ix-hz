@@ -91,6 +91,11 @@ tr:nth-child(even) td{background:#F8FAFF;}
 .jaring-svg{display:block; margin:8px auto; max-width:100%; height:auto;}
 .jaring-svg.unsur-75{width:75%;}
 .jaring-svg.keliling-setengah{width:50%;}
+.jaring-svg.busur-setengah{width:50%;}
+.jaring-svg.juring-setengah{width:50%;}
+.jaring-svg.pusat-setengah{width:50%;}
+.jaring-svg.diameter-setengah{width:50%;}
+.jaring-svg.masalah-setengah{width:50%;}
 .btn-baris{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;}
 
 /* ===== Kartu kasus grafik & tantangan ===== */
