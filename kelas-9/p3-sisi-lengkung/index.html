@@ -96,6 +96,16 @@
       <text x="120" y="137" text-anchor="middle" font-size="12" font-weight="700" fill="#1E3A8A">alas</text>
       <text x="120" y="168" text-anchor="middle" font-size="11.5" fill="#0F172A">panjang selimut = keliling alas (2πr)</text>
     </svg>
+    <p>Simulasi 3D — lipat jaring-jaring di atas menjadi tabung:</p>
+    <div class="sim3d">
+      <canvas class="sim-tabung-kanvas" id="sim-tabung" width="600" height="600" aria-label="Simulasi lipatan 3D jaring-jaring tabung: persegi panjang sebagai selimut digulung dan dua lingkaran menutup kedua ujungnya menjadi tabung"></canvas>
+      <div class="btn-baris">
+        <button class="btn btn-amber" id="btn-lipat-tabung">▶ Lipat Jadi Tabung</button>
+      </div>
+      <label class="sim3d-label">Proses lipatan <input type="range" class="sim-tabung-geser" id="geser-tabung" min="0" max="100" step="1" value="0"></label>
+      <p class="sim3d-status" id="status-tabung"></p>
+      <p class="sim3d-keterangan">Simulasi ini memakai tabung dengan jari-jari <b>r = 7 cm</b> dan tinggi <b>t = 10 cm</b>. Panjang persegi panjang selimutnya tepat <b>keliling alas = 2 × 22/7 × 7 = 44 cm</b>, sehingga kedua tepinya bertemu persis saat digulung. Seret gambar untuk memutar pandangan.</p>
+    </div>
     <ul>
       <li><b>Tabung</b> memiliki 3 sisi: alas dan tutup berbentuk <b>lingkaran</b> yang sama besar, dan <b>selimut</b> berupa sisi lengkung. Tabung tidak memiliki titik sudut.</li>
       <li>Jaring-jaring tabung: <b>2 lingkaran + 1 persegi panjang</b>. Persegi panjangnya adalah selimut yang dibuka: panjangnya persis <b>keliling alas (2πr)</b> dan lebarnya <b>tinggi tabung (t)</b>.</li>
