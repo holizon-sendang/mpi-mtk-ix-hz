@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P.3 Bangun Ruang Sisi Lengkung — MPI Matematika Kelas 9</title>
+<meta name="description" content="Modul interaktif P.3 Bangun Ruang Sisi Lengkung, Matematika Kelas 9, 18 JP.">
+<link rel="stylesheet" href="../../assets/css/main.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="kembali" href="../../index.html">← Kembali ke Hub Kelas 9</a>
+
+  <header class="modul">
+    <div class="pita">Matematika · Kelas 9 · Semester 2</div>
+    <div class="isi-header">
+      <span class="kode">P.3</span><span class="jp">18 JP</span>
+      <h1>Bangun Ruang Sisi Lengkung</h1>
+      <p><b>Tujuan Pembelajaran:</b> Menentukan luas permukaan dan volume bangun ruang sisi lengkung (tabung, kerucut, dan bola) dan menyelesaikan masalah yang terkait.</p>
+      <div class="baris-progres">
+        <div class="progres"><div id="bar-progres"></div></div>
+        <div class="progres-teks" id="teks-progres">Kemajuan belajar: 0 dari 8 sub-bab</div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="pil" id="pil-sub" aria-label="Navigasi sub-bab">
+    <a href="#sub1">1 · Pemantik</a>
+    <a href="#sub2">2 · Cek Prasyarat</a>
+    <a href="#sub3">3 · Eksplorasi + Konsep 1</a>
+    <a href="#sub4">4 · Konsep 2</a>
+    <a href="#sub5">5 · Cek + Miskonsepsi</a>
+    <a href="#sub6">6 · Aplikasi</a>
+    <a href="#sub7">7 · Proyek + Rangkuman</a>
+    <a href="#sub8">8 · Kuis &amp; Refleksi</a>
+  </nav>
+
+  <!-- ================= SUB-BAB 1 ================= -->
+  <section class="kartu" id="sub1">
+    <h2><span class="no">1</span>Pemantik: Kaleng Susu, Topi Kerucut, dan Bola</h2>
+    <p>Di dapur dan di lapangan, bangun ruang bersisi lengkung ada di mana-mana. <b>Kaleng susu</b> adalah tabung: alas dan tutupnya lingkaran, badannya melengkung mulus. <b>Topi ulang tahun dan corong</b> adalah kerucut: melengkung menuju satu titik puncak. <b>Bola</b> adalah bangun lengkung paling sempurna: seluruh permukaannya melengkung tanpa satu pun sisi datar.</p>
+    <p>Di modul ini kamu akan menjawab pertanyaan-pertanyaan praktis tentang ketiganya: berapa luas label yang melingkari kaleng, berapa karton yang dibutuhkan untuk membuat topi kerucut, dan berapa banyak udara yang muat di dalam bola. Kuncinya selalu sama: <b>luas permukaan</b> (seberapa luas kulit bangunnya) dan <b>volume</b> (seberapa banyak isi yang muat di dalamnya).</p>
+    <svg class="jaring-svg p3-setengah" viewBox="0 0 280 148" role="img" aria-label="Ilustrasi tiga bangun ruang sisi lengkung: tabung, kerucut, dan bola">
+      <ellipse cx="48" cy="36" rx="28" ry="8" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+      <path d="M20,36 L20,104 A28,8 0 0 0 76,104 L76,36" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+      <path d="M140,24 L113,104 A27,8 0 0 0 167,104 Z" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+      <ellipse cx="140" cy="104" rx="27" ry="8" fill="#FDE68A" stroke="#D97706" stroke-width="2"/>
+      <circle cx="228" cy="68" r="38" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+      <ellipse cx="228" cy="68" rx="38" ry="11" fill="none" stroke="#2563EB" stroke-width="1.5"/>
+      <text x="48" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#1E3A8A">tabung</text>
+      <text x="140" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#92400E">kerucut</text>
+      <text x="228" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#1E3A8A">bola</text>
+    </svg>
+    <h3>Polling dulu, yuk</h3>
+    <p>Bangun ruang sisi lengkung apa yang paling sering kamu temui dalam keseharianmu?</p>
+    <div class="opsi-grup" id="polling">
+      <button class="opsi" data-poll="kaleng">Tabung (kaleng susu, botol minum, drum)</button>
+      <button class="opsi" data-poll="topi">Kerucut (topi ulang tahun, corong, tenda kerucut)</button>
+      <button class="opsi" data-poll="bola">Bola (bola sepak, bakso, kelereng)</button>
+    </div>
+    <div class="umpan info" id="polling-umpan"></div>
+    <h3>Tebak awal</h3>
+    <p>Kaleng susu berbentuk tabung berjari-jari 7 cm dan tinggi 10 cm. Menurut tebakanmu, berapa luas <b>label kertas yang melingkari badan kaleng itu</b> — alias luas selimut tabungnya? Pilih jawabanmu — tersimpan, dan akan kita bahas tuntas di Sub-bab 3 dan 4.</p>
+    <div class="opsi-grup" id="tebakan">
+      <button class="opsi" data-tebak="0">A. 154 cm²</button>
+      <button class="opsi" data-tebak="1">B. 440 cm²</button>
+      <button class="opsi" data-tebak="2">C. 748 cm²</button>
+      <button class="opsi" data-tebak="3">D. 220 cm²</button>
+    </div>
+    <div class="umpan info" id="tebakan-umpan"></div>
+    <p class="remedial">Pertanyaan penuntun: selimut tabung bila dibuka berbentuk persegi panjang. Panjangnya adalah keliling alas (2 × π × r) dan lebarnya adalah tinggi tabung. Coba hitung 2 × 22/7 × 7 × 10.</p>
+  </section>
+
+  <!-- ================= SUB-BAB 2 ================= -->
+  <section class="kartu" id="sub2">
+    <h2><span class="no">2</span>Cek Prasyarat</h2>
+    <p>Empat soal singkat ini adalah fondasi yang kita butuhkan: luas dan keliling lingkaran dari modul P.2, Teorema Pythagoras untuk garis pelukis kerucut, dan volume bangun ruang sederhana. Klik jawabanmu — umpan balik dan petunjuk perbaikannya langsung muncul.</p>
+    <div id="prasyarat-wadah"></div>
+    <div class="skor-baris" id="prasyarat-skor"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 3 ================= -->
+  <section class="kartu" id="sub3">
+    <h2><span class="no">3</span>Eksplorasi + Memahami Konsep 1: Unsur dan Jaring-jaring</h2>
+    <p>Tiga bangun di modul ini disatukan oleh satu sifat: memiliki <b>sisi lengkung</b>. Tetapi unsur dan jaring-jaringnya berbeda-beda. Perhatikan baik-baik — jaring-jaring inilah kunci semua rumus luas permukaan di Sub-bab 4.</p>
+
+    <h3>Tabung: Dua Lingkaran dan Satu Persegi Panjang</h3>
+    <svg class="jaring-svg p3-setengah" viewBox="0 0 240 178" role="img" aria-label="Jaring-jaring tabung: lingkaran tutup di atas, persegi panjang selimut di tengah, dan lingkaran alas di bawah">
+      <circle cx="120" cy="25" r="20" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+      <rect x="45" y="45" width="150" height="68" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+      <circle cx="120" cy="133" r="20" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+      <text x="120" y="29" text-anchor="middle" font-size="12" font-weight="700" fill="#1E3A8A">tutup</text>
+      <text x="120" y="83" text-anchor="middle" font-size="12.5" font-weight="700" fill="#92400E">selimut</text>
+      <text x="120" y="137" text-anchor="middle" font-size="12" font-weight="700" fill="#1E3A8A">alas</text>
+      <text x="120" y="168" text-anchor="middle" font-size="11.5" fill="#0F172A">panjang selimut = keliling alas (2πr)</text>
+    </svg>
+    <ul>
+      <li><b>Tabung</b> memiliki 3 sisi: alas dan tutup berbentuk <b>lingkaran</b> yang sama besar, dan <b>selimut</b> berupa sisi lengkung. Tabung tidak memiliki titik sudut.</li>
+      <li>Jaring-jaring tabung: <b>2 lingkaran + 1 persegi panjang</b>. Persegi panjangnya adalah selimut yang dibuka: panjangnya persis <b>keliling alas (2πr)</b> dan lebarnya <b>tinggi tabung (t)</b>.</li>
+      <li>Unsur tabung: jari-jari alas (r), tinggi (t), dan diameter alas (d = 2r).</li>
+    </ul>
+
+    <h3>Kerucut: Juring Lingkaran dan Lingkaran Alas</h3>
+    <svg class="jaring-svg p3-setengah" viewBox="0 0 240 178" role="img" aria-label="Jaring-jaring kerucut: sebuah juring lingkaran sebagai selimut dengan jari-jari garis pelukis s, dan sebuah lingkaran sebagai alas">
+      <path d="M105,92 L105,22 A70,70 0 0 1 166,132 Z" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+      <line x1="105" y1="92" x2="105" y2="22" stroke="#92400E" stroke-width="2.5"/>
+      <circle cx="205" cy="118" r="22" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+      <text x="93" y="56" text-anchor="end" font-size="14" font-weight="700" fill="#92400E">s</text>
+      <text x="105" y="168" text-anchor="middle" font-size="12.5" font-weight="700" fill="#92400E">selimut</text>
+      <text x="205" y="168" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1E3A8A">alas</text>
+    </svg>
+    <ul>
+      <li><b>Kerucut</b> memiliki 2 sisi: alas berbentuk <b>lingkaran</b> dan <b>selimut</b> berupa sisi lengkung yang bertemu di satu <b>titik puncak</b>.</li>
+      <li>Jaring-jaring kerucut: <b>1 juring lingkaran + 1 lingkaran</b>. Juringnya adalah selimut yang dibuka, dan jari-jari juring itu adalah <b>garis pelukis (s)</b>.</li>
+      <li><b>Garis pelukis (s)</b> adalah garis miring dari puncak ke tepi alas. Bersama jari-jari (r) dan tinggi (t), ia membentuk segitiga siku-siku, sehingga <span class="rumus">s = √(r² + t²)</span>.</li>
+    </ul>
+
+    <h3>Bola: Lengkung Sempurna Tanpa Jaring-jaring Datar</h3>
+    <p><b>Bola</b> hanya memiliki 1 sisi: permukaan lengkung yang berjarak sama (sejari-jari, r) dari titik pusatnya. Berbeda dengan tabung dan kerucut, permukaan bola <b>tidak bisa dibuka menjadi bangun datar</b> tanpa meregang atau merobeknya — itulah sebabnya peta dunia selalu terdistorsi. Unsur bola hanyalah jari-jari (r) dan diameter (d = 2r).</p>
+
+    <h3>Lab Tabung: Geser Jari-jari dan Tingginya</h3>
+    <p>Geser jari-jari dan tinggi tabung, lalu amati luas permukaan dan volumenya berubah secara langsung. Nilai π dipilih otomatis: 22/7 bila r kelipatan 7, dan 3,14 bila bukan — seperti aturan di modul P.2.</p>
+    <div class="lab" id="lab-tabung">
+      <div class="lab-baris">
+        <label for="lab-r">Jari-jari (r)</label>
+        <input type="range" class="lab-geser" id="lab-r" min="1" max="20" step="1" value="7">
+        <output id="lab-r-nilai">7 cm</output>
+      </div>
+      <div class="lab-baris">
+        <label for="lab-t">Tinggi (t)</label>
+        <input type="range" class="lab-geser" id="lab-t" min="1" max="30" step="1" value="10">
+        <output id="lab-t-nilai">10 cm</output>
+      </div>
+      <div class="lab-hasil" id="lab-tabung-hasil"></div>
+      <p class="remedial" id="lab-tabung-catatan"></p>
+    </div>
+
+    <h3>Isian Cepat</h3>
+    <p>Hitung sendiri dulu, lalu periksa jawabanmu. Satuan tidak perlu ditulis.</p>
+    <div id="isian-jaring-wadah"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 4 ================= -->
+  <section class="kartu" id="sub4">
+    <h2><span class="no">4</span>Memahami Konsep 2: Luas Permukaan dan Volume</h2>
+    <p>Semua rumus di sub-bab ini lahir dari jaring-jaring di Sub-bab 3 dan dari rumus lingkaran di modul P.2. Huruf yang dipakai: r = jari-jari, t = tinggi, s = garis pelukis kerucut.</p>
+    <ul>
+      <li>Tabung: <span class="rumus">LP = 2πr(r + t)</span> dan <span class="rumus">V = πr²t</span>. Luas permukaannya adalah selimut (2πrt) ditambah dua tutup (2 × πr²).</li>
+      <li>Kerucut: <span class="rumus">LP = πr(r + s)</span> dengan <span class="rumus">s = √(r² + t²)</span>, dan <span class="rumus">V = ⅓ × πr²t</span>. Luas permukaannya adalah alas (πr²) ditambah selimut (πrs).</li>
+      <li>Bola: <span class="rumus">LP = 4πr²</span> dan <span class="rumus">V = 4/3 × πr³</span>. Perhatikan: luas permukaan bola sama dengan luas <b>empat</b> lingkaran berjari-jari sama.</li>
+    </ul>
+    <p>Seperti biasa, pilih π dengan tepat: <b>22/7 bila r kelipatan 7</b>, dan <b>3,14 bila bukan</b>. Setiap contoh dan soal di modul ini menyatakan π yang dipakai.</p>
+
+    <h3>Contoh Terbimbing: Luas Permukaan Tabung</h3>
+    <p>Sebuah kaleng berbentuk tabung berjari-jari 7 cm dan tinggi 10 cm. Kita hitung luas permukaan seluruh kaleng itu langkah demi langkah.</p>
+    <svg class="jaring-svg p3-setengah" viewBox="0 0 280 160" role="img" aria-label="Ilustrasi tabung berjari-jari 7 cm dan tinggi 10 cm, luas permukaannya 748 cm persegi">
+      <ellipse cx="88" cy="40" rx="44" ry="12" fill="#DBEAFE" stroke="#2563EB" stroke-width="2.5"/>
+      <path d="M44,40 L44,112 A44,12 0 0 0 132,112 L132,40" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.5"/>
+      <line x1="88" y1="40" x2="132" y2="40" stroke="#D97706" stroke-width="2.5"/>
+      <text x="110" y="30" text-anchor="middle" font-size="12.5" font-weight="700" fill="#92400E">r = 7 cm</text>
+      <text x="88" y="142" text-anchor="middle" font-size="12.5" font-weight="700" fill="#92400E">t = 10 cm</text>
+      <text x="224" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#1E3A8A">LP = 2πr(r + t)</text>
+      <text x="224" y="94" text-anchor="middle" font-size="14" font-weight="700" fill="#92400E">= 748 cm²</text>
+    </svg>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-lp-tabung">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-lp-tabung">
+      <div class="langkah"><p><b>Langkah 1:</b> Tentukan yang diketahui: r = 7 cm dan t = 10 cm. Karena 7 adalah kelipatan 7, pilih <b>π = 22/7</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 2:</b> Uraikan luas permukaannya: selimut = 2πrt = 2 × 22/7 × 7 × 10 = <b>440 cm²</b>, dan dua tutup = 2 × πr² = 2 × 154 = <b>308 cm²</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 3:</b> Jumlahkan dengan rumus ringkasnya: LP = 2πr(r + t) = 2 × 22/7 × 7 × (7 + 10) = 44 × 17 = <b>748 cm²</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Kesimpulan: luas permukaan kaleng itu <b>748 cm²</b> — perhatikan, kedua tutupnya ikut terhitung. ✓</p></div>
+    </div>
+
+    <h3>Contoh Terbimbing: Volume Kerucut</h3>
+    <p>Sebuah kerucut berjari-jari 7 cm dan tinggi 24 cm. Kita hitung volumenya langkah demi langkah.</p>
+    <svg class="jaring-svg p3-setengah" viewBox="0 0 280 160" role="img" aria-label="Ilustrasi kerucut berjari-jari 7 cm dan tinggi 24 cm, volumenya 1.232 cm kubik">
+      <path d="M88,18 L42,118 A46,12 0 0 0 134,118 Z" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"/>
+      <ellipse cx="88" cy="118" rx="46" ry="12" fill="#FDE68A" stroke="#D97706" stroke-width="2"/>
+      <line x1="88" y1="18" x2="88" y2="118" stroke="#1E3A8A" stroke-width="2" stroke-dasharray="6 4"/>
+      <line x1="88" y1="118" x2="134" y2="118" stroke="#2563EB" stroke-width="2.5"/>
+      <text x="76" y="72" text-anchor="end" font-size="12.5" font-weight="700" fill="#1E3A8A">t = 24 cm</text>
+      <text x="111" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#2563EB">r = 7 cm</text>
+      <text x="224" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#1E3A8A">V = ⅓ × πr²t</text>
+      <text x="224" y="94" text-anchor="middle" font-size="14" font-weight="700" fill="#92400E">= 1.232 cm³</text>
+    </svg>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-v-kerucut">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-v-kerucut">
+      <div class="langkah"><p><b>Langkah 1:</b> Tentukan yang diketahui: r = 7 cm dan t = 24 cm, jadi <b>π = 22/7</b>. Untuk volume, yang dibutuhkan hanya r dan t — garis pelukis tidak dipakai.</p></div>
+      <div class="langkah"><p><b>Langkah 2:</b> Tulis rumusnya: V = ⅓ × π × r² × t. Faktor ⅓ adalah jiwa rumus ini — jangan sampai tertinggal.</p></div>
+      <div class="langkah"><p><b>Langkah 3:</b> Hitung: V = ⅓ × 22/7 × 7² × 24 = ⅓ × 154 × 24 = ⅓ × 3.696 = <b>1.232 cm³</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Kesimpulan: volume kerucut itu <b>1.232 cm³</b>. Angka 3.696 cm³ adalah volume tabung pasangannya — kerucut selalu sepertiganya. ✓</p></div>
+    </div>
+
+    <h3>Contoh Terbimbing: Luas Permukaan Bola</h3>
+    <p>Sebuah bola berjari-jari 10 cm. Kita hitung luas permukaannya langkah demi langkah.</p>
+    <svg class="jaring-svg p3-setengah" viewBox="0 0 280 160" role="img" aria-label="Ilustrasi bola berjari-jari 10 cm, luas permukaannya 1.256 cm persegi">
+      <circle cx="84" cy="80" r="56" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.5"/>
+      <ellipse cx="84" cy="80" rx="56" ry="16" fill="none" stroke="#2563EB" stroke-width="1.5"/>
+      <line x1="84" y1="80" x2="140" y2="80" stroke="#D97706" stroke-width="2.5"/>
+      <circle cx="84" cy="80" r="4" fill="#1E3A8A"/>
+      <text x="112" y="70" text-anchor="middle" font-size="12.5" font-weight="700" fill="#92400E">r = 10 cm</text>
+      <text x="218" y="74" text-anchor="middle" font-size="13" font-weight="700" fill="#1E3A8A">LP = 4 × π × r²</text>
+      <text x="218" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#92400E">= 1.256 cm²</text>
+    </svg>
+    <button class="btn btn-amber btn-langkah" data-target="langkah-lp-bola">Tampilkan Langkah Berikutnya</button>
+    <div id="langkah-lp-bola">
+      <div class="langkah"><p><b>Langkah 1:</b> Tentukan yang diketahui: r = 10 cm. Karena 10 bukan kelipatan 7, pilih <b>π = 3,14</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 2:</b> Tulis rumusnya: LP = 4 × π × r² — empat kali luas lingkaran yang berjari-jari sama.</p></div>
+      <div class="langkah"><p><b>Langkah 3:</b> Hitung: LP = 4 × 3,14 × 10² = 4 × 3,14 × 100 = 4 × 314 = <b>1.256 cm²</b>.</p></div>
+      <div class="langkah"><p><b>Langkah 4:</b> Kesimpulan: luas permukaan bola itu <b>1.256 cm²</b>. Bila hanya πr² yang kamu hitung (314 cm²), itu baru luas satu lingkarannya. ✓</p></div>
+    </div>
+
+    <h3>Pembanding Tabung–Kerucut: Selalu Sepertiga</h3>
+    <p>Ambil tabung dan kerucut yang <b>alas dan tingginya sama persis</b>. Geser jari-jari dan tingginya, lalu perhatikan: volume kerucut selalu tepat ⅓ volume tabung pasangannya — seperti prisma dan limas di modul P.1, tetapi untuk bangun lengkung.</p>
+    <div class="lab" id="pembanding">
+      <div class="lab-baris">
+        <label for="banding-r">Jari-jari (r)</label>
+        <input type="range" class="lab-geser" id="banding-r" min="1" max="20" step="1" value="7">
+        <output id="banding-r-nilai">7 cm</output>
+      </div>
+      <div class="lab-baris">
+        <label for="banding-t">Tinggi (t)</label>
+        <input type="range" class="lab-geser" id="banding-t" min="1" max="30" step="1" value="10">
+        <output id="banding-t-nilai">10 cm</output>
+      </div>
+      <div class="lab-hasil" id="pembanding-hasil"></div>
+      <p class="remedial" id="pembanding-catatan"></p>
+    </div>
+
+    <h3>Isian Cepat</h3>
+    <p>Hitung sendiri dulu, lalu periksa jawabanmu. Satuan tidak perlu ditulis.</p>
+    <div id="isian-lpv-wadah"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 5 ================= -->
+  <section class="kartu" id="sub5">
+    <h2><span class="no">5</span>Cek Pemahaman + Miskonsepsi</h2>
+    <p>Lima pernyataan untuk dinilai <b>Benar</b> atau <b>Salah</b> — setiap penilaian langsung disertai penjelasannya. Setelah itu, kita betulkan empat kesalahan yang paling sering terjadi saat bekerja dengan tabung, kerucut, dan bola.</p>
+    <div id="cek-wadah"></div>
+    <div class="skor-baris" id="cek-skor"></div>
+
+    <h3>Betulkan Jawaban yang Salah</h3>
+    <p>Setiap kartu berisi cara berpikir yang <b>keliru</b>. Pilih pembetulan yang benar.</p>
+    <div id="miskonsepsi-wadah"></div>
+  </section>
+
+  <!-- ================= SUB-BAB 6 ================= -->
+  <section class="kartu" id="sub6">
+    <h2><span class="no">6</span>Aplikasi &amp; Pemecahan Masalah</h2>
+    <p>Tiga rumus keluarga besar di modul ini — tabung, kerucut, bola — dipakai untuk menjawab masalah nyata. Perhatikan selalu dua hal: <b>bangun apa</b> yang dimaksud soal, dan <b>bagian mana</b> yang ditanyakan (seluruh permukaan, selimut saja, atau isinya).</p>
+    <ul>
+      <li>Tabung: <span class="rumus">LP = 2πr(r + t)</span> · <span class="rumus">V = πr²t</span> — tabung tanpa tutup kehilangan satu lingkaran: LP-nya = 2πrt + πr².</li>
+      <li>Kerucut: <span class="rumus">LP = πr(r + s)</span> · <span class="rumus">V = ⅓πr²t</span> — topi dan corong biasanya hanya memakai selimutnya: πrs.</li>
+      <li>Bola: <span class="rumus">LP = 4πr²</span> · <span class="rumus">V = 4/3 πr³</span> — setengah bola padat: LP = 3πr² (lengkung 2πr² + alas πr²).</li>
+    </ul>
+    <p>Tiga masalah berikut dikerjakan dengan langkah pemodelan. Pelajari tabel langkahnya, lalu jawab soal periksanya.</p>
+
+    <div class="soal">
+      <span class="tagik">Masalah 1 · Kapasitas Tangki Air</span>
+      <p class="tanya">Sebuah tangki air berbentuk tabung mempunyai jari-jari 50 cm dan tinggi 100 cm. Berapa liter air yang dapat ditampung tangki itu sampai penuh? (Pakai π = 3,14 dan ingat: 1 liter = 1.000 cm³.)</p>
+      <svg class="jaring-svg p3-setengah" viewBox="0 0 240 170" role="img" aria-label="Gambar soal Masalah 1: tangki air berbentuk tabung berjari-jari 50 cm dan tinggi 100 cm">
+        <ellipse cx="90" cy="38" rx="48" ry="12" fill="#DBEAFE" stroke="#2563EB" stroke-width="2.5"/>
+        <path d="M42,38 L42,122 A48,12 0 0 0 138,122 L138,38" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.5"/>
+        <line x1="90" y1="38" x2="138" y2="38" stroke="#D97706" stroke-width="2.5"/>
+        <line x1="152" y1="38" x2="152" y2="122" stroke="#D97706" stroke-width="2.5"/>
+        <text x="114" y="21" text-anchor="middle" font-size="12" font-weight="700" fill="#92400E">r = 50 cm</text>
+        <text x="160" y="84" font-size="12" font-weight="700" fill="#92400E">t = 100 cm</text>
+      </svg>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan yang diketahui</td><td>r = 50 cm dan t = 100 cm. Karena 50 bukan kelipatan 7, π = 3,14. Yang ditanyakan adalah kapasitas = volume, dalam liter.</td></tr>
+            <tr><td>2. Susun rencana</td><td>Hitung V = π × r² × t dalam cm³, lalu ubah ke liter dengan membagi 1.000.</td></tr>
+            <tr><td>3. Selesaikan</td><td>V = 3,14 × 50² × 100 = 3,14 × 2.500 × 100 = 785.000 cm³ = <b>785 liter</b>.</td></tr>
+            <tr><td>4. Tafsirkan</td><td>Tangki itu menampung <b>785 liter</b> air sampai penuh.</td></tr>
+            <tr><td>5. Periksa kembali</td><td>785.000 cm³ ÷ 1.000 = 785 ✓. Lupa membagi 1.000 akan menghasilkan angka 785.000 "liter" — jauh lebih besar daripada kolam renang, jadi pasti keliru.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="aplikasi-wadah-1"></div>
+    </div>
+
+    <div class="soal">
+      <span class="tagik">Masalah 2 · Karton untuk Topi Kerucut</span>
+      <p class="tanya">Sebuah topi ulang tahun berbentuk kerucut mempunyai jari-jari 7 cm dan tinggi 24 cm. Berapa luas karton yang dibutuhkan untuk membuat satu topi itu? (Topi tidak memakai alas.)</p>
+      <svg class="jaring-svg p3-setengah" viewBox="0 0 240 170" role="img" aria-label="Gambar soal Masalah 2: topi berbentuk kerucut berjari-jari 7 cm dan tinggi 24 cm">
+        <path d="M90,16 L40,126 A50,12 0 0 0 140,126 Z" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"/>
+        <ellipse cx="90" cy="126" rx="50" ry="12" fill="#FDE68A" stroke="#D97706" stroke-width="2"/>
+        <line x1="90" y1="16" x2="90" y2="126" stroke="#1E3A8A" stroke-width="2" stroke-dasharray="6 4"/>
+        <line x1="90" y1="126" x2="140" y2="126" stroke="#2563EB" stroke-width="2.5"/>
+        <text x="78" y="76" text-anchor="end" font-size="12" font-weight="700" fill="#1E3A8A">t = 24 cm</text>
+        <text x="115" y="118" text-anchor="middle" font-size="12" font-weight="700" fill="#2563EB">r = 7 cm</text>
+      </svg>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan yang diketahui</td><td>r = 7 cm dan t = 24 cm, jadi π = 22/7. Topi hanya terdiri atas selimut kerucut — tidak ada alasnya.</td></tr>
+            <tr><td>2. Susun rencana</td><td>Selimut kerucut membutuhkan garis pelukis: hitung s = √(r² + t²) dulu, lalu luas selimut = π × r × s.</td></tr>
+            <tr><td>3. Selesaikan</td><td>s = √(7² + 24²) = √(49 + 576) = √625 = 25 cm. Luas karton = 22/7 × 7 × 25 = <b>550 cm²</b>.</td></tr>
+            <tr><td>4. Tafsirkan</td><td>Satu topi itu membutuhkan karton seluas <b>550 cm²</b>.</td></tr>
+            <tr><td>5. Periksa kembali</td><td>Angka 704 cm² muncul bila alasnya ikut dihitung (itu luas permukaan kerucut utuh) — topi tidak beralas, jadi jangan ditambah. Angka 528 cm² muncul bila yang dipakai t, bukan s. ✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="aplikasi-wadah-2"></div>
+    </div>
+
+    <div class="soal">
+      <span class="tagik">Masalah 3 · Mengecat Kubah</span>
+      <p class="tanya">Kubah sebuah bangunan berbentuk setengah bola dengan jari-jari 7 m. Seluruh permukaan lengkung kubah itu akan dicat. Berapa luas permukaan yang harus dicat? (Pakai π = 22/7.)</p>
+      <svg class="jaring-svg p3-setengah" viewBox="0 0 240 150" role="img" aria-label="Gambar soal Masalah 3: kubah berbentuk setengah bola berjari-jari 7 meter">
+        <path d="M40,110 A50,50 0 0 1 140,110 Z" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"/>
+        <line x1="25" y1="110" x2="155" y2="110" stroke="#0F172A" stroke-width="2"/>
+        <line x1="90" y1="110" x2="140" y2="110" stroke="#2563EB" stroke-width="2.5"/>
+        <text x="90" y="56" text-anchor="middle" font-size="12.5" font-weight="700" fill="#92400E">kubah</text>
+        <text x="115" y="102" text-anchor="middle" font-size="12" font-weight="700" fill="#2563EB">r = 7 m</text>
+      </svg>
+      <div class="bungkus-tabel">
+        <table>
+          <thead><tr><th>Langkah Pemodelan</th><th>Isi</th></tr></thead>
+          <tbody>
+            <tr><td>1. Tetapkan yang diketahui</td><td>Kubah adalah setengah bola dengan r = 7 m, jadi π = 22/7. Yang dicat hanya permukaan lengkungnya — bagian bawah kubah menempel pada bangunan.</td></tr>
+            <tr><td>2. Susun rencana</td><td>Luas lengkung setengah bola = ½ × luas permukaan bola = ½ × 4πr² = 2πr².</td></tr>
+            <tr><td>3. Selesaikan</td><td>Luas = 2 × 22/7 × 7² = 2 × 154 = <b>308 m²</b>.</td></tr>
+            <tr><td>4. Tafsirkan</td><td>Permukaan yang harus dicat seluas <b>308 m²</b>.</td></tr>
+            <tr><td>5. Periksa kembali</td><td>Angka 616 m² adalah luas bola penuh — kubahnya hanya setengahnya. Angka 462 m² adalah luas setengah bola padat (termasuk alas lingkarannya), padahal alas kubah tidak dicat. ✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="aplikasi-wadah-3"></div>
+    </div>
+  </section>
+
+  <!-- ================= SUB-BAB 7 ================= -->
+  <section class="kartu" id="sub7">
+    <h2><span class="no">7</span>Proyek Mini + Rangkuman</h2>
+    <h3>Proyek “Benda Sisi Lengkung di Rumahku”</h3>
+    <p>Pilih satu benda berbentuk tabung, kerucut, atau bola di rumahmu — kaleng susu, galon, topi ulang tahun, atau bola. Ukur jari-jari (atau diameter) dan tingginya dengan penggaris, lalu hitung luas permukaan dan volumenya. Centang langkah yang sudah kamu kerjakan dan isi hasilnya — semuanya tersimpan di perangkatmu.</p>
+    <ul class="ceklist" id="proyek-ceklist">
+      <li><label data-cek="0"><input type="checkbox" id="proyek-cek-0"><span>Menemukan benda berbentuk tabung, kerucut, atau bola dan menentukan bangun apa yang paling tepat mewakilinya.</span></label></li>
+      <li><label data-cek="1"><input type="checkbox" id="proyek-cek-1"><span>Mengukur jari-jari atau diameter dan tinggi benda dengan penggaris (untuk kerucut, mengukur garis pelukisnya atau menghitungnya dengan Pythagoras).</span></label></li>
+      <li><label data-cek="2"><input type="checkbox" id="proyek-cek-2"><span>Memilih π yang tepat: 22/7 bila jari-jarinya kelipatan 7, 3,14 bila bukan.</span></label></li>
+      <li><label data-cek="3"><input type="checkbox" id="proyek-cek-3"><span>Menghitung luas permukaan benda itu dengan rumus bangunnya.</span></label></li>
+      <li><label data-cek="4"><input type="checkbox" id="proyek-cek-4"><span>Menghitung volume benda itu dan menafsirkan hasilnya dalam kehidupan sehari-hari (misalnya membandingkannya dengan label isi pada kemasan).</span></label></li>
+    </ul>
+    <form class="form-proyek" id="form-proyek">
+      <div><label for="proyek-benda">Benda yang diukur</label>
+        <select id="proyek-benda">
+          <option value="kaleng susu">Kaleng susu (tabung)</option>
+          <option value="drum/galon">Drum / galon (tabung)</option>
+          <option value="topi kerucut">Topi kerucut</option>
+          <option value="bola">Bola</option>
+          <option value="benda lain">Benda sisi lengkung lain</option>
+        </select>
+      </div>
+      <div><label for="proyek-ukuran">Hasil pengukuranmu (mis. jari-jari 7 cm, tinggi 10 cm, π = 22/7)</label><input type="text" id="proyek-ukuran" placeholder="tulis hasil pengukuranmu"></div>
+      <div><label for="proyek-luas">Luas permukaan hasil hitungan dan cara menghitungnya</label><textarea id="proyek-luas" rows="3" placeholder="mis. LP tabung = 2 × 22/7 × 7 × (7 + 10) = 748 cm²…"></textarea></div>
+      <div><label for="proyek-volume">Volume hasil hitungan, tafsirannya, dan perbandingannya bila ada label isi</label><textarea id="proyek-volume" rows="3" placeholder="mis. V = 22/7 × 7² × 10 = 1.540 cm³ ≈ 1,54 liter…"></textarea></div>
+      <p><button type="button" class="btn btn-amber" id="simpan-proyek">Simpan Proyek</button> <span class="tersimpan" id="proyek-tersimpan">Tersimpan ✓</span></p>
+    </form>
+
+    <h3>Rangkuman</h3>
+    <ul>
+      <li>Jaring-jaring: tabung = 2 lingkaran + 1 persegi panjang (panjangnya 2πr, lebarnya t); kerucut = 1 juring (jari-jarinya s) + 1 lingkaran alas; bola tidak mempunyai jaring-jaring datar.</li>
+      <li>Tabung: LP = 2πr(r + t) — selimut 2πrt ditambah dua tutup 2πr² — dan V = πr²t.</li>
+      <li>Kerucut: garis pelukis s = √(r² + t²); LP = πr(r + s) dengan selimut πrs, dan V = ⅓πr²t — selalu sepertiga tabung pasangannya.</li>
+      <li>Bola: LP = 4πr² (empat kali luas lingkaran berjari-jari sama) dan V = 4/3 πr³; setengah bola padat berluas permukaan 3πr².</li>
+      <li>Bagian yang ditanyakan menentukan rumus: tabung tanpa tutup = 2πrt + πr²; topi kerucut = selimut πrs saja; kubah setengah bola = 2πr².</li>
+      <li>Pilih π = 22/7 bila r kelipatan 7 dan π = 3,14 bila bukan, dan nyatakan pilihan itu dalam pengerjaanmu; perhatikan satuan (cm² untuk luas, cm³ untuk volume, dan 1 liter = 1.000 cm³).</li>
+    </ul>
+  </section>
+
+  <!-- ================= SUB-BAB 8 ================= -->
+  <section class="kartu" id="sub8">
+    <h2><span class="no">8</span>Kuis &amp; Refleksi</h2>
+    <p>Kuis inti berisi 10 soal seputar unsur, jaring-jaring, luas permukaan, dan volume tabung, kerucut, dan bola. Pilih jawabanmu; penjelasan dan skormu langsung tampil. Skor terbaikmu tersimpan di perangkat ini.</p>
+    <div id="kuis-wadah"></div>
+    <p style="margin-top:14px;"><button class="btn btn-amber" id="selesai-kuis">Selesai &amp; Lihat Skor Kuis</button></p>
+    <div class="umpan" id="kuis-hasil"></div>
+  </section>
+
+  <section class="kartu tantangan" id="sub8-tantangan">
+    <h2>★ Soal Tantangan — Terpisah dari Kuis Inti</h2>
+    <p>Lima soal pendalaman untukmu yang ingin lebih: volume bola besar, volume kerucut tinggi, luas permukaan kerucut besar, volume tabung dari diameter, dan luas permukaan kerucut dengan π = 3,14. Blok ini punya <b>skornya sendiri</b> dan <b>tidak</b> mencampur skor kuis inti di atas.</p>
+    <div id="tantangan-wadah"></div>
+    <p style="margin-top:14px;"><button class="btn btn-biru" id="selesai-tantangan">Selesai &amp; Lihat Skor Tantangan</button></p>
+    <div class="umpan" id="tantangan-hasil"></div>
+
+    <h3>Refleksi</h3>
+    <p>Tiga pertanyaan untuk menutup modul ini. Jawabanmu tersimpan di perangkat ini.</p>
+    <div class="refleksi">
+      <div><label for="refleksi-1">1. Benda sisi lengkung apa di sekitarmu yang sekarang bisa kamu hitung luas permukaan dan volumenya? Ceritakan caramu memilih π (22/7 atau 3,14) untuk benda itu.</label><textarea id="refleksi-1" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <div><label for="refleksi-2">2. Kesulitan apa yang masih kamu rasakan — misalnya tertukar garis pelukis (s) dan tinggi (t), lupa salah satu tutup tabung, atau lupa faktor ⅓ pada volume kerucut?</label><textarea id="refleksi-2" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <div><label for="refleksi-3">3. Pada proyek Benda Sisi Lengkung di Rumahku, benda apa yang kamu ukur? Bagaimana perbandingan volume hasil hitunganmu dengan isi sebenarnya atau label pada kemasannya?</label><textarea id="refleksi-3" rows="3" placeholder="tulis refleksimu…"></textarea></div>
+      <p><button type="button" class="btn btn-amber" id="simpan-refleksi">Simpan Refleksi</button> <span class="tersimpan" id="refleksi-tersimpan">Tersimpan ✓</span></p>
+    </div>
+  </section>
+
+  <footer class="situs">Modul P.3 Bangun Ruang Sisi Lengkung · MPI Matematika Kelas 9 · ATP Matematika Fase D MGMP Matematika SMP Kabupaten Lampung Tengah, TP 2026/2027</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -15,7 +15,7 @@ Media Pembelajaran Interaktif (MPI) Matematika SMP **khusus Kelas 9**, Kurikulum
 | G.5 | Jaring-jaring Bangun Ruang | 6 | 1 | ✅ **Aktif** |
 | P.1 | Luas Permukaan & Volume Bangun Ruang Sisi Datar | 12 | 1 | ✅ **Aktif** |
 | P.2 | Lingkaran | 10 | 1 | ✅ **Aktif** |
-| P.3 | Bangun Ruang Sisi Lengkung | 18 | 2 | Segera |
+| P.3 | Bangun Ruang Sisi Lengkung | 18 | 2 | ✅ **Aktif** |
 | G.6 | Transformasi Geometri | 18 | 2 | Segera |
 | D.5 | Ruang Sampel & Peluang | 8 | 2 | Segera |
 | D.6 | Frekuensi Relatif & Frekuensi Harapan | 8 | 2 | Segera |
@@ -38,7 +38,7 @@ mpi-mtk-ix-hz/
 ├── index.html                  # Hub Kelas 9 (8 kartu modul + pencarian/filter)
 ├── assets/
 │   ├── css/main.css            # Gaya bersama
-│   └── js/main.js              # Logika hub (pencarian, ringkasan progres A.7, G.5, P.1 & P.2)
+│   └── js/main.js              # Logika hub (pencarian, ringkasan progres A.7, G.5, P.1, P.2 & P.3)
 └── kelas-9/
     ├── a7-spldv/
     │   ├── index.html          # Modul A.7 SPLDV (8 sub-bab)
@@ -52,8 +52,12 @@ mpi-mtk-ix-hz/
     │   ├── index.html          # Modul P.1 Luas Permukaan & Volume Bangun Ruang Sisi Datar (8 sub-bab)
     │   ├── style.css           # Gaya khusus modul
     │   └── script.js           # Data soal + logika interaktif modul
-    └── p2-lingkaran/
-        ├── index.html          # Modul P.2 Lingkaran (8 sub-bab)
+    ├── p2-lingkaran/
+    │   ├── index.html          # Modul P.2 Lingkaran (8 sub-bab)
+    │   ├── style.css           # Gaya khusus modul
+    │   └── script.js           # Data soal + logika interaktif modul
+    └── p3-sisi-lengkung/
+        ├── index.html          # Modul P.3 Bangun Ruang Sisi Lengkung (8 sub-bab)
         ├── style.css           # Gaya khusus modul
         └── script.js           # Data soal + logika interaktif modul
 ```
@@ -142,3 +146,21 @@ Modul P.2 memakai pola yang sama dengan awalan `mpi-mtk9-p2-*`:
 | `mpi-mtk9-p2-quiz-best` | Skor terbaik kuis inti (dari 10) |
 | `mpi-mtk9-p2-tantangan-best` | Skor terbaik Soal Tantangan (dari 5) |
 | `mpi-mtk9-p2-refleksi` | Teks refleksi akhir modul |
+
+Modul P.3 memakai pola yang sama dengan awalan `mpi-mtk9-p3-*`:
+
+| Kunci | Isi |
+|---|---|
+| `mpi-mtk9-p3-visited` | Daftar sub-bab yang sudah dikunjungi (progres) |
+| `mpi-mtk9-p3-poll` | Pilihan polling Pemantik |
+| `mpi-mtk9-p3-guess` | Tebakan awal luas selimut kaleng (label) di Pemantik |
+| `mpi-mtk9-p3-prasyarat` | Jawaban Cek Prasyarat |
+| `mpi-mtk9-p3-isian-jaring` | Jawaban Isian Cepat unsur & jaring-jaring (Sub-bab 3) |
+| `mpi-mtk9-p3-isian-lpv` | Jawaban Isian Cepat luas permukaan & volume (Sub-bab 4) |
+| `mpi-mtk9-p3-cek` | Jawaban Cek Pemahaman (nilai Benar/Salah) |
+| `mpi-mtk9-p3-miskonsepsi` | Jawaban pembetulan miskonsepsi |
+| `mpi-mtk9-p3-aplikasi-1/2/3` | Jawaban cek mandiri soal Aplikasi |
+| `mpi-mtk9-p3-proyek` | Checklist + formulir proyek Benda Sisi Lengkung di Rumahku |
+| `mpi-mtk9-p3-quiz-best` | Skor terbaik kuis inti (dari 10) |
+| `mpi-mtk9-p3-tantangan-best` | Skor terbaik Soal Tantangan (dari 5) |
+| `mpi-mtk9-p3-refleksi` | Teks refleksi akhir modul |
